@@ -17,20 +17,21 @@ def main():
     args = p.parse_args()
     tp = int(os.environ.get('BENCH_TP', '1'))
     llm = LLM(model='/bench/model', dtype='bfloat16', tensor_parallel_size=tp,
-              max_model_len=2048, max_num_seqs=1, max_num_batched_tokens=2048,
-              gpu_memory_utilization=0.92, enable_prefix_caching=False,
+              max_model_len=8192, max_num_seqs=1, max_num_batched_tokens=2048,
+              gpu_memory_utilization=0.90, enable_prefix_caching=False,
               enable_chunked_prefill=True, seed=42,
               compilation_config={'cudagraph_capture_sizes': [1]},
               disable_log_stats=False)
     rng = random.Random(42)
-    tokens = [rng.randrange(1000, 30000) for _ in range(1792)]
+    tokens = [rng.randrange(1000, 30000) for _ in range(4096)]
     result = {'torch': torch.__version__, 'vllm': vllm.__version__,
               'gpu': torch.cuda.get_device_name(), 'dtype': 'bfloat16',
               'tensor_parallel_size': tp,
-              'max_model_len': 2048, 'max_num_seqs': 1, 'prefix_cache': False,
-              'gpu_memory_utilization': 0.92, 'model': json.loads(Path('model.lock.json').read_text()),
+              'max_model_len': 8192, 'max_num_seqs': 1, 'prefix_cache': False,
+              'gpu_memory_utilization': 0.90, 'max_num_batched_tokens': 2048,
+              'model': json.loads(Path('model.lock.json').read_text()),
               'warmups_per_case': 2, 'measured_runs_per_case': 5, 'results': []}
-    for length, output in [(512, 1), (1024, 1), (1792, 1), (512, 128)]:
+    for length, output in [(512, 1), (2048, 1), (4096, 1), (512, 128)]:
         params = SamplingParams(temperature=0, max_tokens=output, min_tokens=output, ignore_eos=True)
         prompt = {'prompt_token_ids': tokens[:length]}
         rows = []

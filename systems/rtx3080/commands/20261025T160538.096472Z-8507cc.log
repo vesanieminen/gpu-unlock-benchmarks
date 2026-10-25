@@ -1,0 +1,2 @@
++ bash -n run.sh
++ python3 -m py_compile record.py download.py torch_bench.py vllm_bench.py

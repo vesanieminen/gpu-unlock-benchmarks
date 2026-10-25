@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:03:16.120794+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "nvidia-smi",
+    "--query-gpu=name,memory.total,memory.used,power.draw,power.limit,temperature.gpu",
+    "--format=csv"
+  ],
+  "command": "nvidia-smi --query-gpu=name,memory.total,memory.used,power.draw,power.limit,temperature.gpu --format=csv",
+  "output": "20261025T160316.120794Z-e5e756.log",
+  "exit_code": 0,
+  "git_commit": "46441676200b55ddc369ededa8410527e8d8a574",
+  "duration_seconds": 0.02981064999994487,
+  "ended_utc": "2026-10-25T16:03:16.152261+00:00"
+}

@@ -22,13 +22,13 @@ benchmark results. gpu-unlock installation has not been performed yet.
 
 Requirements: Linux, NVIDIA driver, Docker, NVIDIA Container Toolkit with
 `nvidia.com/gpu=all` CDI devices, and host Python 3. The container contains PyTorch
-and vLLM. No host Python packages are installed. About 8 GB is downloaded for
-the model. Weights and caches are ignored by Git.
+and vLLM. No host Python packages are installed. The current 3B model requires
+about 6 GB of downloads. Weights and caches are ignored by Git.
 
 ```bash
 git clone https://github.com/vesanieminen/gpu-unlock-benchmarks.git
 cd gpu-unlock-benchmarks
-docker pull "$(cat image.lock)"
+python3 record.py --system rtx3080 --phase preparation -- docker pull "$(cat image.lock)"
 bash run.sh download
 bash run.sh torch baseline
 bash run.sh vllm baseline
@@ -75,11 +75,12 @@ for work done before the recorder existed.
 - **PyTorch:** 8192×8192 GEMM in BF16, FP16 and explicitly enabled TF32, with
   FP32 accumulation. Preallocated output, 20 warm-ups, five samples of 50 calls,
   CUDA-event timing. Reports TFLOPS and a seeded output hash for numerical parity.
-- **vLLM:** original, unquantized Qwen3-4B-Instruct-2507 BF16, entirely on GPU,
-  no CPU offload, no speculative decoding, prefix caching disabled. A 2,048-token
-  context, one sequence, CUDA graph capture for batch size one, and 92% GPU
+- **vLLM:** original, unquantized Qwen2.5-3B-Instruct BF16, entirely on GPU,
+  no CPU offload, no speculative decoding, prefix caching disabled. An 8,192-token
+  context, one sequence, CUDA graph capture for batch size one, 2,048-token
+  prefill chunks, and 90% GPU
   memory allocation target. This memory target does not limit compute or power.
-- **LLM cases:** synthetic deterministic 512/1,024/1,792-token prompts with one
+- **LLM cases:** synthetic deterministic 512/2,048/4,096-token prompts with one
   output token for prefill; 512 input / 128 output for decode. Two warm-ups and
   five measured requests per case. These measure speed, not model answer quality.
 - **Timing:** prefill is first scheduling to first token; TTFT includes frontend
@@ -92,7 +93,7 @@ and clock configuration. Inspect recorded temperatures, power and clocks.
 Changing a power ceiling between arms invalidates attribution to gpu-unlock alone.
 
 The image is pinned by portable digest in image.lock; the model by Git revision
-in model.lock.json. Each new run saves script hashes, kernel information, detailed
+in model.lock.json. Each new run saves source snapshots, script hashes, exit status, kernel information, detailed
 NVIDIA state and one-second GPU telemetry. The imported first run used the same
 image but recorded its local image ID instead of the portable digest.
 
@@ -117,4 +118,5 @@ of 48 GB aggregate VRAM. See [dual-3090 notes](systems/dual-rtx3090/).
 
 - [gpu-unlock](https://github.com/Zagitta/gpu-unlock)
 - [RTX 3080 10 GB report and GEMM methodology](https://github.com/Zagitta/gpu-unlock/issues/14)
-- [Qwen3-4B-Instruct-2507 original model](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507)
+- [Qwen2.5-3B-Instruct original model](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct)
+- [Why the initial Qwen3-4B choice was replaced](systems/rtx3080/vllm-memory-fit.md)

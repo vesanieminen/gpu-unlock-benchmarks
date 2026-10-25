@@ -3,10 +3,11 @@ import json
 from pathlib import Path
 from huggingface_hub import HfApi, snapshot_download
 
-repo = 'Qwen/Qwen3-4B-Instruct-2507'
+repo = 'Qwen/Qwen2.5-3B-Instruct'
 lock = Path('model.lock.json')
 if lock.exists():
     spec = json.loads(lock.read_text())
+    assert spec['repo'] == repo, 'Model lock differs from the configured repository'
 else:
     spec = {'repo': repo, 'revision': HfApi().model_info(repo).sha}
     lock.write_text(json.dumps(spec, indent=2) + '\n')

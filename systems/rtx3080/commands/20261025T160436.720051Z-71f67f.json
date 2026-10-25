@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "preparation",
+  "started_utc": "2026-10-25T16:04:36.720051+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "mv model.lock.json systems/rtx3080/qwen3-4b-model.lock.json; mv model model-qwen3-4b; mkdir model"
+  ],
+  "command": "bash -x -c 'mv model.lock.json systems/rtx3080/qwen3-4b-model.lock.json; mv model model-qwen3-4b; mkdir model'",
+  "output": "20261025T160436.720051Z-71f67f.log",
+  "exit_code": 0,
+  "git_commit": "46441676200b55ddc369ededa8410527e8d8a574",
+  "duration_seconds": 0.005230785000094329,
+  "ended_utc": "2026-10-25T16:04:36.726792+00:00"
+}

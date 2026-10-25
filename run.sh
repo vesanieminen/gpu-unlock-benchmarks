@@ -38,16 +38,25 @@ case "$action" in
     uname -a > "$out/kernel.txt"
     cp image.lock "$out/"
     sha256sum run.sh record.py torch_bench.py vllm_bench.py download.py > "$out/scripts.sha256"
+    mkdir "$out/source"
+    cp run.sh record.py torch_bench.py vllm_bench.py download.py "$out/source/"
     [[ ! -f model.lock.json ]] || cp model.lock.json "$out/"
     nvidia-smi --query-gpu=timestamp,name,pstate,temperature.gpu,power.draw,power.limit,clocks.sm,clocks.mem,utilization.gpu,memory.used --format=csv -l 1 > "$out/gpu.csv" &
     monitor=$!
-    trap 'kill "$monitor" 2>/dev/null || true' EXIT
+    finish() {
+      status=$?
+      trap - EXIT
+      kill "$monitor" 2>/dev/null || true
+      printf '{"exit_code": %d}\n' "$status" > "$out/status.json"
+      nvidia-smi -q > "$out/nvidia-after.txt" || true
+      exit "$status"
+    }
+    trap finish EXIT
     docker run "${common[@]}" --network none --device nvidia.com/gpu=all \
       -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 \
       -e BENCH_TP="${BENCH_TP:-1}" \
       -e BENCH_GPU="${BENCH_GPU:-0}" \
       --entrypoint python3 "$image" "${action}_bench.py" --output "/bench/$out/result.json" 2>&1 | tee "$out/run.log"
-    nvidia-smi -q > "$out/nvidia-after.txt"
     echo "Saved: $PWD/$out"
     ;;
   *)
