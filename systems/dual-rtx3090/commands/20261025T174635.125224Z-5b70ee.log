@@ -1,0 +1,27 @@
++ bash -n cache/dual-install-root.sh
++ python3 -m py_compile cache/dual-backup.py cache/dual-baseline-guard.py
++ python3 cache/dual-baseline-guard.py
+All stock baseline guards passed
++ cat cache/gpu-unlock-src/kernel/gpu_unlock/dkms.conf
+# SPDX-License-Identifier: GPL-2.0-only
+PACKAGE_NAME="gpu-unlock"
+PACKAGE_VERSION="1.0.0"
+BUILT_MODULE_NAME[0]="gpu_unlock"
+DEST_MODULE_LOCATION[0]="/updates/dkms"
+AUTOINSTALL="yes"
+# Build for each kernel instead of letting RHEL's weak-modules link one
+# kernel's build into the others: removing the package then leaves links
+# behind that break dracut for those kernels.
+NO_WEAK_MODULES="yes"
+BUILD_EXCLUSIVE_CONFIG="CONFIG_PCI CONFIG_FW_LOADER"
+MAKE[0]="make KDIR=${kernel_source_dir}"
++ hyprctl instances -j
+[
+{
+    "instance": "efb50993780079460b0cbed1363e2166a2de1d9f_1792947301_446128924",
+    "time": 1792947301,
+    "pid": 24911,
+    "wl_socket": "wayland-1"
+}
+]
+

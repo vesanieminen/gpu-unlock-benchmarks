@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "installation-review",
+  "started_utc": "2026-10-25T17:47:13.602195+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "dkms status; pacman -Q gpu-unlock-dkms gpu-unlock-firmware; cat /etc/default/limine; cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf; nvidia-smi --query-gpu=index,name,power.limit,memory.used --format=csv; python3 -c 'import json; from pathlib import Path; p=Path(\"systems/dual-rtx3090/installation/boot-images.json\"); d=json.loads(p.read_text()); print(json.dumps({\"images\":[{\"image\":r[\"image\"],\"checks\":r[\"checks\"]} for r in d[\"images\"]]},indent=2))'; rg -n \"WARNING|ERROR|warning|error|failed\" cache/dual-install-session.log"
+  ],
+  "command": "bash -x -c 'dkms status; pacman -Q gpu-unlock-dkms gpu-unlock-firmware; cat /etc/default/limine; cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf; nvidia-smi --query-gpu=index,name,power.limit,memory.used --format=csv; python3 -c '\"'\"'import json; from pathlib import Path; p=Path(\"systems/dual-rtx3090/installation/boot-images.json\"); d=json.loads(p.read_text()); print(json.dumps({\"images\":[{\"image\":r[\"image\"],\"checks\":r[\"checks\"]} for r in d[\"images\"]]},indent=2))'\"'\"'; rg -n \"WARNING|ERROR|warning|error|failed\" cache/dual-install-session.log'",
+  "output": "20261025T174713.602195Z-f050a5.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.4841297160000977,
+  "ended_utc": "2026-10-25T17:47:14.089498+00:00"
+}

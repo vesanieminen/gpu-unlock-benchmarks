@@ -1,0 +1,2 @@
+Model bytes: 6183453949
+2026-10-25T17:05:41.655434Z Concurrency control for download: Current concurrency = 1; predicted bandwidth = 48594; success_ratio = 1.000; reference_size = 61.0MB; observed bytes sent so far = 5361110090; completed transmissions = 246

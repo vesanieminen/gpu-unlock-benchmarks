@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "unlock-source-inspection",
+  "started_utc": "2026-10-25T17:06:47.734890+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "git -C cache/gpu-unlock-src rev-parse HEAD; cat cache/gpu-unlock-src/Makefile; cat cache/gpu-unlock-src/packaging/arch/PKGBUILD; rg -n \"2204|targets|MODULES|mkinitcpio|checksum|sha256|test\" cache/gpu-unlock-src/kernel/gpu_unlock/main.c cache/gpu-unlock-src/packaging cache/gpu-unlock-src/tests | head -90"
+  ],
+  "command": "bash -x -c 'git -C cache/gpu-unlock-src rev-parse HEAD; cat cache/gpu-unlock-src/Makefile; cat cache/gpu-unlock-src/packaging/arch/PKGBUILD; rg -n \"2204|targets|MODULES|mkinitcpio|checksum|sha256|test\" cache/gpu-unlock-src/kernel/gpu_unlock/main.c cache/gpu-unlock-src/packaging cache/gpu-unlock-src/tests | head -90'",
+  "output": "20261025T170647.734890Z-49c7c6.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.012458609000532306,
+  "ended_utc": "2026-10-25T17:06:47.750281+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "baseline-inspection",
+  "started_utc": "2026-10-25T16:56:45.858208+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "nvidia-smi -q; systemctl is-active llama-swap.service; journalctl -k -b --no-pager --grep=\"gpu_unlock|NVRM.*Xid\"; lspci -nnk -s 0b:00.0; lspci -nnk -s 0c:00.0; df -h .; cat /proc/cmdline"
+  ],
+  "command": "bash -x -c 'nvidia-smi -q; systemctl is-active llama-swap.service; journalctl -k -b --no-pager --grep=\"gpu_unlock|NVRM.*Xid\"; lspci -nnk -s 0b:00.0; lspci -nnk -s 0c:00.0; df -h .; cat /proc/cmdline'",
+  "output": "20261025T165645.858208Z-ed283f.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.2779908909997175,
+  "ended_utc": "2026-10-25T16:56:46.138424+00:00"
+}

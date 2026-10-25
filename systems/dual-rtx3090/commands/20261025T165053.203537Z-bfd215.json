@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "workload-inspection",
+  "started_utc": "2026-10-25T16:50:53.203537+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "ps -p 5665,5687 -o pid,ppid,user,comm; cat /proc/5687/cgroup; systemctl --user list-units --type=service --no-pager | rg -i \"strata|llama\"; ps -p 5687 -o comm="
+  ],
+  "command": "bash -x -c 'ps -p 5665,5687 -o pid,ppid,user,comm; cat /proc/5687/cgroup; systemctl --user list-units --type=service --no-pager | rg -i \"strata|llama\"; ps -p 5687 -o comm='",
+  "output": "20261025T165053.203537Z-bfd215.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.00971744700018462,
+  "ended_utc": "2026-10-25T16:50:53.214996+00:00"
+}

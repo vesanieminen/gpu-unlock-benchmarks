@@ -1,0 +1,33 @@
++ loginctl list-sessions --no-pager
+SESSION  UID USER         SEAT  LEADER CLASS   TTY  IDLE SINCE
+      2 1000 vesanieminen -     1107   manager -    no   -
+      3 1000 vesanieminen -     2716   user    -    no   -
+      6 1000 vesanieminen seat0 8651   user    tty3 no   -
+      7 1000 vesanieminen seat0 24790  user    tty1 no   -
+
+4 sessions listed.
++ rg -i 'hypr|polkit|wayland|sway|agent'
+++ id -un
++ ps -u vesanieminen -o pid,comm
+   1383 bt-agent
+  24906 start-hyprland
+  24911 Hyprland
+  24967 omarchy-hyprlan
+  24995 Xwayland
++ rg --files /usr/lib /usr/libexec /usr/bin -g '*polkit*' -g '*policykit*' -g '*authentication-agent*'
+/usr/lib/tmpfiles.d/polkit-tmpfiles.conf
+/usr/lib/sysusers.d/polkit.conf
+/usr/lib/libpolkit-gobject-1.so.0.0.0
+/usr/lib/libpolkit-agent-1.so.0.0.0
+/usr/lib/pam.d/polkit-1
+/usr/lib/pkgconfig/polkit-gobject-1.pc
+/usr/lib/pkgconfig/polkit-agent-1.pc
+/usr/lib/systemd/system/polkit.service
+/usr/lib/systemd/system/polkit-agent-helper@.service
+/usr/lib/systemd/system/polkit-agent-helper.socket
+/usr/lib/qt6/qml/Quickshell/Services/Polkit/quickshell-service-polkit.qmltypes
+/usr/lib/polkit-1/polkitd
+/usr/lib/polkit-1/polkit-agent-helper-1
++ ls /run/user/1000/wayland-1 /run/user/1000/wayland-1.lock
+/run/user/1000/wayland-1
+/run/user/1000/wayland-1.lock

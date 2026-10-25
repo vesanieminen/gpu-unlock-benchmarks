@@ -1,0 +1,25 @@
++ hyprctl instances -j
+[
+{
+    "instance": "efb50993780079460b0cbed1363e2166a2de1d9f_1792947301_446128924",
+    "time": 1792947301,
+    "pid": 24911,
+    "wl_socket": "wayland-1"
+}
+]
+
++ rg -i 'shell|quickshell'
+++ id -un
++ ps -u vesanieminen -o pid,comm
+  24966 quickshell
++ omarchy restart shell --help
+Usage:
+  omarchy restart shell
+
+Restart the Omarchy shell
+
+Examples:
+  omarchy restart shell
+
+Binary:
+  omarchy-restart-shell

@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "unlock-package-build",
+  "started_utc": "2026-10-25T17:07:02.261789+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "cd cache/gpu-unlock-src && make arch"
+  ],
+  "command": "bash -x -c 'cd cache/gpu-unlock-src && make arch'",
+  "output": "20261025T170702.261789Z-d1c8e0.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 43.011610778999966,
+  "ended_utc": "2026-10-25T17:07:45.276363+00:00"
+}

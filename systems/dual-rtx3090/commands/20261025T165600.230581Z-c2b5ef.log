@@ -1,0 +1,2 @@
+error: return hl.dispatch(hl.dispatch("exec", "cd /home/vesanieminen/code/gpu-unlock-benchmarks && python3 record.py --system dual-rtx3090 --phase workload-stop -- pkexec systemctl stop llama-swap.service")):1: hl.dispatch: expected a dispatcher (e.g. hl.dsp.window.close())
+error: return hl.dispatch(hl.dispatch("exec", "cd /home/vesanieminen/code/gpu-unlock-benchmarks && python3 record.py --system dual-rtx3090 --phase workload-stop -- pkexec systemctl stop llama-swap.service")):1: hl.dispatch: expected a dispatcher (e.g. hl.dsp.window.close())

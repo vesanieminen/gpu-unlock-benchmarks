@@ -1,0 +1,45 @@
+{
+  "backup_directory": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z",
+  "files": [
+    {
+      "source": "/etc/default/limine",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/etc-default-limine",
+      "sha256": "0a61cde23f608dd18ba896a6a394d4ea8a85c35a12a53425c0f2cee1abea526f"
+    },
+    {
+      "source": "/boot/limine.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/boot-limine.conf",
+      "sha256": "061a328a4b9658d3b35f51e4ad533c5c71a7b403219fbe22a26438507396d88a"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf",
+      "sha256": "8730ff014170a3017c3845ccdfca67f09668adc11a4b5678c0541f1b45ef1e6b"
+    },
+    {
+      "source": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/omarchy_linux-omarchy.efi",
+      "sha256": "8daeae499f0e2825601ea2536b623159dcb949c8709dddb7b17023acd327b636"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/omarchy_hooks.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/omarchy_hooks.conf",
+      "sha256": "7cdb671b0c49bcd5627bdf24db9fee3417b065cd984d96068ed2b0a929e3b6bc"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/thunderbolt_module.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/thunderbolt_module.conf",
+      "sha256": "e9bbf75efbe9a659325ce065b054aad8885104c7a958fc4f0ba83af3799d031c"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/omarchy_resume.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/omarchy_resume.conf",
+      "sha256": "aa3fb0d36f320bc187a40c648406c876d103098abd4c6d3d947f69b7044c5d0f"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/nvidia.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/nvidia.conf",
+      "sha256": "3df19e2544b78f6138488ea7d229dedf370cc019e82bae971d2039653a114ac1"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 # gpu-unlock benchmarks
 
-Reproducible stock/unlocked GPU benchmarks and a command journal, starting with
-an RTX 3080 10 GB and continuing on a separate dual RTX 3090 system.
+Reproducible stock/unlocked GPU benchmarks and a command journal for two hosts:
+an RTX 3080 10 GB system and `ai-box`, the dual RTX 3090 machine tested here.
+Both systems' stock/unlocked comparisons are complete.
 
 ## Current results
 
@@ -10,10 +11,20 @@ an RTX 3080 10 GB and continuing on a separate dual RTX 3090 system.
 | RTX 3080 10 GB | Recorded stock baseline | 62.54 | 62.32 | 31.00 |
 | RTX 3080 10 GB | Unlocked | 107.40 | 104.85 | 51.93 |
 | RTX 3080 10 GB | Percentage increase | **+71.75%** | **+68.25%** | **+67.54%** |
-| 2× RTX 3090 | Stock/unlocked | Pending | Pending | Pending |
+| RTX 3090 GPU 0 | Stock baseline | 71.77 | 70.29 | 38.44 |
+| RTX 3090 GPU 1 | Stock baseline | 72.51 | 71.02 | 38.26 |
+| RTX 3090 GPU 0 | Unlocked | 115.55 | 111.96 | 62.85 |
+| RTX 3090 GPU 1 | Unlocked | 117.40 | 114.85 | 63.67 |
 
-Gains use the full-precision medians from the recorded repeat baseline; the
-original stock run remains preserved in the raw results.
+The 3080 gains use full-precision medians from the recorded repeat baseline;
+its original stock run remains preserved in the raw results.
+
+The dual-3090 comparison is also complete: per-card BF16 improved **61.01%**
+and **61.91%**. With tensor parallel size two, vLLM prefill improved
+**28.66–32.86%** and decode improved **2.36%** in this run pair. Both GPUs
+unlocked at boot; all paired output hashes match and both power ceilings stayed
+350 W. See [the dual-3090 results and limitations](systems/dual-rtx3090/RESULTS.md)
+and [installation record](systems/dual-rtx3090/INSTALL.md).
 
 The selected vLLM application test also passes on the 3080 with native BF16
 Qwen2.5-3B-Instruct and OMP_NUM_THREADS=1:
@@ -126,9 +137,14 @@ in model.lock.json. Each new run saves source snapshots, script hashes, exit sta
 NVIDIA state and one-second GPU telemetry. The imported first run used the same
 image but recorded its local image ID instead of the portable digest.
 
-## Second system: two RTX 3090s
+## Dual RTX 3090: ai-box
 
-Inspect the second machine first; its CPU, memory and GPU interconnect are unknown.
+These results were measured on `ai-box`: Ryzen 7 5800X, 125 GiB RAM and two
+RTX 3090s with PHB PCIe connectivity and no NVLink reported. Both stock and
+unlocked tests completed on this host: PyTorch separately on each card and
+vLLM across both cards with tensor parallel size two. See
+[results and comparison conditions](systems/dual-rtx3090/RESULTS.md).
+The commands below reproduce its baseline sequence.
 
 ```bash
 BENCH_SYSTEM=dual-rtx3090 bash run.sh download

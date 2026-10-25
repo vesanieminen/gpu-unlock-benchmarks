@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "authentication-inspection",
+  "started_utc": "2026-10-25T16:51:04.457946+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "pgrep -a -f \"[p]olkit.*agent|[h]yprpolkit|[l]xqt-policykit\"; command -v hyprpolkitagent; ls /usr/lib/polkit-gnome /usr/lib/hyprpolkitagent /usr/lib/polkit-kde-authentication-agent-1 2>/dev/null; test -n \"$WAYLAND_DISPLAY\" && echo Wayland-session-present; test -n \"$DBUS_SESSION_BUS_ADDRESS\" && echo Dbus-session-present"
+  ],
+  "command": "bash -x -c 'pgrep -a -f \"[p]olkit.*agent|[h]yprpolkit|[l]xqt-policykit\"; command -v hyprpolkitagent; ls /usr/lib/polkit-gnome /usr/lib/hyprpolkitagent /usr/lib/polkit-kde-authentication-agent-1 2>/dev/null; test -n \"$WAYLAND_DISPLAY\" && echo Wayland-session-present; test -n \"$DBUS_SESSION_BUS_ADDRESS\" && echo Dbus-session-present'",
+  "output": "20261025T165104.457946Z-040c57.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.01794504000008601,
+  "ended_utc": "2026-10-25T16:51:04.477959+00:00"
+}

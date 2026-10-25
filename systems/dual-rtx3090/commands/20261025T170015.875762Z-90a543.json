@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "download-diagnosis",
+  "started_utc": "2026-10-25T17:00:15.875762+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json,re; p=next(Path(\"cache/huggingface/xet/logs\").glob(\"*.log\")); rows=[json.loads(s) for s in p.read_text().splitlines()]; print(\"Total log entries:\",len(rows)); print(\"Levels:\",{level:sum(r.get(\"level\")==level for r in rows) for level in (\"INFO\",\"WARN\",\"ERROR\")}); [print(r.get(\"timestamp\"),r.get(\"level\"),re.sub(r\"https?://[^\\s\\\"<>]+\",\"[URL omitted]\",str(r.get(\"fields\",{}).get(\"message\",\"\")))[:550]) for r in rows[-10:]]"
+  ],
+  "command": "python3 -c 'from pathlib import Path; import json,re; p=next(Path(\"cache/huggingface/xet/logs\").glob(\"*.log\")); rows=[json.loads(s) for s in p.read_text().splitlines()]; print(\"Total log entries:\",len(rows)); print(\"Levels:\",{level:sum(r.get(\"level\")==level for r in rows) for level in (\"INFO\",\"WARN\",\"ERROR\")}); [print(r.get(\"timestamp\"),r.get(\"level\"),re.sub(r\"https?://[^\\s\\\"<>]+\",\"[URL omitted]\",str(r.get(\"fields\",{}).get(\"message\",\"\")))[:550]) for r in rows[-10:]]'",
+  "output": "20261025T170015.875762Z-90a543.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.02116945699981443,
+  "ended_utc": "2026-10-25T17:00:15.899958+00:00"
+}

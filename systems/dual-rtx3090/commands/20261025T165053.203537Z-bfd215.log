@@ -1,0 +1,11 @@
++ ps -p 5665,5687 -o pid,ppid,user,comm
+    PID    PPID USER     COMMAND
+   5665    1584 vesanie+ python3.12
+   5687    5665 vesanie+ strata-dsv41
++ cat /proc/5687/cgroup
+0::/system.slice/llama-swap.service
++ systemctl --user list-units --type=service --no-pager
++ rg -i 'strata|llama'
+  strata-next-downloads.service                loaded active running Download Swift then Q5 with adjustable rate limit
++ ps -p 5687 -o comm=
+strata-dsv41

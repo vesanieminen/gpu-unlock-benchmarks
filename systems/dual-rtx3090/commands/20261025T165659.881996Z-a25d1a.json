@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "preparation",
+  "started_utc": "2026-10-25T16:56:59.881996+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\np=Path(\"cache/docker-pkexec-bin\")\np.mkdir(parents=True,exist_ok=True)\nwrapper=p/\"docker\"\nwrapper.write_text('#!/usr/bin/env bash\\nexec pkexec /usr/bin/docker \"$@\"\\n')\nwrapper.chmod(0o700)\ndriver=Path(\"cache/dual-baseline.sh\")\ndriver.write_text(\"\"\"#!/usr/bin/env bash\nset -euo pipefail\ncd /home/vesanieminen/code/gpu-unlock-benchmarks\nexport PATH=\"$PWD/cache/docker-pkexec-bin:$PATH\"\nexport BENCH_SYSTEM=dual-rtx3090\npython3 record.py --system dual-rtx3090 --phase baseline-readiness -- bash -x -c 'test \"$(systemctl is-active llama-swap.service)\" = inactive; nvidia-smi'\npython3 record.py --system dual-rtx3090 --phase preparation -- bash -x -c 'docker pull \"$(cat image.lock)\"'\nbash run.sh download\nBENCH_GPU=0 bash run.sh torch baseline-gpu0\nBENCH_GPU=1 bash run.sh torch baseline-gpu1\nBENCH_TP=2 bash run.sh vllm baseline\n\"\"\")\ndriver.chmod(0o700)\nprint(\"Prepared ignored local Docker privilege wrapper and baseline driver\")\n"
+  ],
+  "command": "python3 -c 'from pathlib import Path\np=Path(\"cache/docker-pkexec-bin\")\np.mkdir(parents=True,exist_ok=True)\nwrapper=p/\"docker\"\nwrapper.write_text('\"'\"'#!/usr/bin/env bash\\nexec pkexec /usr/bin/docker \"$@\"\\n'\"'\"')\nwrapper.chmod(0o700)\ndriver=Path(\"cache/dual-baseline.sh\")\ndriver.write_text(\"\"\"#!/usr/bin/env bash\nset -euo pipefail\ncd /home/vesanieminen/code/gpu-unlock-benchmarks\nexport PATH=\"$PWD/cache/docker-pkexec-bin:$PATH\"\nexport BENCH_SYSTEM=dual-rtx3090\npython3 record.py --system dual-rtx3090 --phase baseline-readiness -- bash -x -c '\"'\"'test \"$(systemctl is-active llama-swap.service)\" = inactive; nvidia-smi'\"'\"'\npython3 record.py --system dual-rtx3090 --phase preparation -- bash -x -c '\"'\"'docker pull \"$(cat image.lock)\"'\"'\"'\nbash run.sh download\nBENCH_GPU=0 bash run.sh torch baseline-gpu0\nBENCH_GPU=1 bash run.sh torch baseline-gpu1\nBENCH_TP=2 bash run.sh vllm baseline\n\"\"\")\ndriver.chmod(0o700)\nprint(\"Prepared ignored local Docker privilege wrapper and baseline driver\")\n'",
+  "output": "20261025T165659.881996Z-a25d1a.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.01613661100054742,
+  "ended_utc": "2026-10-25T16:56:59.900514+00:00"
+}

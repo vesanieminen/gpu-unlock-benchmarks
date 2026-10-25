@@ -1,0 +1,6 @@
+ActiveState=active
+FragmentPath=/etc/systemd/system/llama-swap.service
+Restart=on-failure
+MainPID=1584
+User=
+KillMode=mixed

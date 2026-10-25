@@ -1,0 +1,22 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "container-inspection",
+  "started_utc": "2026-10-25T16:50:56.870090+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "pkexec",
+    "docker",
+    "image",
+    "inspect",
+    "vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1",
+    "--format",
+    "{{.Id}}"
+  ],
+  "command": "pkexec docker image inspect vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 --format '{{.Id}}'",
+  "output": "20261025T165056.870090Z-c61c80.log",
+  "exit_code": 127,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.008313862000250083,
+  "ended_utc": "2026-10-25T16:50:56.880342+00:00"
+}

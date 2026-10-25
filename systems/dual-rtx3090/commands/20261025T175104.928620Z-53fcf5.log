@@ -1,0 +1,43 @@
+{
+  "baseline": "systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z",
+  "unlocked": "systems/dual-rtx3090/results/unlocked-gpu0-torch-20261025T175031.232765274Z",
+  "same_image": true,
+  "same_kernel": true,
+  "same_benchmark_source": true,
+  "source_sha256": "0ffff7647e0786efd28fd3ac412eaebc4ac693cc2d5a13d9c175d2ef8797c094",
+  "results": [
+    {
+      "precision": "BF16",
+      "output_hashes_match": true,
+      "metrics": {
+        "median_tflops": {
+          "baseline": 71.76900798605568,
+          "unlocked": 115.55452023440348,
+          "change_percent": 61.00894171040385
+        }
+      }
+    },
+    {
+      "precision": "FP16",
+      "output_hashes_match": true,
+      "metrics": {
+        "median_tflops": {
+          "baseline": 70.29332712599047,
+          "unlocked": 111.95960214438843,
+          "change_percent": 59.27486537053122
+        }
+      }
+    },
+    {
+      "precision": "TF32",
+      "output_hashes_match": true,
+      "metrics": {
+        "median_tflops": {
+          "baseline": 38.436269682485076,
+          "unlocked": 62.84667915809634,
+          "change_percent": 63.508789165184744
+        }
+      }
+    }
+  ]
+}

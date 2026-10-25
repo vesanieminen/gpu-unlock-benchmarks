@@ -1,0 +1,1 @@
+gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0 cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0

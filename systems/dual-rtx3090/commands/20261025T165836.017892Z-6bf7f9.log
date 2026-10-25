@@ -1,0 +1,9 @@
++ du -sh model cache
+1.7M	model
+224K	cache
++ rg 'python|pkexec|docker'
+++ id -un
++ ps -u vesanieminen -o pid,comm
+  27501 python3
+  27590 python3
+  30075 python3

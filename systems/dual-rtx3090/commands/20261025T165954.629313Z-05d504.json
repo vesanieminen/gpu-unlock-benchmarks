@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "download-diagnosis",
+  "started_utc": "2026-10-25T16:59:54.629313+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "du -sh model cache; find model -type f -printf \"%s %p\\n\"; ps -p 27590 -o pid,etime,stat,comm; cat /proc/27590/io; ss -tinp state established | head -60; ps -u \"$(id -un)\" -o pid,ppid,etime,comm | rg \"python|docker|bash\""
+  ],
+  "command": "bash -x -c 'du -sh model cache; find model -type f -printf \"%s %p\\n\"; ps -p 27590 -o pid,etime,stat,comm; cat /proc/27590/io; ss -tinp state established | head -60; ps -u \"$(id -un)\" -o pid,ppid,etime,comm | rg \"python|docker|bash\"'",
+  "output": "20261025T165954.629313Z-05d504.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.03160943400052929,
+  "ended_utc": "2026-10-25T16:59:54.663553+00:00"
+}

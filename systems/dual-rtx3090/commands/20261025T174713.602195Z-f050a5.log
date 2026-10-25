@@ -1,0 +1,53 @@
++ dkms status
+gpu-unlock/1.0.0, 7.2.5-3-omarchy, x86_64: installed
+nvidia/610.57.04, 7.2.5-3-omarchy, x86_64: installed
++ pacman -Q gpu-unlock-dkms gpu-unlock-firmware
+gpu-unlock-dkms 1.0.0-1
+gpu-unlock-firmware 1.0.0-1
++ cat /etc/default/limine
+ESP_PATH="/boot"
+
+KERNEL_CMDLINE[default]+="cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs"
+
+KERNEL_CMDLINE[default]+=" gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0"
++ cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf
+# Put gpu_unlock and its firmware in every image and load it right before
+# nvidia, so a display card's screen is blank only from its unlock until
+# nvidia-drm takes over. Without nvidia in the image it loads last, still
+# before any nvidia loaded from the root filesystem. Named to be read after
+# every other drop-in. It does nothing unless gpu_unlock.targets= is on the
+# kernel command line.
+[[ ${MODULES@a} == *a* ]] || read -ra MODULES <<<"$MODULES"
+_gu_modules=()
+for _gu_module in "${MODULES[@]}"; do
+    [[ ${_gu_module%\?} == gpu_unlock ]] && continue
+    [[ ${_gu_module%\?} == nvidia ]] && _gu_modules+=(gpu_unlock?)
+    _gu_modules+=("$_gu_module")
+done
+[[ " ${_gu_modules[*]} " == *' gpu_unlock? '* ]] || _gu_modules+=(gpu_unlock?)
+MODULES=("${_gu_modules[@]}")
+unset _gu_modules _gu_module
++ nvidia-smi --query-gpu=index,name,power.limit,memory.used --format=csv
+index, name, power.limit [W], memory.used [MiB]
+0, NVIDIA GeForce RTX 3090, 350.00 W, 224 MiB
+1, NVIDIA GeForce RTX 3090, 350.00 W, 2 MiB
++ python3 -c 'import json; from pathlib import Path; p=Path("systems/dual-rtx3090/installation/boot-images.json"); d=json.loads(p.read_text()); print(json.dumps({"images":[{"image":r["image"],"checks":r["checks"]} for r in d["images"]]},indent=2))'
+{
+  "images": [
+    {
+      "image": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "checks": {
+        "target_present_once": true,
+        "other_kernel_options_preserved": true,
+        "unlock_loads_before_nvidia": true,
+        "module_in_image": true,
+        "all_firmware_in_image": true
+      }
+    }
+  ]
+}
++ rg -n 'WARNING|ERROR|warning|error|failed' cache/dual-install-session.log
+122:==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+130:==> WARNING: Possibly missing firmware for module: 'qat_6xxx'
+207:==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+215:==> WARNING: Possibly missing firmware for module: 'qat_6xxx'

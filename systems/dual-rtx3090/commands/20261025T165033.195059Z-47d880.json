@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:50:33.195059+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "hostname; lscpu; free -h; nvidia-smi topo -m; ps -p 5687 -o pid,ppid,user,comm; id; ls -l /var/run/docker.sock; docker context show; du -sh model cache; ls model; command -v pkexec; ls /etc/cdi; lsmod | rg \"gpu_unlock|nvidia\""
+  ],
+  "command": "bash -x -c 'hostname; lscpu; free -h; nvidia-smi topo -m; ps -p 5687 -o pid,ppid,user,comm; id; ls -l /var/run/docker.sock; docker context show; du -sh model cache; ls model; command -v pkexec; ls /etc/cdi; lsmod | rg \"gpu_unlock|nvidia\"'",
+  "output": "20261025T165033.195059Z-47d880.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.09049867699923198,
+  "ended_utc": "2026-10-25T16:50:33.287224+00:00"
+}

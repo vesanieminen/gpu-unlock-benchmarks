@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "unlock-inspection",
+  "started_utc": "2026-10-25T17:01:38.697927+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "cat /etc/mkinitcpio.conf.d/*.conf; cat /etc/mkinitcpio.d/linux-omarchy.preset; ls -d ../gpu-unlock /home/vesanieminen/code/gpu-unlock 2>/dev/null; command -v limine-mkinitcpio; command -v makepkg"
+  ],
+  "command": "bash -x -c 'cat /etc/mkinitcpio.conf.d/*.conf; cat /etc/mkinitcpio.d/linux-omarchy.preset; ls -d ../gpu-unlock /home/vesanieminen/code/gpu-unlock 2>/dev/null; command -v limine-mkinitcpio; command -v makepkg'",
+  "output": "20261025T170138.697927Z-fbd3d5.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.004349845999968238,
+  "ended_utc": "2026-10-25T17:01:38.705406+00:00"
+}

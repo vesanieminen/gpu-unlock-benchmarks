@@ -1,0 +1,43 @@
++ hostname
+ai-box
++ uname -r
+7.2.5-3-omarchy
++ cat /proc/cmdline
+cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs  resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
++ nvidia-smi
+Sun Oct 25 18:50:18 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        Off |   00000000:0B:00.0  On |                  N/A |
+|  0%   33C    P8             19W /  350W |   23246MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce RTX 3090        Off |   00000000:0C:00.0 Off |                  N/A |
+|  0%   30C    P8             10W /  350W |   23540MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5687      C   ...6_64-cuda-cuda13/strata-dsv41      23224MiB |
+|    1   N/A  N/A            5687      C   ...6_64-cuda-cuda13/strata-dsv41      23526MiB |
++-----------------------------------------------------------------------------------------+
++ nvidia-smi --query-gpu=name,power.limit,clocks.sm,memory.used --format=csv
+name, power.limit [W], clocks.current.sm [MHz], memory.used [MiB]
+NVIDIA GeForce RTX 3090, 350.00 W, 210 MHz, 23246 MiB
+NVIDIA GeForce RTX 3090, 350.00 W, 210 MHz, 23540 MiB
+++ cat image.lock
++ docker image inspect vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 --format '{{.Id}}'
+
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
++ test -f model/config.json
++ journalctl -k -b --no-pager --grep=gpu_unlock
+-- No entries --

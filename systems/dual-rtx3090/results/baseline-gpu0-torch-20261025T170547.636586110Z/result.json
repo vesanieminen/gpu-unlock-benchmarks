@@ -1,0 +1,52 @@
+{
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "size": 8192,
+  "gpu_index": 0,
+  "warmup_calls": 20,
+  "calls_per_sample": 50,
+  "samples": 5,
+  "fp32_accumulation": true,
+  "results": [
+    {
+      "precision": "BF16",
+      "median_tflops": 71.76900798605568,
+      "samples_tflops": [
+        72.08904793132133,
+        72.31100651403625,
+        71.53566979113182,
+        71.37058082688831,
+        71.76900798605568
+      ],
+      "finite": true,
+      "parity_sha256": "65572ca61b1188d090b4c87f7de6229aed8f0bca756a3347944686484e4d263f"
+    },
+    {
+      "precision": "FP16",
+      "median_tflops": 70.29332712599047,
+      "samples_tflops": [
+        70.34103640379307,
+        70.7185135256548,
+        70.29332712599047,
+        69.88387565321973,
+        69.98042389889316
+      ],
+      "finite": true,
+      "parity_sha256": "56b4d55b487fc11dbc134ab1ec6366fea014bd85a28e4066667964a2f20d2c5c"
+    },
+    {
+      "precision": "TF32",
+      "median_tflops": 38.436269682485076,
+      "samples_tflops": [
+        38.41286866493176,
+        38.483880813528735,
+        38.44496790849229,
+        38.436269682485076,
+        38.41360914013416
+      ],
+      "finite": true,
+      "parity_sha256": "80da2ad33edd18c441d04164b2928792a30e0c6da1b7c7732dd4e2f649746425"
+    }
+  ]
+}

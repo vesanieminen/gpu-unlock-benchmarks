@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "unlock-inspection",
+  "started_utc": "2026-10-25T17:01:32.662344+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "pacman -Q linux-omarchy linux-omarchy-headers linux linux-headers dkms nvidia-open-dkms mkinitcpio limine gpu-unlock-dkms gpu-unlock-firmware; dkms status; cat /etc/mkinitcpio.conf; ls /etc/mkinitcpio.conf.d; cat /etc/default/limine; bootctl status --no-pager; command -v git make gcc zstd; ls -ld /usr/lib/modules/*/build; ls -l /boot; test ! -e /sys/firmware/efi/efivars/SecureBoot-* || od -An -t u1 /sys/firmware/efi/efivars/SecureBoot-*"
+  ],
+  "command": "bash -x -c 'pacman -Q linux-omarchy linux-omarchy-headers linux linux-headers dkms nvidia-open-dkms mkinitcpio limine gpu-unlock-dkms gpu-unlock-firmware; dkms status; cat /etc/mkinitcpio.conf; ls /etc/mkinitcpio.conf.d; cat /etc/default/limine; bootctl status --no-pager; command -v git make gcc zstd; ls -ld /usr/lib/modules/*/build; ls -l /boot; test ! -e /sys/firmware/efi/efivars/SecureBoot-* || od -An -t u1 /sys/firmware/efi/efivars/SecureBoot-*'",
+  "output": "20261025T170132.662344Z-c787d7.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.32878017899929546,
+  "ended_utc": "2026-10-25T17:01:32.994012+00:00"
+}

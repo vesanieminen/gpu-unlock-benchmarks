@@ -1,0 +1,15 @@
++ journalctl -b --since '2026-10-25 16:51:00 UTC' --until '2026-10-25 16:54:00 UTC' --no-pager -t polkitd -t pkexec -t polkit-agent-helper-1
+Oct 25 18:52:16 ai-box polkit-agent-helper-1[23451]: polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie
+Oct 25 18:52:16 ai-box polkitd[1589]: Operator of unix-process:23441:442348 FAILED to authenticate to gain authorization for action org.freedesktop.policykit.exec for unix-process:23441:442348 [python3 record.py --system dual-rtx3090 --phase workload-stop -- pkexec systemctl stop llama-swap.service] (owned by unix-user:vesanieminen)
+Oct 25 18:52:16 ai-box pkexec[23443]: vesanieminen: Error executing command as another user: Not authorized [USER=root] [TTY=/dev/pts/0] [CWD=/home/vesanieminen/code/gpu-unlock-benchmarks] [COMMAND=/usr/bin/systemctl stop llama-swap.service]
+Oct 25 18:52:37 ai-box polkit-agent-helper-1[23550]: polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie
+Oct 25 18:52:37 ai-box polkitd[1589]: Operator of unix-process:23540:443688 FAILED to authenticate to gain authorization for action org.freedesktop.policykit.exec for unix-process:23540:443688 [python3 record.py --system dual-rtx3090 --phase workload-stop -- pkexec systemctl stop llama-swap.service] (owned by unix-user:vesanieminen)
+Oct 25 18:52:37 ai-box pkexec[23542]: vesanieminen: Error executing command as another user: Not authorized [USER=root] [TTY=/dev/pts/0] [CWD=/home/vesanieminen/code/gpu-unlock-benchmarks] [COMMAND=/usr/bin/systemctl stop llama-swap.service]
++ passwd -S
+vesanieminen P 2026-10-10 -1 -1 -1 -1
++ command -v faillock
+/usr/bin/faillock
+++ id -un
++ faillock --user vesanieminen
+vesanieminen:
+When                Type  Source                                           Valid

@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "authentication-diagnosis",
+  "started_utc": "2026-10-25T16:53:19.901815+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "man pkttyagent | col -b; man pkexec | col -b"
+  ],
+  "command": "bash -x -c 'man pkttyagent | col -b; man pkexec | col -b'",
+  "output": "20261025T165319.901815Z-f2de78.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.0890464919993974,
+  "ended_utc": "2026-10-25T16:53:19.992919+00:00"
+}

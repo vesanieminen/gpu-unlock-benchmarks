@@ -1,0 +1,39 @@
+{
+  "status": "prepared; reboot verification pending",
+  "images": [
+    {
+      "image": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "sha256": "31ba0741351b0cdeaf05cb0aea1500372f24dedd21c2f8cfb4a5a1c3fed51129",
+      "baseline_sha256": "8daeae499f0e2825601ea2536b623159dcb949c8709dddb7b17023acd327b636",
+      "baseline_cmdline": "cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "prepared_cmdline": "gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0 cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "module_order": [
+        "gpu_unlock",
+        "nvidia",
+        "nvidia_modeset",
+        "nvidia_uvm",
+        "nvidia_drm",
+        "thunderbolt"
+      ],
+      "module_files": [
+        "usr/lib/modules/7.2.5-3-omarchy/updates/dkms/gpu_unlock.ko.zst"
+      ],
+      "firmware_files": [
+        "usr/lib/firmware/gpu-unlock/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_ga10x.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/v67-ga102-610.43.03.bin"
+      ],
+      "checks": {
+        "target_present_once": true,
+        "other_kernel_options_preserved": true,
+        "unlock_loads_before_nvidia": true,
+        "module_in_image": true,
+        "all_firmware_in_image": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,273 @@
++ set -euo pipefail
++ cd /home/vesanieminen/code/gpu-unlock-benchmarks
++ python3 cache/dual-baseline-guard.py
+All stock baseline guards passed
++ for run in systems/dual-rtx3090/results/baseline-*/
++ sha256sum -c systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z//scripts.sha256
+run.sh: OK
+record.py: OK
+torch_bench.py: OK
+vllm_bench.py: OK
+download.py: OK
++ for run in systems/dual-rtx3090/results/baseline-*/
++ sha256sum -c systems/dual-rtx3090/results/baseline-gpu1-torch-20261025T174345.952612565Z//scripts.sha256
+run.sh: OK
+record.py: OK
+torch_bench.py: OK
+vllm_bench.py: OK
+download.py: OK
++ for run in systems/dual-rtx3090/results/baseline-*/
++ sha256sum -c systems/dual-rtx3090/results/baseline-vllm-20261025T174416.354859858Z//scripts.sha256
+run.sh: OK
+record.py: OK
+torch_bench.py: OK
+vllm_bench.py: OK
+download.py: OK
++ sha256sum -c cache/dual-packages.sha256
+cache/gpu-unlock-src/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst: OK
+cache/gpu-unlock-src/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst: OK
++ python3 cache/dual-backup.py
+{
+  "backup_directory": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z",
+  "files": [
+    {
+      "source": "/etc/default/limine",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/etc-default-limine",
+      "sha256": "0a61cde23f608dd18ba896a6a394d4ea8a85c35a12a53425c0f2cee1abea526f"
+    },
+    {
+      "source": "/boot/limine.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/boot-limine.conf",
+      "sha256": "061a328a4b9658d3b35f51e4ad533c5c71a7b403219fbe22a26438507396d88a"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf",
+      "sha256": "8730ff014170a3017c3845ccdfca67f09668adc11a4b5678c0541f1b45ef1e6b"
+    },
+    {
+      "source": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/omarchy_linux-omarchy.efi",
+      "sha256": "8daeae499f0e2825601ea2536b623159dcb949c8709dddb7b17023acd327b636"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/omarchy_hooks.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/omarchy_hooks.conf",
+      "sha256": "7cdb671b0c49bcd5627bdf24db9fee3417b065cd984d96068ed2b0a929e3b6bc"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/thunderbolt_module.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/thunderbolt_module.conf",
+      "sha256": "e9bbf75efbe9a659325ce065b054aad8885104c7a958fc4f0ba83af3799d031c"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/omarchy_resume.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/omarchy_resume.conf",
+      "sha256": "aa3fb0d36f320bc187a40c648406c876d103098abd4c6d3d947f69b7044c5d0f"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf.d/nvidia.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z/mkinitcpio.conf.d/nvidia.conf",
+      "sha256": "3df19e2544b78f6138488ea7d229dedf370cc019e82bae971d2039653a114ac1"
+    }
+  ]
+}
++ pacman -U --noconfirm cache/gpu-unlock-src/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst cache/gpu-unlock-src/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst
+loading packages...
+resolving dependencies...
+looking for conflicting packages...
+
+Package (2)          New Version  Net Change
+
+gpu-unlock-dkms      1.0.0-1        0.12 MiB
+gpu-unlock-firmware  1.0.0-1       80.54 MiB
+
+Total Installed Size:  80.66 MiB
+
+:: Proceed with installation? [Y/n] 
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Waiting for limine-snapper-sync to finish...
+:: Processing package changes...
+installing gpu-unlock-firmware...
+installing gpu-unlock-dkms...
+==> gpu_unlock now loads ahead of nvidia on every boot but does nothing until
+==> you opt in on the kernel command line:
+==>   gpu_unlock.targets=all              every unbound RTX 3090
+==>   gpu_unlock.targets=0000:21:00.0     only these PCI addresses (comma-separated)
+==> Remove the option in your bootloader to boot without the unlock.
+==> See /usr/share/doc/gpu-unlock/README.md.
+:: Running post-transaction hooks...
+(1/3) Arming ConditionNeedsUpdate...
+(2/3) Install DKMS modules
+==> dkms install --no-depmod gpu-unlock/1.0.0 -k 7.2.5-3-omarchy
+==> depmod 7.2.5-3-omarchy
+(3/3) Updating linux initcpios...
+Building UKI for linux-omarchy (7.2.5-3-omarchy)
+==> Using drop-in configuration file: 'nvidia.conf'
+==> Using drop-in configuration file: 'omarchy_hooks.conf'
+==> Using drop-in configuration file: 'omarchy_resume.conf'
+==> Using drop-in configuration file: 'thunderbolt_module.conf'
+==> Using drop-in configuration file: 'zz-gpu-unlock.conf'
+==> Starting build: '7.2.5-3-omarchy'
+  -> Running build hook: [base]
+  -> Running build hook: [udev]
+  -> Running build hook: [plymouth]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+  -> Running build hook: [autodetect]
+  -> Running build hook: [microcode]
+  -> Running build hook: [modconf]
+  -> Running build hook: [keymap]
+  -> Running build hook: [consolefont]
+  -> Running build hook: [block]
+  -> Running build hook: [encrypt]
+==> WARNING: Possibly missing firmware for module: 'qat_6xxx'
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+  -> Running build hook: [btrfs-overlayfs]
+  -> Running build hook: [resume]
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image
+  -> Early uncompressed CPIO image generation successful
+==> Initcpio image generation successful
+==> Creating unified kernel image: '/tmp/limine-mkinitcpio.xlfroc/linux-omarchy.efi'
+==> Unified kernel image generation successful
+Copied: /tmp/limine-mkinitcpio.xlfroc/linux-omarchy.efi -> /boot/EFI/Linux/omarchy_linux-omarchy.efi
+Updated: /boot/limine.conf
++ dkms status
+gpu-unlock/1.0.0, 7.2.5-3-omarchy, x86_64: installed
+nvidia/610.57.04, 7.2.5-3-omarchy, x86_64: installed
+++ uname -r
++ modinfo -k 7.2.5-3-omarchy gpu_unlock
+filename:       /lib/modules/7.2.5-3-omarchy/updates/dkms/gpu_unlock.ko.zst
+version:        1.0.0
+description:    Ampere pre-driver BF16 unlock
+license:        GPL
+firmware:       gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin
+firmware:       gpu-unlock/610.43.03/gsp_boot_ga102.bin
+firmware:       gpu-unlock/610.43.03/gsp_ga10x.bin
+firmware:       gpu-unlock/610.43.03/v67-ga102-610.43.03.bin
+firmware:       gpu-unlock/610.43.03/booter_load_ga102.bin
+srcversion:     8C3A0B337AE00088B146BF2
+depends:        
+name:           gpu_unlock
+retpoline:      Y
+vermagic:       7.2.5-3-omarchy SMP preempt mod_unload 
+sig_id:         PKCS#7
+signer:         DKMS module signing key
+sig_key:        77:8A:4F:B0:F6:FC:9E:C4:3C:03:7B:BF:88:22:0E:90:E8:E9:95:3A
+sig_hashalgo:   sha512
+signature:      3C:93:24:2E:40:4A:7D:F7:75:79:63:51:B8:39:2C:E7:2E:B3:CC:3F:
+		19:48:5B:CE:DA:E7:EB:02:FC:28:44:55:4E:91:7B:CD:60:A0:32:23:
+		5D:9E:2E:B9:18:23:D0:8B:99:B4:77:4A:83:B6:F3:12:7F:8F:1C:74:
+		16:60:03:9D:66:6E:DE:86:BD:87:F9:EB:A9:F0:E3:49:83:3D:29:9A:
+		BB:1E:DF:2B:D5:08:5B:59:76:1D:A4:CB:68:E2:6F:BC:D7:39:AD:B2:
+		18:C9:F2:83:F8:9A:96:6B:EB:F8:6B:2E:5D:DA:08:8C:18:E8:75:A6:
+		F4:DC:FE:BB:FC:88:92:D0:BB:56:E8:DC:BB:32:08:44:73:50:16:6D:
+		22:D7:56:48:F8:CF:1E:58:22:13:1C:EF:8D:B6:B1:06:D0:BA:D3:50:
+		1C:5C:83:E6:37:A3:10:DF:43:82:AF:DA:D9:17:92:57:8D:F9:A9:22:
+		7E:4C:3A:D8:A1:FB:C4:61:85:03:C5:75:29:D0:F8:DF:FB:CB:F2:13:
+		FC:B8:DA:27:EF:BC:DF:22:37:CA:C6:18:37:4D:28:04:4C:12:6B:19:
+		5D:F0:6F:7A:61:C0:78:75:49:8B:D3:FE:AA:79:64:35:51:73:F8:19:
+		E7:DA:F1:9F:F4:AA:38:1F:8B:4F:F8:36:4F:E3:B4:AF
+parm:           targets:"all" or comma-separated PCI addresses of GA102/GA103/GA104/GA106 cards to unlock (charp)
+parm:           resume:Unlock the cards again after resume from suspend, which powers them off (default: on) (bool)
++ dkms status -m gpu-unlock -v 1.0.0
+++ uname -r
++ rg ', 7.2.5-3-omarchy, x86_64: installed'
+gpu-unlock/1.0.0, 7.2.5-3-omarchy, x86_64: installed
++ python3 configure_limine.py --targets 0000:0b:00.0,0000:0c:00.0 --apply
+--- /etc/default/limine
++++ /etc/default/limine
+@@ -1,3 +1,5 @@
+ ESP_PATH="/boot"
+ 
+ KERNEL_CMDLINE[default]+="cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs"
++
++KERNEL_CMDLINE[default]+=" gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0"
+Applied. Original configuration backup: /etc/default/limine.before-gpu-unlock
++ limine-mkinitcpio
+Building UKI for linux-omarchy (7.2.5-3-omarchy)
+==> Using drop-in configuration file: 'nvidia.conf'
+==> Using drop-in configuration file: 'omarchy_hooks.conf'
+==> Using drop-in configuration file: 'omarchy_resume.conf'
+==> Using drop-in configuration file: 'thunderbolt_module.conf'
+==> Using drop-in configuration file: 'zz-gpu-unlock.conf'
+==> Starting build: '7.2.5-3-omarchy'
+  -> Running build hook: [base]
+  -> Running build hook: [udev]
+  -> Running build hook: [plymouth]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+  -> Running build hook: [autodetect]
+  -> Running build hook: [microcode]
+  -> Running build hook: [modconf]
+  -> Running build hook: [keymap]
+  -> Running build hook: [consolefont]
+  -> Running build hook: [block]
+  -> Running build hook: [encrypt]
+==> WARNING: Possibly missing firmware for module: 'qat_6xxx'
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+  -> Running build hook: [btrfs-overlayfs]
+  -> Running build hook: [resume]
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image
+  -> Early uncompressed CPIO image generation successful
+==> Initcpio image generation successful
+==> Creating unified kernel image: '/tmp/limine-mkinitcpio.TdBHUx/linux-omarchy.efi'
+==> Unified kernel image generation successful
+Copied: /tmp/limine-mkinitcpio.TdBHUx/linux-omarchy.efi -> /boot/EFI/Linux/omarchy_linux-omarchy.efi
+Updated: /boot/limine.conf
+++ cat cache/dual-backup-path
++ python3 verify_boot_images.py --baseline /home/vesanieminen/.local/state/gpu-unlock/backups/20261025T174628Z --targets 0000:0b:00.0,0000:0c:00.0 --output systems/dual-rtx3090/installation/boot-images.json
+{
+  "status": "prepared; reboot verification pending",
+  "images": [
+    {
+      "image": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "sha256": "31ba0741351b0cdeaf05cb0aea1500372f24dedd21c2f8cfb4a5a1c3fed51129",
+      "baseline_sha256": "8daeae499f0e2825601ea2536b623159dcb949c8709dddb7b17023acd327b636",
+      "baseline_cmdline": "cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "prepared_cmdline": "gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0 cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "module_order": [
+        "gpu_unlock",
+        "nvidia",
+        "nvidia_modeset",
+        "nvidia_uvm",
+        "nvidia_drm",
+        "thunderbolt"
+      ],
+      "module_files": [
+        "usr/lib/modules/7.2.5-3-omarchy/updates/dkms/gpu_unlock.ko.zst"
+      ],
+      "firmware_files": [
+        "usr/lib/firmware/gpu-unlock/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_ga10x.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/v67-ga102-610.43.03.bin"
+      ],
+      "checks": {
+        "target_present_once": true,
+        "other_kernel_options_preserved": true,
+        "unlock_loads_before_nvidia": true,
+        "module_in_image": true,
+        "all_firmware_in_image": true
+      }
+    }
+  ]
+}
++ pacman -Q gpu-unlock-dkms gpu-unlock-firmware
+gpu-unlock-dkms 1.0.0-1
+gpu-unlock-firmware 1.0.0-1
++ chown 1000:1000 systems/dual-rtx3090/installation/backup-manifest.json systems/dual-rtx3090/installation/boot-images.json
++ echo 'Installation and boot-image validation complete; reboot not performed.'
+Installation and boot-image validation complete; reboot not performed.

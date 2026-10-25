@@ -1,0 +1,48 @@
++ set -euo pipefail
+++ dirname -- run.sh
++ cd -- .
++ action=torch
++ label=baseline-gpu0
++ system=dual-rtx3090
++ [[ ! baseline-gpu0 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ ! dual-rtx3090 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ torch != help ]]
++ [[ 1 != 1 ]]
++ mkdir -p cache model
++ [[ ! -f image.lock ]]
+++ cat image.lock
++ image=vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1
++ common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g -v "$PWD:/bench" -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1)
+++ id -u
+++ id -g
++ case "$action" in
+++ date -u +%Y%m%dT%H%M%S.%NZ
++ out=systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z
++ mkdir -p systems/dual-rtx3090/results
++ mkdir systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z
++ nvidia-smi -q
++ cat /proc/cmdline
++ uname -a
++ cp image.lock systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z/
++ sha256sum run.sh record.py torch_bench.py vllm_bench.py download.py
++ mkdir systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z/source
++ cp run.sh record.py torch_bench.py vllm_bench.py download.py systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z/source/
++ [[ ! -f model.lock.json ]]
++ cp model.lock.json systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z/
++ monitor=35551
++ trap finish EXIT
++ nvidia-smi --query-gpu=timestamp,name,pstate,temperature.gpu,power.draw,power.limit,clocks.sm,clocks.mem,utilization.gpu,memory.used --format=csv -l 1
++ docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/code/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1 --network none --device nvidia.com/gpu=all -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e BENCH_TP=1 -e BENCH_GPU=0 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 torch_bench.py --output /bench/systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z/result.json
++ tee systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z/run.log
+{"precision": "BF16", "median_tflops": 71.76900798605568, "samples_tflops": [72.08904793132133, 72.31100651403625, 71.53566979113182, 71.37058082688831, 71.76900798605568], "finite": true, "parity_sha256": "65572ca61b1188d090b4c87f7de6229aed8f0bca756a3347944686484e4d263f"}
+{"precision": "FP16", "median_tflops": 70.29332712599047, "samples_tflops": [70.34103640379307, 70.7185135256548, 70.29332712599047, 69.88387565321973, 69.98042389889316], "finite": true, "parity_sha256": "56b4d55b487fc11dbc134ab1ec6366fea014bd85a28e4066667964a2f20d2c5c"}
+{"precision": "TF32", "median_tflops": 38.436269682485076, "samples_tflops": [38.41286866493176, 38.483880813528735, 38.44496790849229, 38.436269682485076, 38.41360914013416], "finite": true, "parity_sha256": "80da2ad33edd18c441d04164b2928792a30e0c6da1b7c7732dd4e2f649746425"}
++ echo 'Saved: /home/vesanieminen/code/gpu-unlock-benchmarks/systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z'
+Saved: /home/vesanieminen/code/gpu-unlock-benchmarks/systems/dual-rtx3090/results/baseline-gpu0-torch-20261025T170547.636586110Z
++ finish
++ status=0
++ trap - EXIT
++ kill 35551
++ printf '{"exit_code": %d}\n' 0
++ nvidia-smi -q
++ exit 0

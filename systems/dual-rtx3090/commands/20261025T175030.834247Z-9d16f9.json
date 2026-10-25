@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "activation-verification",
+  "started_utc": "2026-10-25T17:50:30.834247+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "import json,subprocess\nfrom pathlib import Path\ntargets=[\"0000:0b:00.0\",\"0000:0c:00.0\"]\nlogs=subprocess.check_output([\"journalctl\",\"-k\",\"-b\",\"--no-pager\"],text=True)\ngpu=subprocess.check_output([\"nvidia-smi\",\"--query-gpu=pci.bus_id,name,driver_version,power.limit\",\"--format=csv,noheader\"],text=True)\ncmdline=Path(\"/proc/cmdline\").read_text().strip()\nreport={\"boot_id\":Path(\"/proc/sys/kernel/random/boot_id\").read_text().strip(),\"kernel\":subprocess.check_output([\"uname\",\"-r\"],text=True).strip(),\"kernel_cmdline\":cmdline,\"unlocked_messages\":[line for line in logs.splitlines() if any(f\"pci {t}: gpu_unlock: unlocked\" in line for t in targets)],\"xid_messages\":[line for line in logs.splitlines() if \"NVRM\" in line and \"Xid\" in line],\"gpu_state_csv\":gpu,\"drivers\":{t:(Path(\"/sys/bus/pci/devices\")/t/\"driver\").resolve().name for t in targets}}\nassert all(any(f\"pci {t}: gpu_unlock: unlocked\" in line for line in report[\"unlocked_messages\"]) for t in targets)\nassert all(v==\"nvidia\" for v in report[\"drivers\"].values())\nassert not report[\"xid_messages\"]\nassert \"gpu_unlock.targets=\"+\",\".join(targets) in cmdline.split()\np=Path(\"systems/dual-rtx3090/installation/activation.json\")\np.write_text(json.dumps(report,indent=2)+\"\\n\")\nprint(json.dumps(report,indent=2))\n"
+  ],
+  "command": "python3 -c 'import json,subprocess\nfrom pathlib import Path\ntargets=[\"0000:0b:00.0\",\"0000:0c:00.0\"]\nlogs=subprocess.check_output([\"journalctl\",\"-k\",\"-b\",\"--no-pager\"],text=True)\ngpu=subprocess.check_output([\"nvidia-smi\",\"--query-gpu=pci.bus_id,name,driver_version,power.limit\",\"--format=csv,noheader\"],text=True)\ncmdline=Path(\"/proc/cmdline\").read_text().strip()\nreport={\"boot_id\":Path(\"/proc/sys/kernel/random/boot_id\").read_text().strip(),\"kernel\":subprocess.check_output([\"uname\",\"-r\"],text=True).strip(),\"kernel_cmdline\":cmdline,\"unlocked_messages\":[line for line in logs.splitlines() if any(f\"pci {t}: gpu_unlock: unlocked\" in line for t in targets)],\"xid_messages\":[line for line in logs.splitlines() if \"NVRM\" in line and \"Xid\" in line],\"gpu_state_csv\":gpu,\"drivers\":{t:(Path(\"/sys/bus/pci/devices\")/t/\"driver\").resolve().name for t in targets}}\nassert all(any(f\"pci {t}: gpu_unlock: unlocked\" in line for line in report[\"unlocked_messages\"]) for t in targets)\nassert all(v==\"nvidia\" for v in report[\"drivers\"].values())\nassert not report[\"xid_messages\"]\nassert \"gpu_unlock.targets=\"+\",\".join(targets) in cmdline.split()\np=Path(\"systems/dual-rtx3090/installation/activation.json\")\np.write_text(json.dumps(report,indent=2)+\"\\n\")\nprint(json.dumps(report,indent=2))\n'",
+  "output": "20261025T175030.834247Z-9d16f9.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.179326195999991,
+  "ended_utc": "2026-10-25T17:50:31.017211+00:00"
+}

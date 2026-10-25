@@ -1,0 +1,3 @@
+('2026-10-25T17:01:31.159490Z', 'Concurrency control for download: Current concurrency = 1; predicted bandwidth = 41422; success_ratio = 1.000; reference_size = 61.0MB; observed bytes sent so far = 2552370705; completed transmissions = 111')
+('2026-10-25T17:01:41.204659Z', 'Concurrency control for download: Current concurrency = 1; predicted bandwidth = 127893; success_ratio = 1.000; reference_size = 61.0MB; observed bytes sent so far = 2655058862; completed transmissions = 120')
+Model bytes: 3031471526

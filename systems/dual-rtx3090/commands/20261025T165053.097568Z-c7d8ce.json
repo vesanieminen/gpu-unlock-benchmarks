@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "journal-correction",
+  "started_utc": "2026-10-25T16:50:53.097568+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "import json,pathlib,record; old=pathlib.Path(\"systems/rtx3080/commands/20261025T165018.365869Z-3d4906.json\"); data=json.loads(old.read_text()); data[\"original_system_label\"]=\"rtx3080\"; data[\"system\"]=\"dual-rtx3090\"; data[\"correction_note\"]=\"Initial inspection was labeled rtx3080 before discovering this host is ai-box with two RTX 3090 GPUs. Original argv and transcript retained.\"; new=pathlib.Path(\"systems/dual-rtx3090/commands\")/old.name; new.write_text(json.dumps(data,indent=2)+\"\\n\"); old.with_suffix(\".log\").rename(new.with_suffix(\".log\")); old.unlink(); record.render_journal(old.parent); record.render_journal(new.parent)"
+  ],
+  "command": "python3 -c 'import json,pathlib,record; old=pathlib.Path(\"systems/rtx3080/commands/20261025T165018.365869Z-3d4906.json\"); data=json.loads(old.read_text()); data[\"original_system_label\"]=\"rtx3080\"; data[\"system\"]=\"dual-rtx3090\"; data[\"correction_note\"]=\"Initial inspection was labeled rtx3080 before discovering this host is ai-box with two RTX 3090 GPUs. Original argv and transcript retained.\"; new=pathlib.Path(\"systems/dual-rtx3090/commands\")/old.name; new.write_text(json.dumps(data,indent=2)+\"\\n\"); old.with_suffix(\".log\").rename(new.with_suffix(\".log\")); old.unlink(); record.render_journal(old.parent); record.render_journal(new.parent)'",
+  "output": "20261025T165053.097568Z-c7d8ce.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.02789792700059479,
+  "ended_utc": "2026-10-25T16:50:53.127205+00:00"
+}

@@ -1,0 +1,12 @@
+Total log entries: 845
+Levels: {'INFO': 845, 'WARN': 0, 'ERROR': 0}
+2026-10-25T17:00:11.045466Z INFO Concurrency control for download: Current concurrency = 21; predicted bandwidth = 65110; success_ratio = 1.000; reference_size = 51.9MB; observed bytes sent so far = 1657743832; completed transmissions = 78
+2026-10-25T17:00:11.423988Z INFO Concurrency control for download: Decreased concurrency from 21 to 20; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:11.925591Z INFO Concurrency control for download: Decreased concurrency from 20 to 19; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:12.434461Z INFO Concurrency control for download: Decreased concurrency from 19 to 18; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:12.937740Z INFO Concurrency control for download: Decreased concurrency from 18 to 17; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:13.475502Z INFO Concurrency control for download: Decreased concurrency from 17 to 16; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:13.975569Z INFO Concurrency control for download: Decreased concurrency from 16 to 15; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:14.495097Z INFO Concurrency control for download: Decreased concurrency from 15 to 14; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:15.001349Z INFO Concurrency control for download: Decreased concurrency from 14 to 13; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)
+2026-10-25T17:00:15.516732Z INFO Concurrency control for download: Decreased concurrency from 13 to 12; reason: success ratio below threshold (connection struggling) (success_ratio = 1.000, threshold = 0.500)

@@ -1,0 +1,9 @@
++ pgrep -a -f '[p]olkit.*agent|[h]yprpolkit|[l]xqt-policykit'
+22966 python3 record.py --system dual-rtx3090 --phase authentication-inspection -- bash -x -c pgrep -a -f "[p]olkit.*agent|[h]yprpolkit|[l]xqt-policykit"; command -v hyprpolkitagent; ls /usr/lib/polkit-gnome /usr/lib/hyprpolkitagent /usr/lib/polkit-kde-authentication-agent-1 2>/dev/null; test -n "$WAYLAND_DISPLAY" && echo Wayland-session-present; test -n "$DBUS_SESSION_BUS_ADDRESS" && echo Dbus-session-present
+22968 bash -x -c pgrep -a -f "[p]olkit.*agent|[h]yprpolkit|[l]xqt-policykit"; command -v hyprpolkitagent; ls /usr/lib/polkit-gnome /usr/lib/hyprpolkitagent /usr/lib/polkit-kde-authentication-agent-1 2>/dev/null; test -n "$WAYLAND_DISPLAY" && echo Wayland-session-present; test -n "$DBUS_SESSION_BUS_ADDRESS" && echo Dbus-session-present
++ command -v hyprpolkitagent
++ ls /usr/lib/polkit-gnome /usr/lib/hyprpolkitagent /usr/lib/polkit-kde-authentication-agent-1
++ test -n ''
++ test -n unix:path=/run/user/1000/bus
++ echo Dbus-session-present
+Dbus-session-present

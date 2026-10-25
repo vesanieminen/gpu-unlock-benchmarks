@@ -1,0 +1,22 @@
++ set -euo pipefail
+++ dirname -- run.sh
++ cd -- .
++ action=download
++ label=baseline
++ system=dual-rtx3090
++ [[ ! baseline =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ ! dual-rtx3090 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ download != help ]]
++ [[ 1 != 1 ]]
++ mkdir -p cache model
++ [[ ! -f image.lock ]]
+++ cat image.lock
++ image=vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1
++ common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g -v "$PWD:/bench" -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1)
+++ id -u
+++ id -g
++ case "$action" in
++ docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/code/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 download.py
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 9 files:  11%|█         | 1/9 [00:00<00:01,  6.00it/s]Fetching 9 files:  33%|███▎      | 3/9 [00:00<00:00,  6.60it/s]Fetching 9 files:  44%|████▍     | 4/9 [08:10<14:08, 169.70s/it]Fetching 9 files:  56%|█████▌    | 5/9 [08:10<07:34, 113.65s/it]Fetching 9 files:  67%|██████▋   | 6/9 [08:11<03:52, 77.50s/it] Fetching 9 files:  78%|███████▊  | 7/9 [08:12<01:46, 53.19s/it]Fetching 9 files:  89%|████████▉ | 8/9 [08:12<00:36, 36.95s/it]Fetching 9 files: 100%|██████████| 9/9 [08:16<00:00, 26.84s/it]Fetching 9 files: 100%|██████████| 9/9 [08:16<00:00, 55.20s/it]
+Original BF16 model ready: {'repo': 'Qwen/Qwen2.5-3B-Instruct', 'revision': 'aa8e72537993ba99e69dfaafa59ed015b17504d1'}

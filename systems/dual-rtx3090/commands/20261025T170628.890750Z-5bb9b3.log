@@ -1,0 +1,11 @@
++ nvidia-smi --query-gpu=index,utilization.gpu,memory.used --format=csv
+index, utilization.gpu [%], memory.used [MiB]
+0, 0 %, 431 MiB
+1, 0 %, 2 MiB
++ ps -eo pid,ppid,comm
++ rg 'pkexec|torch_bench|python3|docker'
+   1135       1 dockerd
+   1511       1 python3
+  35523   27426 python3
+  35552   35526 pkexec
+  35978   22085 python3

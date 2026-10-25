@@ -1,0 +1,16 @@
++ git -C cache/gpu-unlock-src/packaging/arch/src/gpu-unlock rev-parse HEAD
+af28cbbfd3d922a659227ecfb7369adfd924cf03
++ sha256sum cache/gpu-unlock-src/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst cache/gpu-unlock-src/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst cache/gpu-unlock-src/packaging/arch/nvidia-utils-610.43.03-1-x86_64_v3.pkg.tar.zst
+b59cbfd9166caa7731331934225e7e225bd3507c46ab8d51a2b976135dedac42  cache/gpu-unlock-src/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst
+99f5c909f46683043b6f496cb942ea81bdf40c388a4b1d1c4c837a84da7372fa  cache/gpu-unlock-src/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst
+e17e7c92eeffa178b0fe1f40eb17a47095f8fc3ce4a77bf115cf5bd5a4df86e9  cache/gpu-unlock-src/packaging/arch/nvidia-utils-610.43.03-1-x86_64_v3.pkg.tar.zst
++ python3 configure_limine.py --targets 0000:0b:00.0,0000:0c:00.0
+--- /etc/default/limine
++++ /etc/default/limine
+@@ -1,3 +1,5 @@
+ ESP_PATH="/boot"
+ 
+ KERNEL_CMDLINE[default]+="cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs"
++
++KERNEL_CMDLINE[default]+=" gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0"
+Preview only; configuration unchanged.

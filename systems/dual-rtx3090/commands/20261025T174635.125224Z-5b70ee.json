@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "installation-preflight",
+  "started_utc": "2026-10-25T17:46:35.125224+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "bash -n cache/dual-install-root.sh; python3 -m py_compile cache/dual-backup.py cache/dual-baseline-guard.py; python3 cache/dual-baseline-guard.py; cat cache/gpu-unlock-src/kernel/gpu_unlock/dkms.conf; hyprctl instances -j"
+  ],
+  "command": "bash -x -c 'bash -n cache/dual-install-root.sh; python3 -m py_compile cache/dual-backup.py cache/dual-baseline-guard.py; python3 cache/dual-baseline-guard.py; cat cache/gpu-unlock-src/kernel/gpu_unlock/dkms.conf; hyprctl instances -j'",
+  "output": "20261025T174635.125224Z-5b70ee.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.056577403000119375,
+  "ended_utc": "2026-10-25T17:46:35.185020+00:00"
+}

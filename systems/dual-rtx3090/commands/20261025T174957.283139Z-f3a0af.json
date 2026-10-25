@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "unlocked-preparation",
+  "started_utc": "2026-10-25T17:49:57.283139+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nPath(\"cache/dual-unlocked.sh\").write_text(\"\"\"#!/usr/bin/env bash\nset -euo pipefail\ncd /home/vesanieminen/code/gpu-unlock-benchmarks\nexport PATH=\"$PWD/cache/docker-pkexec-bin:$PATH\"\nexport BENCH_SYSTEM=dual-rtx3090\npython3 record.py --system dual-rtx3090 --phase workload-stop -- pkexec systemctl stop llama-swap.service\npython3 record.py --system dual-rtx3090 --phase unlocked-readiness -- bash -x -c 'set -e; test \"$(systemctl is-active llama-swap.service)\" = inactive; test -z \"$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)\"; nvidia-smi; journalctl -k -b --no-pager --grep=\"pci .*gpu_unlock: unlocked\"'\nBENCH_GPU=0 bash run.sh torch unlocked-gpu0\nBENCH_GPU=1 bash run.sh torch unlocked-gpu1\nBENCH_TP=2 bash run.sh vllm unlocked\n\"\"\")\nprint(\"Prepared matching unlocked sequence\")\n"
+  ],
+  "command": "python3 -c 'from pathlib import Path\nPath(\"cache/dual-unlocked.sh\").write_text(\"\"\"#!/usr/bin/env bash\nset -euo pipefail\ncd /home/vesanieminen/code/gpu-unlock-benchmarks\nexport PATH=\"$PWD/cache/docker-pkexec-bin:$PATH\"\nexport BENCH_SYSTEM=dual-rtx3090\npython3 record.py --system dual-rtx3090 --phase workload-stop -- pkexec systemctl stop llama-swap.service\npython3 record.py --system dual-rtx3090 --phase unlocked-readiness -- bash -x -c '\"'\"'set -e; test \"$(systemctl is-active llama-swap.service)\" = inactive; test -z \"$(nvidia-smi --query-compute-apps=pid --format=csv,noheader)\"; nvidia-smi; journalctl -k -b --no-pager --grep=\"pci .*gpu_unlock: unlocked\"'\"'\"'\nBENCH_GPU=0 bash run.sh torch unlocked-gpu0\nBENCH_GPU=1 bash run.sh torch unlocked-gpu1\nBENCH_TP=2 bash run.sh vllm unlocked\n\"\"\")\nprint(\"Prepared matching unlocked sequence\")\n'",
+  "output": "20261025T174957.283139Z-f3a0af.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.08252312400000505,
+  "ended_utc": "2026-10-25T17:49:57.371985+00:00"
+}

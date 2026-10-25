@@ -1,0 +1,15 @@
+{
+  "boot_id": "19d4a254-5f2a-418d-8152-1d8da31f871c",
+  "kernel": "7.2.5-3-omarchy",
+  "kernel_cmdline": "gpu_unlock.targets=0000:0b:00.0,0000:0c:00.0 cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs resume=/dev/mapper/root resume_offset=1919023 initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+  "unlocked_messages": [
+    "Oct 25 19:48:51 ai-box kernel: pci 0000:0c:00.0: gpu_unlock: unlocked",
+    "Oct 25 19:48:51 ai-box kernel: pci 0000:0b:00.0: gpu_unlock: unlocked"
+  ],
+  "xid_messages": [],
+  "gpu_state_csv": "00000000:0B:00.0, NVIDIA GeForce RTX 3090, 610.57.04, 350.00 W\n00000000:0C:00.0, NVIDIA GeForce RTX 3090, 610.57.04, 350.00 W\n",
+  "drivers": {
+    "0000:0b:00.0": "nvidia",
+    "0000:0c:00.0": "nvidia"
+  }
+}

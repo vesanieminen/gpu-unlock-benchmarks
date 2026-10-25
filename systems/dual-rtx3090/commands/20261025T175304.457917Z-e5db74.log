@@ -1,0 +1,87 @@
+{
+  "checks": {
+    "torch-gpu0": {
+      "same_runtime_metadata": true,
+      "same_all_script_hashes": true,
+      "all_output_hashes_match": true,
+      "telemetry": {
+        "stock": {
+          "rows": 4544,
+          "power_limits_w": [
+            350.0
+          ],
+          "max_temperature_c": 55.0,
+          "high_utilization_samples": 17,
+          "high_utilization_median_power_w": 346.58,
+          "high_utilization_median_sm_mhz": 1860.0
+        },
+        "unlocked": {
+          "rows": 56,
+          "power_limits_w": [
+            350.0
+          ],
+          "max_temperature_c": 56.0,
+          "high_utilization_samples": 12,
+          "high_utilization_median_power_w": 348.65,
+          "high_utilization_median_sm_mhz": 1447.5
+        }
+      }
+    },
+    "torch-gpu1": {
+      "same_runtime_metadata": true,
+      "same_all_script_hashes": true,
+      "all_output_hashes_match": true,
+      "telemetry": {
+        "stock": {
+          "rows": 60,
+          "power_limits_w": [
+            350.0
+          ],
+          "max_temperature_c": 54.0,
+          "high_utilization_samples": 16,
+          "high_utilization_median_power_w": 348.87,
+          "high_utilization_median_sm_mhz": 1792.5
+        },
+        "unlocked": {
+          "rows": 48,
+          "power_limits_w": [
+            350.0
+          ],
+          "max_temperature_c": 57.0,
+          "high_utilization_samples": 10,
+          "high_utilization_median_power_w": 348.96000000000004,
+          "high_utilization_median_sm_mhz": 1507.5
+        }
+      }
+    },
+    "vllm": {
+      "same_runtime_metadata": true,
+      "same_all_script_hashes": true,
+      "all_output_hashes_match": true,
+      "telemetry": {
+        "stock": {
+          "rows": 180,
+          "power_limits_w": [
+            350.0
+          ],
+          "max_temperature_c": 53.0,
+          "high_utilization_samples": 22,
+          "high_utilization_median_power_w": 295.57500000000005,
+          "high_utilization_median_sm_mhz": 1957.5
+        },
+        "unlocked": {
+          "rows": 116,
+          "power_limits_w": [
+            350.0
+          ],
+          "max_temperature_c": 55.0,
+          "high_utilization_samples": 19,
+          "high_utilization_median_power_w": 314.35,
+          "high_utilization_median_sm_mhz": 1965.0
+        }
+      }
+    }
+  },
+  "post_benchmark_xid_messages": [],
+  "telemetry_note": "Both cards are in each CSV; aggregates pool card samples. Utilization >=90% excludes most idle authentication time but includes initialization. Short sequential runs have different initial thermal conditions."
+}

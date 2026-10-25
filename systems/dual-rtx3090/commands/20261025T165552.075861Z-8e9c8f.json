@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "desktop-inspection",
+  "started_utc": "2026-10-25T16:55:52.075861+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "hyprctl instances -j; ps -u \"$(id -un)\" -o pid,comm | rg -i \"shell|quickshell\"; omarchy restart shell --help"
+  ],
+  "command": "bash -x -c 'hyprctl instances -j; ps -u \"$(id -un)\" -o pid,comm | rg -i \"shell|quickshell\"; omarchy restart shell --help'",
+  "output": "20261025T165552.075861Z-8e9c8f.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.02580241799932992,
+  "ended_utc": "2026-10-25T16:55:52.103827+00:00"
+}

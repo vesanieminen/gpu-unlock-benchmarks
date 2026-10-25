@@ -1,0 +1,19 @@
++ cd cache/gpu-unlock-src
++ make arch
+cd packaging/arch && makepkg -f
+==> Making package: gpu-unlock 1.0.0-1 (Sun Oct 25 19:06:52 2026)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Retrieving sources...
+  -> Cloning gpu-unlock git repo...
+Cloning into bare repository '/home/vesanieminen/code/gpu-unlock-benchmarks/cache/gpu-unlock-src/packaging/arch/gpu-unlock'...
+remote: warning: lazy fetching disabled; some objects may not be available        
+remote: fatal: could not fetch ca57e86aa829a8f08983c19114a96cfff433d9d2 from promisor remote        
+error: git upload-pack: git-pack-objects died with error.
+fatal: git upload-pack: aborting due to possible repository corruption on the remote side.
+remote: aborting due to possible repository corruption on the remote side.
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+==> ERROR: Failure while downloading gpu-unlock git repo
+    Aborting...
+make: *** [Makefile:116: arch] Error 1

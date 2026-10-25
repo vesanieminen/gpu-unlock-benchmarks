@@ -1,0 +1,195 @@
++ pacman -Q linux-omarchy linux-omarchy-headers linux linux-headers dkms nvidia-open-dkms mkinitcpio limine gpu-unlock-dkms gpu-unlock-firmware
+error: package 'linux' was not found
+error: package 'linux-headers' was not found
+error: package 'gpu-unlock-dkms' was not found
+error: package 'gpu-unlock-firmware' was not found
+linux-omarchy 7.2.5-3
+linux-omarchy-headers 7.2.5-3
+dkms 3.4.3-2
+nvidia-open-dkms 610.57.04-1
+mkinitcpio 41.1-1
+limine 12.8.0-1
++ dkms status
+nvidia/610.57.04, 7.2.5-3-omarchy, x86_64: installed
++ cat /etc/mkinitcpio.conf
+# vim:set ft=sh:
+# MODULES
+# The following modules are loaded before any boot hooks are
+# run.  Advanced users may wish to specify all system modules
+# in this array.  For instance:
+#     MODULES=(usbhid xhci_hcd)
+MODULES=()
+
+# BINARIES
+# This setting includes any additional binaries a given user may
+# wish into the CPIO image.  This is run last, so it may be used to
+# override the actual binaries included by a given hook
+# BINARIES are dependency parsed, so you may safely ignore libraries
+BINARIES=()
+
+# FILES
+# This setting is similar to BINARIES above, however, files are added
+# as-is and are not parsed in any way.  This is useful for config files.
+FILES=()
+
+# HOOKS
+# This is the most important setting in this file.  The HOOKS control the
+# modules and scripts added to the image, and what happens at boot time.
+# Order is important, and it is recommended that you do not change the
+# order in which HOOKS are added.  Run 'mkinitcpio -H <hook name>' for
+# help on a given hook.
+# 'base' is _required_ unless you know precisely what you are doing.
+# 'udev' is _required_ in order to automatically load modules
+# 'filesystems' is _required_ unless you specify your fs modules in MODULES
+# Examples:
+##   This setup specifies all modules in the MODULES setting above.
+##   No RAID, lvm2, or encrypted root is needed.
+#    HOOKS=(base)
+#
+##   This setup will autodetect all modules for your system and should
+##   work as a sane default
+#    HOOKS=(base udev autodetect microcode modconf block filesystems fsck)
+#
+##   This setup will generate a 'full' image which supports most systems.
+##   No autodetection is done.
+#    HOOKS=(base udev microcode modconf block filesystems fsck)
+#
+##   This setup assembles a mdadm array with an encrypted root file system.
+##   Note: See 'mkinitcpio -H mdadm_udev' for more information on RAID devices.
+#    HOOKS=(base udev microcode modconf keyboard keymap consolefont block mdadm_udev encrypt filesystems fsck)
+#
+##   This setup loads an lvm2 volume group.
+#    HOOKS=(base udev microcode modconf block lvm2 filesystems fsck)
+#
+##   This will create a systemd based initramfs which loads an encrypted root filesystem.
+#    HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
+#
+##   NOTE: If you have /usr on a separate partition, you MUST include the
+#    usr and fsck hooks.
+HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block filesystems fsck)
+
+# COMPRESSION
+# Use this to compress the initramfs image. By default, zstd compression
+# is used for Linux ≥ 5.9 and gzip compression is used for Linux < 5.9.
+# Use 'cat' to create an uncompressed image.
+#COMPRESSION="zstd"
+#COMPRESSION="gzip"
+#COMPRESSION="bzip2"
+#COMPRESSION="lzma"
+#COMPRESSION="xz"
+#COMPRESSION="lzop"
+#COMPRESSION="lz4"
+
+# COMPRESSION_OPTIONS
+# Additional options for the compressor
+#COMPRESSION_OPTIONS=()
+
+# MODULES_DECOMPRESS
+# Decompress loadable kernel modules and their firmware during initramfs
+# creation. Switch (yes/no).
+# Enable to allow further decreasing image size when using high compression
+# (e.g. xz -9e or zstd --long --ultra -22) at the expense of increased RAM usage
+# at early boot.
+# Note that any compressed files will be placed in the uncompressed early CPIO
+# to avoid double compression.
+#MODULES_DECOMPRESS="no"
++ ls /etc/mkinitcpio.conf.d
+nvidia.conf
+omarchy_hooks.conf
+omarchy_resume.conf
+thunderbolt_module.conf
++ cat /etc/default/limine
+ESP_PATH="/boot"
+
+KERNEL_CMDLINE[default]+="cryptdevice=PARTUUID=ff476961-5449-41c8-b3bf-43d06e077b2d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs"
++ bootctl status --no-pager
+Failed to read "/boot/EFI/systemd": Permission denied
+Failed to open '/boot/loader/loader.conf': Permission denied
+System:
+      Firmware: UEFI 2.70 (American Megatrends 5.17)
+ Firmware Arch: x64
+   Secure Boot: disabled
+  TPM2 Support: no
+  Measured UKI: no
+   Measured OS: no
+  Boot into FW: supported
+ Platform Lang: en_US.UTF-8
+
+Current Boot Loader:
+        Product: Limine 12.8.0
+       Features: ✗ Boot counting
+                 ✓ Menu timeout control
+                 ✓ One-shot menu timeout control
+                 ✓ Default entry control
+                 ✓ One-shot entry control
+                 ✗ Support for XBOOTLDR partition
+                 ✗ Support for passing random seed to OS
+                 ✗ Load drop-in drivers
+                 ✗ Support Type #1 sort-key field
+                 ✗ Support @saved pseudo-entry
+                 ✗ Support Type #1 devicetree field
+                 ✗ Enroll SecureBoot keys
+                 ✗ Retain SHIM protocols
+                 ✓ Menu can be disabled
+                 ✗ Multi-Profile UKIs are supported
+                 ✗ Loader reports network boot URL
+                 ✗ Support Type #1 uki field
+                 ✗ Support Type #1 uki-url field
+                 ✗ Loader reports active TPM2 PCR banks
+                 ✗ Loader reports firmware keyboard layout
+                 ✗ Loader measures SMBIOS information
+      Partition: /dev/disk/by-partuuid/c76675f8-aa0c-4124-80eb-4f39b40ce7d9
+         Loader: └─/boot/EFI/Linux/omarchy_linux-omarchy.efi
+  Current Entry: Omarchy.linux-omarchy
+
+Current Stub:
+        Product: systemd-stub 261.2-1-arch
+       Features: ✓ Stub reports loader partition information
+                 ✓ Stub reports stub partition information
+                 ✓ Stub reports network boot URL
+                 ✓ Picks up credentials from boot partition
+                 ✓ Picks up system extension images from boot partition
+                 ✓ Picks up configuration extension images from boot partition
+                 ✓ Measures kernel+command line+sysexts
+                 ✓ Support for passing random seed to OS
+                 ✓ Pick up .cmdline from addons
+                 ✓ Pick up .cmdline from SMBIOS Type 11
+                 ✓ Pick up .dtb from addons
+                 ✓ Stub understands profile selector
+                 ✓ Stub measures SMBIOS information
+      Partition: /dev/disk/by-partuuid/c76675f8-aa0c-4124-80eb-4f39b40ce7d9
+           Stub: └─EFI/Linux/omarchy_linux-omarchy.efi
+
+Random Seed:
+ System Token: set
+       Exists: Can't access /boot/loader/random-seed (Permission denied)
+
+Available Boot Loaders on ESP:
+          ESP: /boot (/dev/disk/by-partuuid/c76675f8-aa0c-4124-80eb-4f39b40ce7d9)
+         File: (can't access /boot: Permission denied)
+
+Boot Loaders Listed in EFI Variables:
+        Title: Limine
+           ID: 0x0000
+       Status: active, boot-order
+    Partition: /dev/disk/by-partuuid/c76675f8-aa0c-4124-80eb-4f39b40ce7d9
+         File: └─/boot//EFI/LIMINE/LIMINE_X64.EFI
+
+        Title: UEFI OS
+           ID: 0x0001
+       Status: active, boot-order
+    Partition: /dev/disk/by-partuuid/c76675f8-aa0c-4124-80eb-4f39b40ce7d9
+         File: └─/boot//EFI/BOOT/BOOTX64.EFI
+
++ command -v git make gcc zstd
+/usr/bin/git
+/usr/bin/make
+/usr/bin/gcc
+/usr/bin/zstd
++ ls -ld /usr/lib/modules/7.2.5-3-omarchy/build
+drwxr-xr-x 1 root root 466 Oct 10 17:05 /usr/lib/modules/7.2.5-3-omarchy/build
++ ls -l /boot
+ls: cannot open directory '/boot': Permission denied
++ test '!' -e /sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c
++ od -An -t u1 /sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c
+   6   0   0   0   0

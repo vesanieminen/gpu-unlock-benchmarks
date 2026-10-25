@@ -1,0 +1,21 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "baseline",
+  "started_utc": "2026-10-25T16:57:25.174084+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "env",
+    "GPU_BENCH_RECORDED=1",
+    "bash",
+    "-x",
+    "run.sh",
+    "download"
+  ],
+  "command": "env GPU_BENCH_RECORDED=1 bash -x run.sh download",
+  "output": "20261025T165725.174084Z-ebe948.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 502.4078125779997,
+  "ended_utc": "2026-10-25T17:05:47.584508+00:00"
+}

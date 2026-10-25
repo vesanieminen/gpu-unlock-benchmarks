@@ -1,0 +1,21 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "comparison",
+  "started_utc": "2026-10-25T17:51:37.588613+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "compare_results.py",
+    "systems/dual-rtx3090/results/baseline-gpu1-torch-20261025T174345.952612565Z",
+    "systems/dual-rtx3090/results/unlocked-gpu1-torch-20261025T175059.608988719Z",
+    "--output",
+    "systems/dual-rtx3090/comparison/torch-gpu1.json"
+  ],
+  "command": "python3 compare_results.py systems/dual-rtx3090/results/baseline-gpu1-torch-20261025T174345.952612565Z systems/dual-rtx3090/results/unlocked-gpu1-torch-20261025T175059.608988719Z --output systems/dual-rtx3090/comparison/torch-gpu1.json",
+  "output": "20261025T175137.588613Z-d2bb95.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.03532119799999123,
+  "ended_utc": "2026-10-25T17:51:37.627713+00:00"
+}

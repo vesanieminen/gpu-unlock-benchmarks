@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "dual-rtx3090",
+  "phase": "baseline-review",
+  "started_utc": "2026-10-25T17:45:50.349712+00:00",
+  "cwd": "/home/vesanieminen/code/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "import json; from pathlib import Path; root=Path(\"systems/dual-rtx3090/results\"); print(\"Current baseline results:\"); [(print(p.parent.name, json.loads(p.read_text()))) for p in sorted(root.glob(\"*/status.json\"))]; [(print(p.parent.name, json.loads(p.read_text()).get(\"results\"))) for p in sorted(root.glob(\"*/result.json\"))]"
+  ],
+  "command": "python3 -c 'import json; from pathlib import Path; root=Path(\"systems/dual-rtx3090/results\"); print(\"Current baseline results:\"); [(print(p.parent.name, json.loads(p.read_text()))) for p in sorted(root.glob(\"*/status.json\"))]; [(print(p.parent.name, json.loads(p.read_text()).get(\"results\"))) for p in sorted(root.glob(\"*/result.json\"))]'",
+  "output": "20261025T174550.349712Z-b4c084.log",
+  "exit_code": 0,
+  "git_commit": "afc88bcd6267021a6e0b637c6e3d1a4412add92c",
+  "duration_seconds": 0.017851094000434387,
+  "ended_utc": "2026-10-25T17:45:50.370792+00:00"
+}
