@@ -1,0 +1,21 @@
++ set -euo pipefail
+++ dirname -- run.sh
++ cd -- .
++ action=download
++ label=preparation
++ system=rtx3080
++ [[ ! preparation =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ ! rtx3080 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ download != help ]]
++ [[ 1 != 1 ]]
++ mkdir -p cache model
++ [[ ! -f image.lock ]]
+++ cat image.lock
++ image=vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1
++ common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g -v "$PWD:/bench" -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6)
+++ id -u
+++ id -g
++ case "$action" in
++ docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/Projects/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 download.py
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 1363.02it/s]
+Original BF16 model ready: {'repo': 'Qwen/Qwen2.5-3B-Instruct', 'revision': 'aa8e72537993ba99e69dfaafa59ed015b17504d1'}

@@ -14,6 +14,8 @@
   ],
   "command": "env GPU_BENCH_RECORDED=1 bash -x run.sh download",
   "output": "20261025T160512.983772Z-fe4ef6.log",
-  "exit_code": null,
-  "git_commit": "46441676200b55ddc369ededa8410527e8d8a574"
+  "exit_code": 2,
+  "git_commit": "46441676200b55ddc369ededa8410527e8d8a574",
+  "duration_seconds": 731.980962823,
+  "ended_utc": "2026-10-25T16:17:24.966273+00:00"
 }

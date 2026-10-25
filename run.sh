@@ -24,7 +24,7 @@ image=$(cat image.lock)
 common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g
   -v "$PWD:/bench" -w /bench -e HOME=/bench/cache
   -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm
-  -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6)
+  -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1)
 case "$action" in
   download)
     docker run "${common[@]}" --entrypoint python3 "$image" download.py

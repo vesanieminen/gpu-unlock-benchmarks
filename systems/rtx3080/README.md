@@ -16,5 +16,9 @@ match the first baseline. These are repeat measurements, not unlocked results.
 
 The initial PyTorch run predates automatic command recording. Its copied raw
 artifacts are unchanged; history-reconstructed.md documents its provenance.
-vLLM remains unverified until a successful result is recorded. gpu-unlock has
-not been installed as part of this repository setup.
+vLLM Qwen2.5-3B-Instruct BF16 is verified with the full prefill/decode suite.
+Loaded model memory is 5.79 GiB; vLLM reported 1.51 GiB available for KV cache.
+The final stock baseline uses OMP_NUM_THREADS=1 and is saved under
+results/baseline-final-vllm-20261025T162003.098487616Z/.
+The 2,048-token prefill median is 9,428.96 tok/s; decode is 89.10 tok/s.
+gpu-unlock has not been installed as part of this repository setup.

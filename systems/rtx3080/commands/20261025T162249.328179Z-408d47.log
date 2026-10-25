@@ -1,0 +1,4 @@
++ bash -n run.sh
++ bash -n /home/vesanieminen/gpu-unlock-bench/run.sh
++ bash /home/vesanieminen/gpu-unlock-bench/run.sh help
+Usage: ./run.sh download | torch [baseline|unlocked] | vllm [baseline|unlocked]

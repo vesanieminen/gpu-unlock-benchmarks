@@ -18,4 +18,6 @@
 + case "$action" in
 + docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/Projects/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 download.py
 Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Fetching 9 files:  11%|█         | 1/9 [00:00<00:01,  5.79it/s]Fetching 9 files:  33%|███▎      | 3/9 [00:00<00:00,  6.74it/s]
+Fetching 9 files:  11%|█         | 1/9 [00:00<00:01,  5.79it/s]Fetching 9 files:  33%|███▎      | 3/9 [00:00<00:00,  6.74it/s]Fetching 9 files:  44%|████▍     | 4/9 [09:05<15:43, 188.64s/it]Fetching 9 files:  56%|█████▌    | 5/9 [09:11<08:33, 128.37s/it]Fetching 9 files:  67%|██████▋   | 6/9 [09:13<04:23, 87.79s/it] Fetching 9 files:  78%|███████▊  | 7/9 [09:13<02:00, 60.28s/it]Fetching 9 files:  89%|████████▉ | 8/9 [09:15<00:41, 41.92s/it]Fetching 9 files: 100%|██████████| 9/9 [12:10<00:00, 82.94s/it]Fetching 9 files: 100%|██████████| 9/9 [12:10<00:00, 81.18s/it]
+Original BF16 model ready: {'repo': 'Qwen/Qwen2.5-3B-Instruct', 'revision': 'aa8e72537993ba99e69dfaafa59ed015b17504d1'}
+run.sh: line 59: unexpected EOF while looking for matching `"'

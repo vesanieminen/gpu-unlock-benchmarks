@@ -1,0 +1,24 @@
++ rg -n 'selected vLLM|remains unverified|current candidate|All attempts|Do not edit|wrapper|The selected model' README.md MODELS.md systems/rtx3080/README.md systems/rtx3080/vllm-memory-fit.md
+systems/rtx3080/vllm-memory-fit.md:8:All attempts use the same pinned model/image, BF16 weights, 2,048-token maximum
+systems/rtx3080/vllm-memory-fit.md:32:exited 0. Both transcripts are retained. Do not edit scripts during active runs.
+MODELS.md:14:The current candidate is [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct),
+systems/rtx3080/README.md:19:vLLM remains unverified until a successful result is recorded. gpu-unlock has
++ tail -n 18 systems/rtx3080/vllm-memory-fit.md
+on this desktop GPU. The application benchmark now uses Qwen2.5-3B-Instruct in
+native BF16, with a larger 8,192-token context and 2,048-token prefill chunks.
+Its smaller weights and two KV heads leave more room for inference buffers.
+The original 4B lock is retained as qwen3-4b-model.lock.json and each failed run
+keeps its original model lock and script hashes. Historical data is not relabeled
+as the new model.
+
+The 3B download completed at the pinned revision. Its first launcher invocation
+exited 2 after download completion because run.sh was edited while that shell
+was active; the parser then reported an unexpected EOF. The saved launcher
+passed bash -n, and a repeat download invocation using the completed cache
+exited 0. Both transcripts are retained. Do not edit scripts during active runs.
+
+The memory fraction controls allocations; it does not cap GPU compute or power.
+The final comparison must use the same successful chunk size, memory fraction
+and context configuration before and after enabling gpu-unlock. Desktop memory
+use can vary; if startup rejects the requested allocation, close other GPU
+applications rather than silently changing benchmark settings between arms.

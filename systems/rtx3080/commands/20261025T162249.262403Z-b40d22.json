@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "validation",
+  "started_utc": "2026-10-25T16:22:49.262403+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "import json,hashlib,math; from pathlib import Path; d=Path(\"systems/rtx3080/results/baseline-final-vllm-20261025T162003.098487616Z\"); r=json.loads((d/\"result.json\").read_text()); assert json.loads((d/\"status.json\").read_text())[\"exit_code\"]==0; assert r[\"dtype\"]==\"bfloat16\" and r[\"model\"][\"repo\"]==\"Qwen/Qwen2.5-3B-Instruct\"; assert [(x[\"input_tokens\"],x[\"output_tokens\"]) for x in r[\"results\"]]==[(512,1),(2048,1),(4096,1),(512,128)]; assert all(len(x[\"runs\"])==5 and all(math.isfinite(y[\"prefill_tok_s\"]) and y[\"output_tokens\"]==x[\"output_tokens\"] for y in x[\"runs\"]) for x in r[\"results\"]); checks=[line.split() for line in (d/\"scripts.sha256\").read_text().splitlines()]; assert all(hashlib.sha256((d/\"source\"/name).read_bytes()).hexdigest()==digest for digest,name in checks); print(\"All four cases passed; five samples each; exit status zero; BF16 model and exact source snapshots verified.\")"
+  ],
+  "command": "python3 -c 'import json,hashlib,math; from pathlib import Path; d=Path(\"systems/rtx3080/results/baseline-final-vllm-20261025T162003.098487616Z\"); r=json.loads((d/\"result.json\").read_text()); assert json.loads((d/\"status.json\").read_text())[\"exit_code\"]==0; assert r[\"dtype\"]==\"bfloat16\" and r[\"model\"][\"repo\"]==\"Qwen/Qwen2.5-3B-Instruct\"; assert [(x[\"input_tokens\"],x[\"output_tokens\"]) for x in r[\"results\"]]==[(512,1),(2048,1),(4096,1),(512,128)]; assert all(len(x[\"runs\"])==5 and all(math.isfinite(y[\"prefill_tok_s\"]) and y[\"output_tokens\"]==x[\"output_tokens\"] for y in x[\"runs\"]) for x in r[\"results\"]); checks=[line.split() for line in (d/\"scripts.sha256\").read_text().splitlines()]; assert all(hashlib.sha256((d/\"source\"/name).read_bytes()).hexdigest()==digest for digest,name in checks); print(\"All four cases passed; five samples each; exit status zero; BF16 model and exact source snapshots verified.\")'",
+  "output": "20261025T162249.262403Z-b40d22.log",
+  "exit_code": 0,
+  "git_commit": "3b701f91e33730530915cbcce450f943a8934dad",
+  "duration_seconds": 0.021377459000177623,
+  "ended_utc": "2026-10-25T16:22:49.286359+00:00"
+}

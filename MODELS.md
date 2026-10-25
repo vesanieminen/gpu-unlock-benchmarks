@@ -11,11 +11,13 @@ The first candidate, Qwen3-4B-Instruct-2507 BF16, loaded its weights in 7.64 GiB
 but did not complete the inference test reliably with the tried configurations.
 Those failures remain in [the memory-fit log](systems/rtx3080/vllm-memory-fit.md).
 
-The current candidate is [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct),
+The selected model is [Qwen2.5-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct),
 a dense 3.09B model. Its official config specifies bfloat16 and two KV heads,
-reducing weight and cache memory compared with the first candidate. Its status
-must remain unverified until an actual successful benchmark is saved. The
-benchmark pins its original weights; no quantization or CPU offload is used.
+reducing weight and cache memory compared with the first candidate. The full
+512/2,048/4,096-token prefill and 128-output-token decode suite passed on the
+3080, including the final single-CPU-thread configuration. Loaded model memory
+was 5.79 GiB. The benchmark pins its original weights; no quantization or CPU
+offload is used. See the saved stock baseline linked from the main README.
 
 ## Gemma 4 and the future RTX 3090 system
 

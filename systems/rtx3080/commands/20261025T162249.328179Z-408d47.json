@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "validation",
+  "started_utc": "2026-10-25T16:22:49.328179+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "bash -n run.sh; bash -n /home/vesanieminen/gpu-unlock-bench/run.sh; bash /home/vesanieminen/gpu-unlock-bench/run.sh help"
+  ],
+  "command": "bash -x -c 'bash -n run.sh; bash -n /home/vesanieminen/gpu-unlock-bench/run.sh; bash /home/vesanieminen/gpu-unlock-bench/run.sh help'",
+  "output": "20261025T162249.328179Z-408d47.log",
+  "exit_code": 0,
+  "git_commit": "3b701f91e33730530915cbcce450f943a8934dad",
+  "duration_seconds": 0.011064438000175869,
+  "ended_utc": "2026-10-25T16:22:49.341679+00:00"
+}

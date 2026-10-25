@@ -11,6 +11,22 @@ an RTX 3080 10 GB and continuing on a separate dual RTX 3090 system.
 | RTX 3080 10 GB | Unlocked | Pending | Pending | Pending |
 | 2× RTX 3090 | Stock/unlocked | Pending | Pending | Pending |
 
+The selected vLLM application test also passes on the 3080 with native BF16
+Qwen2.5-3B-Instruct and OMP_NUM_THREADS=1:
+
+| Input tokens | Output tokens | Median prefill tok/s | Median decode tok/s |
+| ---: | ---: | ---: | ---: |
+| 512 | 1 | 8,371.57 | — |
+| 2,048 | 1 | 9,428.96 | — |
+| 4,096 | 1 | 8,942.63 | — |
+| 512 | 128 | 8,396.36 | 89.10 |
+
+[Final vLLM baseline with raw timings and source snapshots](systems/rtx3080/results/baseline-final-vllm-20261025T162003.098487616Z/).
+This is the stock application baseline to compare against the matching unlocked
+run. The earlier successful vLLM fit test used six CPU threads; retain it as a
+separate setup experiment. The PyTorch script explicitly sets its CPU threads
+to six independently of the container's OMP setting; its GPU math is unchanged.
+
 These are median GEMM results, not LLM throughput. Raw samples, precision flags,
 software versions and GPU telemetry are under [systems/rtx3080](systems/rtx3080/).
 The first stock PyTorch run predates the automatic recorder; its provenance is
@@ -82,6 +98,7 @@ for work done before the recorder existed.
   context, one sequence, CUDA graph capture for batch size one, 2,048-token
   prefill chunks, and 90% GPU
   memory allocation target. This memory target does not limit compute or power.
+  OMP_NUM_THREADS=1 follows vLLM's CPU-thread recommendation.
 - **LLM cases:** synthetic deterministic 512/2,048/4,096-token prompts with one
   output token for prefill; 512 input / 128 output for decode. Two warm-ups and
   five measured requests per case. These measure speed, not model answer quality.

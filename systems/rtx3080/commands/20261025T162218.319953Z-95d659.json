@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "preparation",
+  "started_utc": "2026-10-25T16:22:18.319953+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"/home/vesanieminen/gpu-unlock-bench/run.sh\"); p.write_text(\"#!/usr/bin/env bash\\n# Original scripts are archived in the benchmark repository.\\nexec bash /home/vesanieminen/Projects/gpu-unlock-benchmarks/run.sh \\\"$@\\\"\\n\"); print(\"Legacy benchmark launcher now delegates to the recorded repository launcher.\")"
+  ],
+  "command": "python3 -c 'from pathlib import Path; p=Path(\"/home/vesanieminen/gpu-unlock-bench/run.sh\"); p.write_text(\"#!/usr/bin/env bash\\n# Original scripts are archived in the benchmark repository.\\nexec bash /home/vesanieminen/Projects/gpu-unlock-benchmarks/run.sh \\\"$@\\\"\\n\"); print(\"Legacy benchmark launcher now delegates to the recorded repository launcher.\")'",
+  "output": "20261025T162218.319953Z-95d659.log",
+  "exit_code": 0,
+  "git_commit": "3b701f91e33730530915cbcce450f943a8934dad",
+  "duration_seconds": 0.01757849699970393,
+  "ended_utc": "2026-10-25T16:22:18.340162+00:00"
+}

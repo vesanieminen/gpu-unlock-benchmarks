@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "review",
+  "started_utc": "2026-10-25T16:21:59.625569+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "rg -n \"selected vLLM|remains unverified|current candidate|All attempts|Do not edit|wrapper|The selected model\" README.md MODELS.md systems/rtx3080/README.md systems/rtx3080/vllm-memory-fit.md; tail -n 18 systems/rtx3080/vllm-memory-fit.md"
+  ],
+  "command": "bash -x -c 'rg -n \"selected vLLM|remains unverified|current candidate|All attempts|Do not edit|wrapper|The selected model\" README.md MODELS.md systems/rtx3080/README.md systems/rtx3080/vllm-memory-fit.md; tail -n 18 systems/rtx3080/vllm-memory-fit.md'",
+  "output": "20261025T162159.625569Z-4e4ecd.log",
+  "exit_code": 0,
+  "git_commit": "3b701f91e33730530915cbcce450f943a8934dad",
+  "duration_seconds": 0.017490207999799168,
+  "ended_utc": "2026-10-25T16:21:59.645833+00:00"
+}
