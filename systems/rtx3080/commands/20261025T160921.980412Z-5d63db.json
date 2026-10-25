@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "validation",
+  "started_utc": "2026-10-25T16:09:21.980412+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-m",
+    "py_compile",
+    "record.py"
+  ],
+  "command": "python3 -m py_compile record.py",
+  "output": "20261025T160921.980412Z-5d63db.log",
+  "exit_code": 0,
+  "git_commit": "72acd677f975ea4e08ebdacde8323fa68e4a75b5",
+  "duration_seconds": 0.034211869000046136,
+  "ended_utc": "2026-10-25T16:09:22.016961+00:00"
+}

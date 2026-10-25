@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:08:10.404780+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "du",
+    "-sh",
+    "model"
+  ],
+  "command": "du -sh model",
+  "output": "20261025T160810.404780Z-4f1d19.log",
+  "exit_code": 0,
+  "git_commit": "72acd677f975ea4e08ebdacde8323fa68e4a75b5",
+  "duration_seconds": 0.0009101750001718756,
+  "ended_utc": "2026-10-25T16:08:10.407176+00:00"
+}

@@ -41,6 +41,8 @@ The launcher records its full expanded shell commands, merged stdout/stderr,
 start/end times, working directory and exit status automatically. Results go
 under `systems/rtx3080/results/`; command transcripts under
 `systems/rtx3080/commands/`. No power limits, clocks or startup services are changed.
+The [command index](systems/rtx3080/COMMANDS.md) links each command to its metadata,
+exit status and complete transcript.
 The GPU's existing firmware power ceiling remains in force; "no added cap" does
 not mean unlimited board power. The initial 3080 ceiling is 320 W.
 

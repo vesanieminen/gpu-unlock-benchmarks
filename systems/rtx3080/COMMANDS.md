@@ -1,0 +1,26 @@
+# Recorded commands
+
+Live records only. Earlier work is in [reconstructed history](history-reconstructed.md).
+Open the command record for full argv, working directory and timestamps.
+
+| Started (UTC) | Phase | Exit | Command | Output |
+| --- | --- | ---: | --- | --- |
+| 2026-10-25T15:56:46.499622+00:00 | baseline | 1 | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh vllm baseline</code>](commands/20261025T155646.499622Z-e9159a.json) | [transcript](commands/20261025T155646.499622Z-e9159a.log) |
+| 2026-10-25T15:57:06.327210+00:00 | preparation | 0 | [<code>bash -x -c &#x27;unlink model; unlink cache; mkdir model cache; cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/model/. model/; cp -a --reflink=auto...</code>](commands/20261025T155706.327210Z-780313.json) | [transcript](commands/20261025T155706.327210Z-780313.log) |
+| 2026-10-25T15:58:36.023070+00:00 | validation | 0 | [<code>bash -x -c &#x27;bash -n run.sh; python3 -m py_compile record.py download.py torch_bench.py vllm_bench.py&#x27;</code>](commands/20261025T155836.023070Z-6b986b.json) | [transcript](commands/20261025T155836.023070Z-6b986b.log) |
+| 2026-10-25T15:58:51.608223+00:00 | preparation | 0 | [<code>bash -x -c &#x27;mkdir -p systems/rtx3080/initial-scripts; cp /home/vesanieminen/gpu-unlock-bench/README.md /home/vesanieminen/gpu-unlock-bench/run.sh /home/...</code>](commands/20261025T155851.608223Z-2a9bac.json) | [transcript](commands/20261025T155851.608223Z-2a9bac.log) |
+| 2026-10-25T15:58:59.566532+00:00 | baseline | 1 | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh vllm baseline</code>](commands/20261025T155859.566532Z-f26f41.json) | [transcript](commands/20261025T155859.566532Z-f26f41.log) |
+| 2026-10-25T15:59:34.453263+00:00 | review | 0 | [<code>python3 -c &#x27;from pathlib import Path; import re; root=Path(&quot;.&quot;); findings=[]; files=[p for p in root.rglob(&quot;*&quot;) if p.is_file() and n...</code>](commands/20261025T155934.453263Z-87c05c.json) | [transcript](commands/20261025T155934.453263Z-87c05c.log) |
+| 2026-10-25T16:01:28.827159+00:00 | baseline | 1 | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh vllm baseline</code>](commands/20261025T160128.827159Z-8eeb68.json) | [transcript](commands/20261025T160128.827159Z-8eeb68.log) |
+| 2026-10-25T16:02:15.801513+00:00 | baseline | 1 | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh vllm baseline</code>](commands/20261025T160215.801513Z-cdfa5a.json) | [transcript](commands/20261025T160215.801513Z-cdfa5a.log) |
+| 2026-10-25T16:03:16.120794+00:00 | inspection | 0 | [<code>nvidia-smi --query-gpu=name,memory.total,memory.used,power.draw,power.limit,temperature.gpu --format=csv</code>](commands/20261025T160316.120794Z-e5e756.json) | [transcript](commands/20261025T160316.120794Z-e5e756.log) |
+| 2026-10-25T16:03:34.269030+00:00 | baseline | 1 | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh vllm baseline</code>](commands/20261025T160334.269030Z-655d2e.json) | [transcript](commands/20261025T160334.269030Z-655d2e.log) |
+| 2026-10-25T16:04:36.720051+00:00 | preparation | 0 | [<code>bash -x -c &#x27;mv model.lock.json systems/rtx3080/qwen3-4b-model.lock.json; mv model model-qwen3-4b; mkdir model&#x27;</code>](commands/20261025T160436.720051Z-71f67f.json) | [transcript](commands/20261025T160436.720051Z-71f67f.log) |
+| 2026-10-25T16:05:12.983772+00:00 | baseline | pending/unknown | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh download</code>](commands/20261025T160512.983772Z-fe4ef6.json) | [transcript](commands/20261025T160512.983772Z-fe4ef6.log) |
+| 2026-10-25T16:05:38.096472+00:00 | validation | 0 | [<code>bash -x -c &#x27;bash -n run.sh; python3 -m py_compile record.py download.py torch_bench.py vllm_bench.py&#x27;</code>](commands/20261025T160538.096472Z-8507cc.json) | [transcript](commands/20261025T160538.096472Z-8507cc.log) |
+| 2026-10-25T16:06:31.905696+00:00 | inspection | 0 | [<code>du -sh model</code>](commands/20261025T160631.905696Z-4ed379.json) | [transcript](commands/20261025T160631.905696Z-4ed379.log) |
+| 2026-10-25T16:07:47.091089+00:00 | baseline-recorded | 0 | [<code>env GPU_BENCH_RECORDED=1 bash -x run.sh torch baseline-recorded</code>](commands/20261025T160747.091089Z-a1b1b6.json) | [transcript](commands/20261025T160747.091089Z-a1b1b6.log) |
+| 2026-10-25T16:08:10.404780+00:00 | inspection | 0 | [<code>du -sh model</code>](commands/20261025T160810.404780Z-4f1d19.json) | [transcript](commands/20261025T160810.404780Z-4f1d19.log) |
+| 2026-10-25T16:08:32.395239+00:00 | inspection | 0 | [<code>docker stats --no-stream --format &#x27;{{.Name}} {{.NetIO}} {{.MemUsage}}&#x27;</code>](commands/20261025T160832.395239Z-92bc7d.json) | [transcript](commands/20261025T160832.395239Z-92bc7d.log) |
+| 2026-10-25T16:09:21.980412+00:00 | validation | 0 | [<code>python3 -m py_compile record.py</code>](commands/20261025T160921.980412Z-5d63db.json) | [transcript](commands/20261025T160921.980412Z-5d63db.log) |
+| 2026-10-25T16:09:36.039045+00:00 | inspection | 0 | [<code>docker stats --no-stream --format &#x27;{{.Name}} {{.NetIO}} {{.MemUsage}}&#x27;</code>](commands/20261025T160936.039045Z-714626.json) | [transcript](commands/20261025T160936.039045Z-714626.log) |

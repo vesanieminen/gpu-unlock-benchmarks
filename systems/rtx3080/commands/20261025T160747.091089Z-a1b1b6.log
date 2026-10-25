@@ -1,0 +1,48 @@
++ set -euo pipefail
+++ dirname -- run.sh
++ cd -- .
++ action=torch
++ label=baseline-recorded
++ system=rtx3080
++ [[ ! baseline-recorded =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ ! rtx3080 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ torch != help ]]
++ [[ 1 != 1 ]]
++ mkdir -p cache model
++ [[ ! -f image.lock ]]
+++ cat image.lock
++ image=vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1
++ common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g -v "$PWD:/bench" -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6)
+++ id -u
+++ id -g
++ case "$action" in
+++ date -u +%Y%m%dT%H%M%S.%NZ
++ out=systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z
++ mkdir -p systems/rtx3080/results
++ mkdir systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z
++ nvidia-smi -q
++ cat /proc/cmdline
++ uname -a
++ cp image.lock systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z/
++ sha256sum run.sh record.py torch_bench.py vllm_bench.py download.py
++ mkdir systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z/source
++ cp run.sh record.py torch_bench.py vllm_bench.py download.py systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z/source/
++ [[ ! -f model.lock.json ]]
++ cp model.lock.json systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z/
++ monitor=23744
++ trap finish EXIT
++ nvidia-smi --query-gpu=timestamp,name,pstate,temperature.gpu,power.draw,power.limit,clocks.sm,clocks.mem,utilization.gpu,memory.used --format=csv -l 1
++ docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/Projects/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6 --network none --device nvidia.com/gpu=all -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e BENCH_TP=1 -e BENCH_GPU=0 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 torch_bench.py --output /bench/systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z/result.json
++ tee systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z/run.log
+{"precision": "BF16", "median_tflops": 62.53505155289623, "samples_tflops": [62.53505155289623, 62.5113376397512, 62.48616347287592, 62.87266256827918, 63.012056987474615], "finite": true, "parity_sha256": "1e774b6f7fc3ff600c9c1c66715358bc9efe39f7ae54be2259d7be529bbbe59f"}
+{"precision": "FP16", "median_tflops": 62.31989160813792, "samples_tflops": [62.34985180031122, 62.31989160813792, 62.28699232498356, 62.32642043240716, 62.22353730767392], "finite": true, "parity_sha256": "910abbedd6dbb095c5ebeb069c7ef8c8d544b6c89009fc16f3a9c69957703036"}
+{"precision": "TF32", "median_tflops": 30.995282209951526, "samples_tflops": [31.198279975217165, 31.327863181413747, 30.995282209951526, 30.880899236353176, 30.88556687611487], "finite": true, "parity_sha256": "d942ecb96070f856b0c654cc868e60b3600610906ca28200e5eb44d8587e734c"}
++ echo 'Saved: /home/vesanieminen/Projects/gpu-unlock-benchmarks/systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z'
+Saved: /home/vesanieminen/Projects/gpu-unlock-benchmarks/systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z
++ finish
++ status=0
++ trap - EXIT
++ kill 23744
++ printf '{"exit_code": %d}\n' 0
++ nvidia-smi -q
++ exit 0

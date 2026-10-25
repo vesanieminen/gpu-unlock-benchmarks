@@ -1,0 +1,20 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:08:32.395239+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "docker",
+    "stats",
+    "--no-stream",
+    "--format",
+    "{{.Name}} {{.NetIO}} {{.MemUsage}}"
+  ],
+  "command": "docker stats --no-stream --format '{{.Name}} {{.NetIO}} {{.MemUsage}}'",
+  "output": "20261025T160832.395239Z-92bc7d.log",
+  "exit_code": 0,
+  "git_commit": "72acd677f975ea4e08ebdacde8323fa68e4a75b5",
+  "duration_seconds": 1.0311369440000817,
+  "ended_utc": "2026-10-25T16:08:33.427876+00:00"
+}
