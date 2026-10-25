@@ -7,19 +7,23 @@ an RTX 3080 10 GB and continuing on a separate dual RTX 3090 system.
 
 | System | State | BF16 TFLOPS | FP16 TFLOPS | TF32 TFLOPS |
 | --- | --- | ---: | ---: | ---: |
-| RTX 3080 10 GB | Stock baseline | 62.19 | 61.16 | 30.53 |
+| RTX 3080 10 GB | Recorded stock baseline | 62.54 | 62.32 | 31.00 |
 | RTX 3080 10 GB | Unlocked | 107.40 | 104.85 | 51.93 |
+| RTX 3080 10 GB | Percentage increase | **+71.75%** | **+68.25%** | **+67.54%** |
 | 2× RTX 3090 | Stock/unlocked | Pending | Pending | Pending |
+
+Gains use the full-precision medians from the recorded repeat baseline; the
+original stock run remains preserved in the raw results.
 
 The selected vLLM application test also passes on the 3080 with native BF16
 Qwen2.5-3B-Instruct and OMP_NUM_THREADS=1:
 
-| Input tokens | Output tokens | Median prefill tok/s | Median decode tok/s |
-| ---: | ---: | ---: | ---: |
-| 512 | 1 | 8,371.57 | — |
-| 2,048 | 1 | 9,428.96 | — |
-| 4,096 | 1 | 8,942.63 | — |
-| 512 | 128 | 8,396.36 | 89.10 |
+| Input tokens | Output tokens | Stock prefill tok/s | Unlocked prefill tok/s | Prefill increase | Stock decode tok/s | Unlocked decode tok/s | Decode increase |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 512 | 1 | 8,371.57 | 11,906.04 | **+42.22%** | — | — | — |
+| 2,048 | 1 | 9,428.96 | 14,956.44 | **+58.62%** | — | — | — |
+| 4,096 | 1 | 8,942.63 | 14,172.86 | **+58.49%** | — | — | — |
+| 512 | 128 | 8,396.36 | 12,188.48 | **+45.16%** | 89.10 | 89.91 | +0.91% |
 
 [Final vLLM baseline with raw timings and source snapshots](systems/rtx3080/results/baseline-final-vllm-20261025T162003.098487616Z/).
 This is the stock application baseline to compare against the matching unlocked
