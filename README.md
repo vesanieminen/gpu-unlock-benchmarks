@@ -32,7 +32,10 @@ software versions and GPU telemetry are under [systems/rtx3080](systems/rtx3080/
 The first stock PyTorch run predates the automatic recorder; its provenance is
 documented in [reconstructed history](systems/rtx3080/history-reconstructed.md).
 Failures and incomplete runs remain in the journal and must not be counted as
-benchmark results. gpu-unlock installation has not been performed yet.
+benchmark results. gpu-unlock is now installed and configured for automatic
+early boot activation on the 3080; both prepared boot images passed validation.
+Reboot activation and unlocked measurements are still pending. See the
+[installation record and next steps](INSTALL.md).
 
 ## Run the benchmarks
 

@@ -1,9 +1,16 @@
 # Automatic gpu-unlock on the RTX 3080 host
 
-Status: **procedure prepared; packages not installed; boot activation not verified**.
-The recorded prerequisite inspection is complete. This document becomes a
-confirmed working recipe only after successful installation, reboot verification
-and matching unlocked benchmarks are recorded. Do not label planned steps as run.
+Status: **installed and configured; both boot images verified; reboot activation pending**.
+The installation below completed on 2026-10-25 from upstream commit
+`af28cbbfd3d922a659227ecfb7369adfd924cf03`. Both packages are version 1.0.0-1,
+and DKMS reports the module installed for both kernels. All five upstream tests
+passed, as did the pinned firmware checksum checks. This becomes a confirmed
+working optimization only after reboot verification and matching unlocked
+benchmarks are recorded. No reboot or unlock activation has been performed yet.
+
+The [installation evidence](systems/rtx3080/installation/) contains package/source
+metadata, the backup manifest and checks of both generated boot images. Every
+operational command and output is linked from the [journal](systems/rtx3080/COMMANDS.md).
 
 ## Checked on this machine
 
@@ -38,7 +45,7 @@ Build as the regular user, then authenticate with pkexec for package installatio
 ```bash
 record install git clone https://github.com/Zagitta/gpu-unlock.git "$HOME/Projects/gpu-unlock"
 record install bash -x -c 'cd "$HOME/Projects/gpu-unlock" && git rev-parse HEAD && make arch'
-record install bash -x -c 'pkexec pacman -U "$HOME"/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-*.pkg.tar.zst "$HOME"/Projects/gpu-unlock/packaging/arch/gpu-unlock-firmware-*.pkg.tar.zst'
+record install pkexec pacman -U --noconfirm "$HOME/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst" "$HOME/Projects/gpu-unlock/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst"
 record verification dkms status
 record verification bash -x -c 'modinfo -k "$(uname -r)" gpu_unlock; cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf'
 ```
@@ -50,12 +57,20 @@ suffix is handled by mkinitcpio; do not apply the separate systemd-hook workarou
 unless the actual installed hook configuration requires it. Never run makepkg
 or the whole upstream build as root.
 
-Back up Limine's configuration, then append an opt-in for this specific GPU:
+For a future reproduction, pin the checkout to the exact commit above before
+building; the live installation checked and recorded its HEAD before make arch.
+Pre-install copies of both UKIs, /boot/limine.conf, /etc/default/limine and
+/etc/mkinitcpio.conf were also saved under
+`~/.local/state/gpu-unlock/backups/20261025T163126Z/`. The binaries are local
+backups and are not uploaded to Git; their paths and hashes are in the manifest.
+
+Preview and apply the target for this specific GPU, preserving a backup and
+atomically replacing the configuration while keeping ownership and mode:
 
 ```bash
-record boot-config pkexec cp -an /etc/default/limine /etc/default/limine.before-gpu-unlock
-record boot-config pkexec python3 -c 'from pathlib import Path; p=Path("/etc/default/limine"); s=p.read_text(); assert "gpu_unlock.targets=" not in s, "Existing gpu-unlock option: inspect it first"; p.write_text(s + "\nKERNEL_CMDLINE[default]+=\" gpu_unlock.targets=0000:07:00.0\"\n")'
-record boot-config limine-mkinitcpio
+record boot-config-preview python3 configure_limine.py --targets 0000:07:00.0
+record boot-config pkexec python3 "$HOME/Projects/gpu-unlock-benchmarks/configure_limine.py" --targets 0000:07:00.0 --apply
+record boot-config env AUTH_METHOD=pkexec limine-mkinitcpio
 ```
 
 The added line is exactly:
@@ -65,11 +80,36 @@ KERNEL_CMDLINE[default]+=" gpu_unlock.targets=0000:07:00.0"
 ```
 
 limine-mkinitcpio regenerates this system's boot images and manages its own
-privilege authentication. Check its output for failures. Preserve the existing
+privilege authentication; AUTH_METHOD=pkexec selects its graphical authentication
+path without changing the saved authentication configuration. Check its output
+for failures. Preserve the existing
 encryption/root options. For the future dual-3090 host, discover its addresses
 and bootloader independently; do not copy 0000:07:00.0 blindly.
 
-When ready to restart, record a user-initiated reboot:
+The completed image check is reproducible with:
+
+```bash
+record verification python3 verify_boot_images.py \
+  --baseline "$HOME/.local/state/gpu-unlock/backups/20261025T163126Z" \
+  --targets 0000:07:00.0 \
+  --output systems/rtx3080/installation/boot-images.json
+```
+
+Both images passed: target present once, other kernel options preserved exactly
+as tokens, gpu_unlock ordered before nvidia, the kernel-specific module present,
+and all five firmware files present. The udev hook's local write_config code
+strips the optional-module question mark before writing the runtime module list.
+The initial verifier used objcopy's /dev/null output and returned nonzero; it was
+corrected to use a disposable temporary output file. This did not modify any UKI;
+both the failure and successful verification are recorded.
+
+The rebuild emitted warnings about xhci_pci_renesas/qat_6xxx firmware and an unset
+console font, while completing both UKIs successfully. These are not failures
+to include the gpu-unlock firmware; the explicit content checks passed.
+An NVIDIA status check inside the sandbox failed as during earlier setup; the
+recorded check outside the sandbox succeeded: driver 610.57.04, power limit 320 W.
+
+When ready to restart, record a user-initiated reboot (not executed yet):
 
 ```bash
 record reboot pkexec systemctl reboot

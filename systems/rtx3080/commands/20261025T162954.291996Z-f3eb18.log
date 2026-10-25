@@ -1,0 +1,141 @@
++ git -C /home/vesanieminen/Projects/gpu-unlock rev-parse HEAD
+af28cbbfd3d922a659227ecfb7369adfd924cf03
++ cat /home/vesanieminen/Projects/gpu-unlock/packaging/arch/PKGBUILD
+# SPDX-License-Identifier: GPL-2.0-only
+# Builds from the committed HEAD of the checkout this file lives in:
+#   cd packaging/arch && makepkg -si
+# For a published release, point the first source at the tagged tarball.
+pkgbase=gpu-unlock
+pkgname=(gpu-unlock-dkms gpu-unlock-firmware)
+pkgver=1.0.0
+pkgrel=1
+_nv=610.43.03
+_utils=nvidia-utils-$_nv-1-x86_64_v3.pkg.tar.zst
+pkgdesc='RTX 3090 BF16 unlock before the NVIDIA driver loads'
+arch=('x86_64')
+url=''
+license=('GPL-2.0-only')
+makedepends=('git' 'python' 'zstd')
+options=('!strip' '!debug')
+source=("$pkgbase::git+file://${startdir%/packaging/arch}"
+        "https://download.nvidia.com/XFree86/NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-$_nv.tar.xz"
+        "https://archive.cachyos.org/archive/cachyos-v3/$_utils")
+noextract=("$_utils")
+sha256sums=('SKIP'
+            '7e118923c7a23edc36114d63273a46e3e04e9af98695a42203e7ac2dfe9fc1dc'
+            'e17e7c92eeffa178b0fe1f40eb17a47095f8fc3ce4a77bf115cf5bd5a4df86e9')
+
+prepare() {
+  cd $pkgbase
+  test "$(cat VERSION)" = "$pkgver"
+}
+
+build() {
+  cd $pkgbase
+  python firmware/generate_v67.py "$(realpath "$srcdir/$_utils")" "$srcdir/assets"
+  python firmware/extract_boot_assets.py "$srcdir/NVIDIA-kernel-module-source-$_nv" "$srcdir/assets"
+}
+
+check() {
+  cd $pkgbase
+  make test ASSETS="$srcdir/assets"
+}
+
+package_gpu-unlock-dkms() {
+  arch=('any')
+  depends=('dkms' "gpu-unlock-firmware=$pkgver-$pkgrel")
+  backup=('etc/mkinitcpio.conf.d/zz-gpu-unlock.conf')
+  conflicts=('gpu-unlock-mkinitcpio')
+  replaces=('gpu-unlock-mkinitcpio')
+  install=gpu-unlock.install
+  cd $pkgbase
+  make DESTDIR="$pkgdir" install-dkms install-mkinitcpio
+  make DESTDIR="$pkgdir" PKG=$pkgname install-licenses
+}
+
+package_gpu-unlock-firmware() {
+  pkgdesc='Locally generated, pinned NVIDIA 610.43.03 firmware assets for gpu-unlock'
+  license=('LicenseRef-NVIDIA' 'GPL-2.0-only')
+  cd $pkgbase
+  make DESTDIR="$pkgdir" ASSETS="$srcdir/assets" install-firmware
+}
++ cat /home/vesanieminen/Projects/gpu-unlock/packaging/boot/mkinitcpio.conf
+# Put gpu_unlock and its firmware in every image and load it right before
+# nvidia, so a display card's screen is blank only from its unlock until
+# nvidia-drm takes over. Without nvidia in the image it loads last, still
+# before any nvidia loaded from the root filesystem. Named to be read after
+# every other drop-in. It does nothing unless gpu_unlock.targets= is on the
+# kernel command line.
+[[ ${MODULES@a} == *a* ]] || read -ra MODULES <<<"$MODULES"
+_gu_modules=()
+for _gu_module in "${MODULES[@]}"; do
+    [[ ${_gu_module%\?} == gpu_unlock ]] && continue
+    [[ ${_gu_module%\?} == nvidia ]] && _gu_modules+=(gpu_unlock?)
+    _gu_modules+=("$_gu_module")
+done
+[[ " ${_gu_modules[*]} " == *' gpu_unlock? '* ]] || _gu_modules+=(gpu_unlock?)
+MODULES=("${_gu_modules[@]}")
+unset _gu_modules _gu_module
++ cat /home/vesanieminen/Projects/gpu-unlock/kernel/gpu_unlock/dkms.conf
+# SPDX-License-Identifier: GPL-2.0-only
+PACKAGE_NAME="gpu-unlock"
+PACKAGE_VERSION="1.0.0"
+BUILT_MODULE_NAME[0]="gpu_unlock"
+DEST_MODULE_LOCATION[0]="/updates/dkms"
+AUTOINSTALL="yes"
+# Build for each kernel instead of letting RHEL's weak-modules link one
+# kernel's build into the others: removing the package then leaves links
+# behind that break dracut for those kernels.
+NO_WEAK_MODULES="yes"
+BUILD_EXCLUSIVE_CONFIG="CONFIG_PCI CONFIG_FW_LOADER"
+MAKE[0]="make KDIR=${kernel_source_dir}"
++ cat /usr/lib/limine/auth-helper
+readonly BASE_CONFIG="/etc/limine-entry-tool.conf"
+readonly DEFAULT_CONFIG="/etc/default/limine"
+
+load_auth_method() {
+	local file="$1"
+	while IFS= read -r line || [[ -n "$line" ]]; do
+		# Skip blank lines and comments
+		[[ "$line" =~ ^[[:space:]]*(#.*)?$ ]] && continue
+		# Match AUTH_METHOD = value only
+		if [[ "$line" =~ ^[[:space:]]*AUTH_METHOD[[:space:]]*=[[:space:]]*(.*)$ ]]; then
+			local val="${BASH_REMATCH[1]}"
+			# remove inline comments
+			val="${val%%#*}"
+			# strip quotes
+			val="${val%\"}"
+			val="${val#\"}"
+			# trim leading space
+			val="${val#"${val%%[![:space:]]*}"}"
+			local cmd="${val%% *}"
+			if command -v "$cmd" &>/dev/null; then
+				export AUTH_METHOD="$val"
+				return 0
+			fi
+		fi
+	done <"$file"
+}
+
+if ((EUID != 0)); then
+	[[ -f "${DEFAULT_CONFIG}" ]] && load_auth_method "${DEFAULT_CONFIG}"
+	[[ -z "$AUTH_METHOD" ]] && [[ -f "${BASE_CONFIG}" ]] && load_auth_method "${BASE_CONFIG}"
+	[[ -z "$AUTH_METHOD" ]] && command -v sudo &>/dev/null && AUTH_METHOD="sudo"
+	if [[ -z "$AUTH_METHOD" ]]; then
+		echo -e "\033[91mThis must be run as root.\033[0m" >&2
+		exit 1
+	fi
+	read -r -a auth_cmd <<<"$AUTH_METHOD"
+	exec "${auth_cmd[@]}" "$0" "$@"
+	echo "Failed to exec AUTH_METHOD: $AUTH_METHOD" >&2
+	exit 127
+fi
++ pacman -T base-devel git python zstd dkms linux-omarchy-headers linux-headers
++ df -h /boot /home
+Filesystem        Size  Used Avail Use% Mounted on
+/dev/sda1         2.0G  948M  1.1G  47% /boot
+/dev/mapper/root  930G  453G  476G  49% /home
++ command -v lsinitcpio
+/usr/bin/lsinitcpio
++ command -v objcopy
+/usr/bin/objcopy

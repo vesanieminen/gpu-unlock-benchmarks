@@ -1,0 +1,98 @@
+loading packages...
+resolving dependencies...
+looking for conflicting packages...
+
+Package (2)          New Version  Net Change
+
+gpu-unlock-dkms      1.0.0-1        0.12 MiB
+gpu-unlock-firmware  1.0.0-1       80.54 MiB
+
+Total Installed Size:  80.66 MiB
+
+:: Proceed with installation? [Y/n] 
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Waiting for limine-snapper-sync to finish...
+:: Processing package changes...
+installing gpu-unlock-firmware...
+installing gpu-unlock-dkms...
+==> gpu_unlock now loads ahead of nvidia on every boot but does nothing until
+==> you opt in on the kernel command line:
+==>   gpu_unlock.targets=all              every unbound RTX 3090
+==>   gpu_unlock.targets=0000:21:00.0     only these PCI addresses (comma-separated)
+==> Remove the option in your bootloader to boot without the unlock.
+==> See /usr/share/doc/gpu-unlock/README.md.
+:: Running post-transaction hooks...
+(1/3) Arming ConditionNeedsUpdate...
+(2/3) Install DKMS modules
+==> dkms install --no-depmod gpu-unlock/1.0.0 -k 7.2.5-3-omarchy
+==> dkms install --no-depmod gpu-unlock/1.0.0 -k 7.2.3-arch1-3
+==> depmod 7.2.3-arch1-3
+==> depmod 7.2.5-3-omarchy
+(3/3) Updating linux initcpios...
+Building UKI for linux (7.2.3-arch1-3)
+==> Using drop-in configuration file: 'omarchy_hooks.conf'
+==> Using drop-in configuration file: 'thunderbolt_module.conf'
+==> Using drop-in configuration file: 'zz-gpu-unlock.conf'
+==> Starting build: '7.2.3-arch1-3'
+  -> Running build hook: [base]
+  -> Running build hook: [udev]
+  -> Running build hook: [plymouth]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+  -> Running build hook: [autodetect]
+  -> Running build hook: [microcode]
+  -> Running build hook: [modconf]
+  -> Running build hook: [kms]
+  -> Running build hook: [keymap]
+  -> Running build hook: [consolefont]
+==> WARNING: consolefont: no font found in configuration
+  -> Running build hook: [block]
+  -> Running build hook: [encrypt]
+==> WARNING: Possibly missing firmware for module: 'qat_6xxx'
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+  -> Running build hook: [btrfs-overlayfs]
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image
+  -> Early uncompressed CPIO image generation successful
+==> Initcpio image generation successful
+==> Creating unified kernel image: '/tmp/limine-mkinitcpio.6gTgPE/linux.efi'
+==> Unified kernel image generation successful
+Copied: /tmp/limine-mkinitcpio.6gTgPE/linux.efi -> /boot/EFI/Linux/omarchy_linux.efi
+Updated: /boot/limine.conf
+Building UKI for linux-omarchy (7.2.5-3-omarchy)
+==> Using drop-in configuration file: 'omarchy_hooks.conf'
+==> Using drop-in configuration file: 'thunderbolt_module.conf'
+==> Using drop-in configuration file: 'zz-gpu-unlock.conf'
+==> Starting build: '7.2.5-3-omarchy'
+  -> Running build hook: [base]
+  -> Running build hook: [udev]
+  -> Running build hook: [plymouth]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+  -> Running build hook: [autodetect]
+  -> Running build hook: [microcode]
+  -> Running build hook: [modconf]
+  -> Running build hook: [kms]
+  -> Running build hook: [keymap]
+  -> Running build hook: [consolefont]
+==> WARNING: consolefont: no font found in configuration
+  -> Running build hook: [block]
+  -> Running build hook: [encrypt]
+==> WARNING: Possibly missing firmware for module: 'qat_6xxx'
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+  -> Running build hook: [btrfs-overlayfs]
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image
+  -> Early uncompressed CPIO image generation successful
+==> Initcpio image generation successful
+==> Creating unified kernel image: '/tmp/limine-mkinitcpio.6gTgPE/linux-omarchy.efi'
+==> Unified kernel image generation successful
+Copied: /tmp/limine-mkinitcpio.6gTgPE/linux-omarchy.efi -> /boot/EFI/Linux/omarchy_linux-omarchy.efi
+Updated: /boot/limine.conf

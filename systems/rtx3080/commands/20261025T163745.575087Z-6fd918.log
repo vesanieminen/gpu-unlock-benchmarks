@@ -1,0 +1,31 @@
+{
+  "status": "installed and prepared; reboot activation pending",
+  "upstream_commit": "af28cbbfd3d922a659227ecfb7369adfd924cf03",
+  "package_versions": [
+    "gpu-unlock-dkms 1.0.0-1",
+    "gpu-unlock-firmware 1.0.0-1"
+  ],
+  "packages": [
+    {
+      "file": "gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst",
+      "sha256": "d2d7a7fbf7a58374a9c11d19af1fe5dd1cbf4002b5e2843b554c76cea2a0d232"
+    },
+    {
+      "file": "gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst",
+      "sha256": "0e6e57ff86dd42b128cc6f0fc8a9d56c17960cf5d9ee6c90a63d981165564e4f"
+    }
+  ],
+  "dkms": [
+    "gpu-unlock/1.0.0, 7.2.3-arch1-3, x86_64: installed",
+    "gpu-unlock/1.0.0, 7.2.5-3-omarchy, x86_64: installed"
+  ],
+  "target": "0000:07:00.0",
+  "backup_directory": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z",
+  "upstream_tests_passed": 5,
+  "boot_activation_verified": false,
+  "unlocked_benchmarks_complete": false,
+  "scripts_sha256": {
+    "configure_limine.py": "50a74199e550dc7005cf0766539329950fcefe861b18eb4c0e5091b168ec50ce",
+    "verify_boot_images.py": "2a4c29f845dedfc4a47530283031f06e9a62f6b8eb1085ba735e2f7c8e5662b5"
+  }
+}

@@ -1,0 +1,112 @@
++ find /boot/EFI -maxdepth 3 -type f -printf '%p %s bytes\n'
+/boot/EFI/BOOT/BOOTIA32.EFI 393216 bytes
+/boot/EFI/BOOT/BOOTX64.EFI 372736 bytes
+/boot/EFI/Limine/limine_x64.efi 372736 bytes
+/boot/EFI/Limine/limine_x64.bak 378880 bytes
+/boot/EFI/Linux/omarchy_linux.efi 256360960 bytes
+/boot/EFI/Linux/omarchy_linux-omarchy.efi 256446464 bytes
++ lsinitcpio --help
+lsinitcpio 41.1
+usage: lsinitcpio [action] [options] <initramfs>
+
+  Actions:
+   -a, --analyze        analyze contents of image
+   -c, --config         show configuration file image was built with
+   -l, --list           list contents of the image (default)
+   -x, --extract        extract image to disk
+
+  Options:
+   -h, --help           display this help
+   -n, --nocolor        disable colorized output
+   -V, --version        display version information
+   -v, --verbose        more verbose output
+       --cpio           list or extract only the main CPIO image
+       --early          list or extract only the early CPIO image
+
++ rg -n 'mkinitcpio|UKI|config|image|preset|initrd|cmdline|AUTH_METHOD' /usr/share/libalpm/scripts/limine-mkinitcpio-install /etc/limine-entry-tool.conf
+/etc/limine-entry-tool.conf:1:### Note: Editing this configuration file is not necessary. Instead, copy it to `/etc/default/limine` and configure it as needed.
+/etc/limine-entry-tool.conf:31:### If unset, the tool will try to read them from '/etc/kernel/cmdline' or '/proc/cmdline'.
+/etc/limine-entry-tool.conf:34:### * KERNEL_CMDLINE[default] applies to any kernel entries without specific configuration.
+/etc/limine-entry-tool.conf:39:### * `+=` appends parameters to an existing cmdline for the same KERNEL_CMDLINE[<key>]
+/etc/limine-entry-tool.conf:40:###    Commonly used in drop-in configs: /etc/limine-entry-tool.d/*.conf
+/etc/limine-entry-tool.conf:41:###    Ignores /etc/kernel/cmdline and /proc/cmdline
+/etc/limine-entry-tool.conf:42:### * `=` replaces an existing cmdline for the same KERNEL_CMDLINE[<key>]
+/etc/limine-entry-tool.conf:43:###    Note: /etc/default/limine overrides any drop-in configs, so `+=` is recommended there.
+/etc/limine-entry-tool.conf:46:### - If unsure which parameters to use, copy them from `/proc/cmdline` into KERNEL_CMDLINE[default],
+/etc/limine-entry-tool.conf:48:### - Multiple `initrd=` parameters are automatically converted into Limine module paths for non-UKI entries.
+/etc/limine-entry-tool.conf:55:#KERNEL_CMDLINE[default]+=initrd=/amd-ucode.img
+/etc/limine-entry-tool.conf:109:#AUTH_METHOD=sudo
+/etc/limine-entry-tool.conf:118:### Automatically embeds a checksum of the Limine config into the Limine binary to protect it against unauthorized modifications.
+/etc/limine-entry-tool.conf:124:### This allows you to boot into the Limine fallback if a boot panic occurs due to a config checksum mismatch.
+/etc/limine-entry-tool.conf:127:### * After editing limine.conf, always run 'limine-enroll-config'
+/etc/limine-entry-tool.conf:128:### * Remove all other Limine configs from alternative locations to avoid boot failures.
+/etc/limine-entry-tool.conf:131:###   - /etc/boot/hooks/post.d/ with a symlink 90-limine-enroll-config -> /usr/bin/limine-enroll-config
+/etc/limine-entry-tool.conf:138:##############  Below options apply to Arch Linux when 'limine-mkinitcpio-hook' is installed ##############
+/etc/limine-entry-tool.conf:140:### UKI (Unified Kernel Image)
+/etc/limine-entry-tool.conf:141:### Automatically create UKIs in '$ESP_PATH/EFI/Linux/' for UEFI. (yes|no)
+/etc/limine-entry-tool.conf:144:###  + UKIs can be detected and loaded by 'systemd-boot' or 'rEFInd'.
+/etc/limine-entry-tool.conf:145:###  + UKIs can boot directly from UEFI firmware when a fixed UKI filename is manually registered as a UEFI boot entry.
+/etc/limine-entry-tool.conf:147:###  - UKIs require more ESP space than separate 'initramfs' and 'vmlinuz' files, especially with multiple snapshots.
+/etc/limine-entry-tool.conf:150:###  * Duplicate 'initramfs' and 'vmlinuz' files are automatically removed after generating UKIs.
+/etc/limine-entry-tool.conf:151:###  * With Snapper and Secure Boot enabled, UKIs use the kernel cmdline from 'limine.conf' instead of an embedded cmdline.
+/etc/limine-entry-tool.conf:152:ENABLE_UKI=no
+/etc/limine-entry-tool.conf:155:### Custom UKI Name
+/etc/limine-entry-tool.conf:156:### Set a shorter, custom name for UKI files instead of the default machine-id.
+/etc/limine-entry-tool.conf:157:### This avoids issues when booting UKIs directly from some buggy UEFI firmware (e.g. Asus AMI BIOS)
+/etc/limine-entry-tool.conf:158:### that may crash or freeze with long UKI filenames.
+/etc/limine-entry-tool.conf:161:### * Custom name must be unique (like an ID) to avoid conflicts with other installations, otherwise UKIs will be overwritten.
+/etc/limine-entry-tool.conf:164:### Example: ${CUSTOM_UKI_NAME}_${kernel_version}.efi -> arch_linux-lts.efi (when CUSTOM_UKI_NAME="arch" is set)
+/etc/limine-entry-tool.conf:168:### Changing the name does not remove existing UKI files with the previous name or machine-id.
+/etc/limine-entry-tool.conf:170:### UKI location: $ESP_PATH/EFI/Linux/{machine-id or old name}_{kernel_version}.efi
+/etc/limine-entry-tool.conf:171:#CUSTOM_UKI_NAME="arch"
+/etc/limine-entry-tool.conf:175:### Automatically create a fallback initramfs or UKI. (yes|no|<kernel-name>)
+/etc/limine-entry-tool.conf:176:### Set to 'yes' to create fallback images for all kernels.
+/etc/limine-entry-tool.conf:177:### Set to a specific kernel name to create a fallback image only for that kernel.
+/etc/limine-entry-tool.conf:178:### Fallback images consume additional storage space, especially when keeping multiple snapshots.
+/etc/limine-entry-tool.conf:182:### mkinitcpio UKI Build Options
+/etc/limine-entry-tool.conf:183:### Additional options for mkinitcpio UKI builds
+/etc/limine-entry-tool.conf:184:### See: https://man.archlinux.org/man/mkinitcpio.8.en#OPTIONS_FOR_UNIFIED_KERNEL_IMAGE
+/etc/limine-entry-tool.conf:186:#MKINITCPIO_UKI_OPTIONS="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:3:readonly SCRIPT_NAME="limine-mkinitcpio-install"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:24:UKI_PATH=""
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:25:UKI_FALLBACK_PATH=""
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:28:UKI_PREFIX="$MACHINE_ID"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:29:read -ra UKI_OPTIONS <<<"${MKINITCPIO_UKI_OPTIONS:-}"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:30:TMP_DIR=$(mktemp -d /tmp/limine-mkinitcpio.XXXXXX) || {
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:36:	[[ -d "$TMP_DIR" && "$TMP_DIR" == /tmp/limine-mkinitcpio.* ]] && rm -r "$TMP_DIR"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:42:	UKI_PREFIX="$MACHINE_ID"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:43:	[[ -z ${CUSTOM_UKI_NAME:-} ]] && return
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:45:	if [[ $CUSTOM_UKI_NAME =~ ^[a-z0-9]+$ ]]; then
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:46:		UKI_PREFIX=$CUSTOM_UKI_NAME
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:48:		warning_msg "CUSTOM_UKI_NAME is invalid. Only lowercase letters (a-z) and digits (0-9) are allowed."
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:115:	UKI_PATH="${uki_install_dir}/${UKI_PREFIX}_${KERNEL_NAME}.efi"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:116:	UKI_FALLBACK_PATH="${uki_install_dir}/${UKI_PREFIX}_${KERNEL_NAME}-fallback.efi"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:120:# Sets CMDLINE_FILE, or leaves it empty if no cmdline should be embedded.
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:121:resolve_cmdline_file() {
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:125:		# Signed UKIs with embedded cmdlines cannot boot Btrfs snapshots.
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:126:		# Omit the embedded cmdline when Secure Boot and Snapper are used.
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:129:	local cmdline_file="$TMP_DIR/cmdline-${kernel_name}"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:130:	if ! limine-entry-tool --get-cmdline "$kernel_name" --no-mutex --no-hooks | tail -n 1 >"$cmdline_file"; then
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:131:		error_msg "failed to get kernel cmdline for '${kernel_name}'."
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:134:	CMDLINE_FILE="$cmdline_file"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:140:	local output="$1" is_fallback="$2" cmdline_file="$3"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:142:	if [[ -n "$cmdline_file" ]]; then
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:143:		args+=(--cmdline "$cmdline_file")
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:145:		args+=(--no-cmdline)
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:151:	args+=("${UKI_OPTIONS[@]}")
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:152:	/usr/bin/mkinitcpio "${args[@]}"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:158:	local args=(--kernel "$KERNEL_VERSION" --no-cmdline --generate "$output")
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:162:	/usr/bin/mkinitcpio "${args[@]}"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:165:# install_uki KERNEL_NAME UKI_FILE COMMENT
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:187:	remove_uki_if_present "$KERNEL_NAME" "$UKI_PATH"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:188:	remove_uki_if_present "${KERNEL_NAME}-fallback" "$UKI_FALLBACK_PATH"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:199:	resolve_cmdline_file "$kernel_name" || return 1
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:202:		error_msg "mkinitcpio failed for kernel ${KERNEL_VERSION}, skipping."
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:205:	#sb_sign "$tmp_uki" # Not needed, as it is already handled by mkinitcpio's sbctl hook
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:211:	info_msg "Building UKI for ${KERNEL_NAME} (${KERNEL_VERSION})"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:216:		info_msg "Building UKI fallback for ${KERNEL_NAME} (${KERNEL_VERSION})"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:220:		remove_uki_if_present "${KERNEL_NAME}-fallback" "$UKI_FALLBACK_PATH"
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:231:		error_msg "mkinitcpio failed for kernel ${KERNEL_VERSION}, skipping."
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:244:			error_msg "mkinitcpio failed for kernel ${KERNEL_VERSION}, skipping."
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:268:	if [[ "${ENABLE_UKI:-}" == "yes" ]] && is_uefi; then
+/usr/share/libalpm/scripts/limine-mkinitcpio-install:298:		/usr/share/libalpm/scripts/limine-mkinitcpio-remove post

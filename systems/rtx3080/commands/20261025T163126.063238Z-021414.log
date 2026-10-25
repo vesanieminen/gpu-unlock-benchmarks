@@ -1,0 +1,30 @@
+{
+  "backup_directory": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z",
+  "files": [
+    {
+      "source": "/etc/default/limine",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z/limine",
+      "sha256": "3218d2c1852c82d44f606115c13ad6c48c417762e71c19ee10b5d8827674ac54"
+    },
+    {
+      "source": "/etc/mkinitcpio.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z/mkinitcpio.conf",
+      "sha256": "c0526dfba738a87955fe311750720d2d810f1af82dd7ec3eb2ea1d3203871f3b"
+    },
+    {
+      "source": "/boot/limine.conf",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z/limine.conf",
+      "sha256": "9863ca278fabb3fe19d9ee0ee1fdc8bfa7e170366b85909d521ec6fb175d6b74"
+    },
+    {
+      "source": "/boot/EFI/Linux/omarchy_linux.efi",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z/omarchy_linux.efi",
+      "sha256": "6bb9a66b21eb8642ad47b00ea92cde55f4ce7c8472d28e4692889c37c4059b85"
+    },
+    {
+      "source": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "backup": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z/omarchy_linux-omarchy.efi",
+      "sha256": "6b64a935a19341f57f5fa436bddb544af7ecd3a9be8a17b0da081f0f039b6d12"
+    }
+  ]
+}

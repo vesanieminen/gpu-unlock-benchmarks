@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "verification",
+  "started_utc": "2026-10-25T16:31:31.566411+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "ls -lh /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-*.pkg.tar.zst; sha256sum /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-*.pkg.tar.zst; pacman -Qip /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst"
+  ],
+  "command": "bash -x -c 'ls -lh /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-*.pkg.tar.zst; sha256sum /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-*.pkg.tar.zst; pacman -Qip /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst'",
+  "output": "20261025T163131.566411Z-ca65db.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 0.04905227000017476,
+  "ended_utc": "2026-10-25T16:31:31.618524+00:00"
+}

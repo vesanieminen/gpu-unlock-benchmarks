@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/vesanieminen/Projects/gpu-unlock-benchmarks/verify_boot_images.py", line 68, in <module>
+    main()
+    ~~~~^^
+  File "/home/vesanieminen/Projects/gpu-unlock-benchmarks/verify_boot_images.py", line 36, in main
+    before = commandline(args.baseline / image.name)
+  File "/home/vesanieminen/Projects/gpu-unlock-benchmarks/verify_boot_images.py", line 14, in commandline
+    subprocess.run(['objcopy', '--dump-section', f'.cmdline={output}',
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    str(image), '/dev/null'], check=True, capture_output=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['objcopy', '--dump-section', '.cmdline=/tmp/gpu-unlock-verify-mgn3fu51/cmdline', '/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z/omarchy_linux-omarchy.efi', '/dev/null']' returned non-zero exit status 1.

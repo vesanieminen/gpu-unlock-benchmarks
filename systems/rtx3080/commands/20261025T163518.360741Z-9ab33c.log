@@ -1,0 +1,9 @@
++ set -e
++ lsinitcpio -c /boot/EFI/Linux/omarchy_linux-omarchy.efi
++ bash -c 'source /dev/stdin; printf "%s\n" "${MODULES[@]}"'
+gpu_unlock?
+nvidia
+nvidia_modeset
+nvidia_uvm
+nvidia_drm
+thunderbolt

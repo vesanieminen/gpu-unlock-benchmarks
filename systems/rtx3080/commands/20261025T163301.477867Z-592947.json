@@ -1,0 +1,21 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "boot-config",
+  "started_utc": "2026-10-25T16:33:01.477867+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "pkexec",
+    "python3",
+    "/home/vesanieminen/Projects/gpu-unlock-benchmarks/configure_limine.py",
+    "--targets",
+    "0000:07:00.0",
+    "--apply"
+  ],
+  "command": "pkexec python3 /home/vesanieminen/Projects/gpu-unlock-benchmarks/configure_limine.py --targets 0000:07:00.0 --apply",
+  "output": "20261025T163301.477867Z-592947.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 10.575939534999634,
+  "ended_utc": "2026-10-25T16:33:12.056617+00:00"
+}

@@ -1,0 +1,63 @@
++ set -e
++ dkms status
+gpu-unlock/1.0.0, 7.2.3-arch1-3, x86_64: installed
+gpu-unlock/1.0.0, 7.2.5-3-omarchy, x86_64: installed
+nvidia/610.57.04, 6.19.10-arch1-1, x86_64: installed (Original modules exist) (Built modules are missing in the kernel modules folder)
+nvidia/610.57.04, 7.2.3-arch1-3, x86_64: installed
+nvidia/610.57.04, 7.2.5-3-omarchy, x86_64: installed
++ pacman -Q gpu-unlock-dkms gpu-unlock-firmware
+gpu-unlock-dkms 1.0.0-1
+gpu-unlock-firmware 1.0.0-1
++ modinfo -k 7.2.5-3-omarchy gpu_unlock
+filename:       /lib/modules/7.2.5-3-omarchy/updates/dkms/gpu_unlock.ko.zst
+version:        1.0.0
+description:    Ampere pre-driver BF16 unlock
+license:        GPL
+firmware:       gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin
+firmware:       gpu-unlock/610.43.03/gsp_boot_ga102.bin
+firmware:       gpu-unlock/610.43.03/gsp_ga10x.bin
+firmware:       gpu-unlock/610.43.03/v67-ga102-610.43.03.bin
+firmware:       gpu-unlock/610.43.03/booter_load_ga102.bin
+srcversion:     8C3A0B337AE00088B146BF2
+depends:        
+name:           gpu_unlock
+retpoline:      Y
+vermagic:       7.2.5-3-omarchy SMP preempt mod_unload 
+sig_id:         PKCS#7
+signer:         DKMS module signing key
+sig_key:        74:88:D2:A0:23:2E:AF:CC:DB:E5:C3:4C:D5:BC:7F:5A:32:48:75:F6
+sig_hashalgo:   sha512
+signature:      9C:AC:EA:20:61:CA:D8:7D:D0:F2:EF:84:8D:96:7D:46:B9:34:41:94:
+		0B:19:57:10:C1:B3:0D:57:69:8A:63:DB:EB:79:31:9D:A9:BF:9E:34:
+		90:91:D1:67:ED:2F:F3:74:7B:9D:46:65:2C:7D:A3:41:47:65:3C:2E:
+		0A:65:72:45:82:94:11:BF:E1:12:62:9D:6C:E6:5C:AC:7E:8B:B4:5C:
+		25:8C:E8:86:2C:BC:2D:29:D1:9F:F1:D7:AE:CC:A8:D2:39:BB:AD:41:
+		A2:D3:17:6C:0D:F5:FD:97:7C:3E:98:3C:BA:A7:12:21:56:56:70:B5:
+		15:5E:90:86:79:42:40:72:D7:19:EC:F5:B3:2D:F1:DF:00:17:9F:05:
+		F3:CA:08:D7:35:AB:B2:6B:F7:1B:79:F5:DC:2D:E7:1F:20:68:4A:B9:
+		41:A1:EF:74:47:9D:E1:B3:CB:DC:AA:EB:71:29:46:17:0D:E7:89:53:
+		8B:ED:3A:93:E7:AF:88:46:03:CD:4E:D6:E0:69:5B:5C:04:46:37:E5:
+		60:6B:17:44:F4:FF:D7:23:34:B2:36:FC:DD:21:77:2A:0E:2A:8E:72:
+		8A:37:B1:4E:81:11:7D:E8:56:AC:78:A5:40:D2:5A:64:18:19:00:5C:
+		78:7F:CB:6A:20:4D:3F:39:6E:9A:B5:70:88:71:2A:B2
+parm:           targets:"all" or comma-separated PCI addresses of GA102/GA103/GA104/GA106 cards to unlock (charp)
+parm:           resume:Unlock the cards again after resume from suspend, which powers them off (default: on) (bool)
++ modinfo -k 7.2.3-arch1-3 -F filename gpu_unlock
+/lib/modules/7.2.3-arch1-3/updates/dkms/gpu_unlock.ko.zst
++ cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf
+# Put gpu_unlock and its firmware in every image and load it right before
+# nvidia, so a display card's screen is blank only from its unlock until
+# nvidia-drm takes over. Without nvidia in the image it loads last, still
+# before any nvidia loaded from the root filesystem. Named to be read after
+# every other drop-in. It does nothing unless gpu_unlock.targets= is on the
+# kernel command line.
+[[ ${MODULES@a} == *a* ]] || read -ra MODULES <<<"$MODULES"
+_gu_modules=()
+for _gu_module in "${MODULES[@]}"; do
+    [[ ${_gu_module%\?} == gpu_unlock ]] && continue
+    [[ ${_gu_module%\?} == nvidia ]] && _gu_modules+=(gpu_unlock?)
+    _gu_modules+=("$_gu_module")
+done
+[[ " ${_gu_modules[*]} " == *' gpu_unlock? '* ]] || _gu_modules+=(gpu_unlock?)
+MODULES=("${_gu_modules[@]}")
+unset _gu_modules _gu_module

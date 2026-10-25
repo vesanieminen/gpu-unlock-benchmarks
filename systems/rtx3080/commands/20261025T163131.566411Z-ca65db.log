@@ -1,0 +1,27 @@
++ ls -lh /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst
+-rw-r--r-- 1 vesanieminen vesanieminen 52K Oct 25 18:31 /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst
+-rw-r--r-- 1 vesanieminen vesanieminen 70M Oct 25 18:31 /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst
++ sha256sum /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst
+d2d7a7fbf7a58374a9c11d19af1fe5dd1cbf4002b5e2843b554c76cea2a0d232  /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst
+0e6e57ff86dd42b128cc6f0fc8a9d56c17960cf5d9ee6c90a63d981165564e4f  /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-firmware-1.0.0-1-x86_64.pkg.tar.zst
++ pacman -Qip /home/vesanieminen/Projects/gpu-unlock/packaging/arch/gpu-unlock-dkms-1.0.0-1-any.pkg.tar.zst
+Name            : gpu-unlock-dkms
+Version         : 1.0.0-1
+Description     : RTX 3090 BF16 unlock before the NVIDIA driver loads
+Architecture    : any
+URL             : None
+Licenses        : GPL-2.0-only
+Groups          : None
+Provides        : None
+Depends On      : dkms  gpu-unlock-firmware=1.0.0-1
+Optional Deps   : None
+Conflicts With  : gpu-unlock-mkinitcpio
+Replaces        : gpu-unlock-mkinitcpio
+Compressed Size : 51.52 KiB
+Installed Size  : 119.83 KiB
+Packager        : Unknown Packager
+Build Date      : Sun Oct 25 18:30:01 2026
+Install Script  : Yes
+Validated By    : None
+Signatures      : None
+

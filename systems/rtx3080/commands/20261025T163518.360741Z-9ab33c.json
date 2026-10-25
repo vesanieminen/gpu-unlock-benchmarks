@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "verification",
+  "started_utc": "2026-10-25T16:35:18.360741+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "set -e; lsinitcpio -c /boot/EFI/Linux/omarchy_linux-omarchy.efi | bash -c 'source /dev/stdin; printf \"%s\\n\" \"${MODULES[@]}\"'"
+  ],
+  "command": "bash -x -c 'set -e; lsinitcpio -c /boot/EFI/Linux/omarchy_linux-omarchy.efi | bash -c '\"'\"'source /dev/stdin; printf \"%s\\n\" \"${MODULES[@]}\"'\"'\"''",
+  "output": "20261025T163518.360741Z-9ab33c.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 0.8026566290000119,
+  "ended_utc": "2026-10-25T16:35:19.166670+00:00"
+}

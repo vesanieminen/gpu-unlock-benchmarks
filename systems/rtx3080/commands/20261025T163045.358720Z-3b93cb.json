@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:30:45.358720+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "find /boot/EFI -maxdepth 3 -type f -printf \"%p %s bytes\\n\"; lsinitcpio --help; rg -n \"mkinitcpio|UKI|config|image|preset|initrd|cmdline|AUTH_METHOD\" /usr/share/libalpm/scripts/limine-mkinitcpio-install /etc/limine-entry-tool.conf"
+  ],
+  "command": "bash -x -c 'find /boot/EFI -maxdepth 3 -type f -printf \"%p %s bytes\\n\"; lsinitcpio --help; rg -n \"mkinitcpio|UKI|config|image|preset|initrd|cmdline|AUTH_METHOD\" /usr/share/libalpm/scripts/limine-mkinitcpio-install /etc/limine-entry-tool.conf'",
+  "output": "20261025T163045.358720Z-3b93cb.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 0.017823267000494525,
+  "ended_utc": "2026-10-25T16:30:45.379363+00:00"
+}

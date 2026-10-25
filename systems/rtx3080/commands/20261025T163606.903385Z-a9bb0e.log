@@ -1,0 +1,73 @@
+{
+  "status": "prepared; reboot verification pending",
+  "images": [
+    {
+      "image": "/boot/EFI/Linux/omarchy_linux-omarchy.efi",
+      "sha256": "70811e44bfd0fd83354b601f0974974becf4c01bcddc727e889b12d1fc47bc21",
+      "baseline_sha256": "6b64a935a19341f57f5fa436bddb544af7ecd3a9be8a17b0da081f0f039b6d12",
+      "baseline_cmdline": "quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "prepared_cmdline": "gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "module_order": [
+        "gpu_unlock",
+        "nvidia",
+        "nvidia_modeset",
+        "nvidia_uvm",
+        "nvidia_drm",
+        "thunderbolt"
+      ],
+      "module_files": [
+        "usr/lib/modules/7.2.5-3-omarchy/updates/dkms/gpu_unlock.ko.zst"
+      ],
+      "firmware_files": [
+        "usr/lib/firmware/gpu-unlock/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_ga10x.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/v67-ga102-610.43.03.bin"
+      ],
+      "checks": {
+        "target_present_once": true,
+        "other_kernel_options_preserved": true,
+        "unlock_loads_before_nvidia": true,
+        "module_in_image": true,
+        "all_firmware_in_image": true
+      }
+    },
+    {
+      "image": "/boot/EFI/Linux/omarchy_linux.efi",
+      "sha256": "34934be21530aee1fbe768eb24d8a2297a03ce0f4155f938aadad7a6c79c45f4",
+      "baseline_sha256": "6bb9a66b21eb8642ad47b00ea92cde55f4ce7c8472d28e4692889c37c4059b85",
+      "baseline_cmdline": "quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "prepared_cmdline": "gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 quiet splash loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0",
+      "module_order": [
+        "gpu_unlock",
+        "nvidia",
+        "nvidia_modeset",
+        "nvidia_uvm",
+        "nvidia_drm",
+        "thunderbolt"
+      ],
+      "module_files": [
+        "usr/lib/modules/7.2.3-arch1-3/updates/dkms/gpu_unlock.ko.zst"
+      ],
+      "firmware_files": [
+        "usr/lib/firmware/gpu-unlock/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/",
+        "usr/lib/firmware/gpu-unlock/610.43.03/booter_load_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_boot_ga102.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/gsp_ga10x.bin",
+        "usr/lib/firmware/gpu-unlock/610.43.03/v67-ga102-610.43.03.bin"
+      ],
+      "checks": {
+        "target_present_once": true,
+        "other_kernel_options_preserved": true,
+        "unlock_loads_before_nvidia": true,
+        "module_in_image": true,
+        "all_firmware_in_image": true
+      }
+    }
+  ]
+}

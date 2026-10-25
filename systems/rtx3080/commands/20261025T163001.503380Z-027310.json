@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "install",
+  "started_utc": "2026-10-25T16:30:01.503380+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "cd /home/vesanieminen/Projects/gpu-unlock && git rev-parse HEAD && make arch"
+  ],
+  "command": "bash -x -c 'cd /home/vesanieminen/Projects/gpu-unlock && git rev-parse HEAD && make arch'",
+  "output": "20261025T163001.503380Z-027310.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 71.94915819200014,
+  "ended_utc": "2026-10-25T16:31:13.455539+00:00"
+}

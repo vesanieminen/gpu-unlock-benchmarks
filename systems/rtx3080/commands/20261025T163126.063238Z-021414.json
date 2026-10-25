@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "backup",
+  "started_utc": "2026-10-25T16:31:26.063238+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import shutil,datetime,json,hashlib; d=Path.home()/\".local/state/gpu-unlock/backups\"/datetime.datetime.now(datetime.timezone.utc).strftime(\"%Y%m%dT%H%M%SZ\"); d.mkdir(parents=True,exist_ok=False); sources=[Path(\"/etc/default/limine\"),Path(\"/etc/mkinitcpio.conf\"),Path(\"/boot/limine.conf\"),*Path(\"/boot/EFI/Linux\").glob(\"*.efi\")]; manifest=[]; [(shutil.copy2(p,d/p.name),manifest.append({\"source\":str(p),\"backup\":str(d/p.name),\"sha256\":hashlib.sha256((d/p.name).read_bytes()).hexdigest()})) for p in sources]; (d/\"manifest.json\").write_text(json.dumps(manifest,indent=2)+\"\\n\"); print(json.dumps({\"backup_directory\":str(d),\"files\":manifest},indent=2))"
+  ],
+  "command": "python3 -c 'from pathlib import Path; import shutil,datetime,json,hashlib; d=Path.home()/\".local/state/gpu-unlock/backups\"/datetime.datetime.now(datetime.timezone.utc).strftime(\"%Y%m%dT%H%M%SZ\"); d.mkdir(parents=True,exist_ok=False); sources=[Path(\"/etc/default/limine\"),Path(\"/etc/mkinitcpio.conf\"),Path(\"/boot/limine.conf\"),*Path(\"/boot/EFI/Linux\").glob(\"*.efi\")]; manifest=[]; [(shutil.copy2(p,d/p.name),manifest.append({\"source\":str(p),\"backup\":str(d/p.name),\"sha256\":hashlib.sha256((d/p.name).read_bytes()).hexdigest()})) for p in sources]; (d/\"manifest.json\").write_text(json.dumps(manifest,indent=2)+\"\\n\"); print(json.dumps({\"backup_directory\":str(d),\"files\":manifest},indent=2))'",
+  "output": "20261025T163126.063238Z-021414.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 1.4788640730002953,
+  "ended_utc": "2026-10-25T16:31:27.545005+00:00"
+}

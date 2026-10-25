@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:34:03.327152+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "rg -n \"buildconfig|\\.initrd|MZ|PE|unified|--config|--config\" /usr/bin/lsinitcpio; sed -n \"1,130p\" /usr/bin/lsinitcpio"
+  ],
+  "command": "bash -x -c 'rg -n \"buildconfig|\\.initrd|MZ|PE|unified|--config|--config\" /usr/bin/lsinitcpio; sed -n \"1,130p\" /usr/bin/lsinitcpio'",
+  "output": "20261025T163403.327152Z-80059b.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 0.0038150829996084212,
+  "ended_utc": "2026-10-25T16:34:03.333895+00:00"
+}

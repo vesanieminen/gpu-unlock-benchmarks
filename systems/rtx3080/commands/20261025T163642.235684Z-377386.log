@@ -1,0 +1,9 @@
++ rg -n 'MODULES.*[%/].*\\\?|MODULES.*\\\?|^write.*config|MODULES=' /usr/lib/initcpio/functions /usr/bin/mkinitcpio
+/usr/lib/initcpio/functions:1146:        for mod in "${MODULES[@]%\?}"; do
+/usr/lib/initcpio/functions:1151:        (( ${#add[*]} )) && printf 'MODULES="%s"\n' "${add[*]}"
+/usr/lib/initcpio/functions:1238:    local MODULES=() BINARIES=() FILES=() SCRIPT=''
++ cat /proc/cmdline
+quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs  initramfs_async=0 loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
++ nvidia-smi --query-gpu=name,driver_version,power.limit --format=csv
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+

@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "installation-record",
+  "started_utc": "2026-10-25T16:37:45.575087+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json,subprocess,hashlib,shutil; root=Path(\"systems/rtx3080/installation\"); root.mkdir(parents=True,exist_ok=True); backup=Path(\"/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z\"); shutil.copy2(backup/\"manifest.json\",root/\"backup-manifest.json\"); packages=sorted(Path(\"/home/vesanieminen/Projects/gpu-unlock/packaging/arch\").glob(\"gpu-unlock-*.pkg.tar.zst\")); report={\"status\":\"installed and prepared; reboot activation pending\",\"upstream_commit\":subprocess.check_output([\"git\",\"-C\",\"/home/vesanieminen/Projects/gpu-unlock\",\"rev-parse\",\"HEAD\"],text=True).strip(),\"package_versions\":subprocess.check_output([\"pacman\",\"-Q\",\"gpu-unlock-dkms\",\"gpu-unlock-firmware\"],text=True).splitlines(),\"packages\":[{\"file\":p.name,\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()} for p in packages],\"dkms\":subprocess.check_output([\"dkms\",\"status\",\"gpu-unlock/1.0.0\"],text=True).splitlines(),\"target\":\"0000:07:00.0\",\"backup_directory\":str(backup),\"upstream_tests_passed\":5,\"boot_activation_verified\":False,\"unlocked_benchmarks_complete\":False,\"scripts_sha256\":{p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in [\"configure_limine.py\",\"verify_boot_images.py\"]}}; (root/\"install.json\").write_text(json.dumps(report,indent=2)+\"\\n\"); print(json.dumps(report,indent=2))"
+  ],
+  "command": "python3 -c 'from pathlib import Path; import json,subprocess,hashlib,shutil; root=Path(\"systems/rtx3080/installation\"); root.mkdir(parents=True,exist_ok=True); backup=Path(\"/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z\"); shutil.copy2(backup/\"manifest.json\",root/\"backup-manifest.json\"); packages=sorted(Path(\"/home/vesanieminen/Projects/gpu-unlock/packaging/arch\").glob(\"gpu-unlock-*.pkg.tar.zst\")); report={\"status\":\"installed and prepared; reboot activation pending\",\"upstream_commit\":subprocess.check_output([\"git\",\"-C\",\"/home/vesanieminen/Projects/gpu-unlock\",\"rev-parse\",\"HEAD\"],text=True).strip(),\"package_versions\":subprocess.check_output([\"pacman\",\"-Q\",\"gpu-unlock-dkms\",\"gpu-unlock-firmware\"],text=True).splitlines(),\"packages\":[{\"file\":p.name,\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()} for p in packages],\"dkms\":subprocess.check_output([\"dkms\",\"status\",\"gpu-unlock/1.0.0\"],text=True).splitlines(),\"target\":\"0000:07:00.0\",\"backup_directory\":str(backup),\"upstream_tests_passed\":5,\"boot_activation_verified\":False,\"unlocked_benchmarks_complete\":False,\"scripts_sha256\":{p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in [\"configure_limine.py\",\"verify_boot_images.py\"]}}; (root/\"install.json\").write_text(json.dumps(report,indent=2)+\"\\n\"); print(json.dumps(report,indent=2))'",
+  "output": "20261025T163745.575087Z-6fd918.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 0.4218533279999974,
+  "ended_utc": "2026-10-25T16:37:46.000251+00:00"
+}

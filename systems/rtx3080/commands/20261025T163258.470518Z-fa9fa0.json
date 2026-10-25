@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "verification",
+  "started_utc": "2026-10-25T16:32:58.470518+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "set -e; dkms status; pacman -Q gpu-unlock-dkms gpu-unlock-firmware; modinfo -k 7.2.5-3-omarchy gpu_unlock; modinfo -k 7.2.3-arch1-3 -F filename gpu_unlock; cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf"
+  ],
+  "command": "bash -x -c 'set -e; dkms status; pacman -Q gpu-unlock-dkms gpu-unlock-firmware; modinfo -k 7.2.5-3-omarchy gpu_unlock; modinfo -k 7.2.3-arch1-3 -F filename gpu_unlock; cat /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf'",
+  "output": "20261025T163258.470518Z-fa9fa0.log",
+  "exit_code": 0,
+  "git_commit": "8980e68cbdffcea53e081aafa9e0abb8fa9e68a8",
+  "duration_seconds": 0.9573148429999492,
+  "ended_utc": "2026-10-25T16:32:59.430881+00:00"
+}

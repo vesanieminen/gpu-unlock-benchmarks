@@ -1,0 +1,9 @@
+--- /etc/default/limine
++++ /etc/default/limine
+@@ -19,3 +19,5 @@
+ SNAPSHOT_FORMAT_CHOICE=5
+ 
+ BOOT_ORDER="linux-omarchy, linux-omarchy-*, *, *fallback, Snapshots"
++
++KERNEL_CMDLINE[default]+=" gpu_unlock.targets=0000:07:00.0"
+Preview only; configuration unchanged.
