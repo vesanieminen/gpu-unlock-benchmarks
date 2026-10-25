@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:24:59.968891+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "pacman -Q | rg \"^(linux|dkms|nvidia|limine|mkinitcpio|sbctl)\"; ls -ld /usr/lib/modules/7.2.5-3-omarchy/build; cat /etc/mkinitcpio.conf.d/omarchy_hooks.conf; ls -l /boot; sed -n \"1,180p\" /usr/bin/limine-mkinitcpio; command -v sbctl; test ! -d /sys/firmware/efi/efivars || ls /sys/firmware/efi/efivars/SecureBoot-*"
+  ],
+  "command": "bash -x -c 'pacman -Q | rg \"^(linux|dkms|nvidia|limine|mkinitcpio|sbctl)\"; ls -ld /usr/lib/modules/7.2.5-3-omarchy/build; cat /etc/mkinitcpio.conf.d/omarchy_hooks.conf; ls -l /boot; sed -n \"1,180p\" /usr/bin/limine-mkinitcpio; command -v sbctl; test ! -d /sys/firmware/efi/efivars || ls /sys/firmware/efi/efivars/SecureBoot-*'",
+  "output": "20261025T162459.968891Z-017a1e.log",
+  "exit_code": 0,
+  "git_commit": "9811b20900e7996eca60387c6539cf0c5c0d1f5e",
+  "duration_seconds": 0.018837370999790437,
+  "ended_utc": "2026-10-25T16:24:59.990486+00:00"
+}

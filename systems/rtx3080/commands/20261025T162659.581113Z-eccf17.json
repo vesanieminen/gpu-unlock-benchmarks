@@ -1,0 +1,23 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:26:59.581113+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "pacman",
+    "-T",
+    "git",
+    "python",
+    "zstd",
+    "gcc",
+    "make",
+    "dkms"
+  ],
+  "command": "pacman -T git python zstd gcc make dkms",
+  "output": "20261025T162659.581113Z-eccf17.log",
+  "exit_code": 0,
+  "git_commit": "9811b20900e7996eca60387c6539cf0c5c0d1f5e",
+  "duration_seconds": 0.00941694599987386,
+  "ended_utc": "2026-10-25T16:26:59.593428+00:00"
+}

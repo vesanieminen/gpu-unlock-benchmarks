@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:24:30.096426+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "uname -r; cat /etc/os-release; cat /proc/cmdline; pacman -Q linux linux-headers linux-lts linux-lts-headers dkms nvidia-open-dkms nvidia-dkms nvidia-utils mkinitcpio limine 2>/dev/null; cat /etc/default/limine; cat /etc/mkinitcpio.conf; ls /etc/mkinitcpio.conf.d /etc/mkinitcpio.d; command -v limine-mkinitcpio; lspci -Dnn -d 10de:; ls /usr/lib/modules; test ! -d /sys/module/gpu_unlock; printf \"gpu_unlock_absent=%s\\n\" \"$?\""
+  ],
+  "command": "bash -x -c 'uname -r; cat /etc/os-release; cat /proc/cmdline; pacman -Q linux linux-headers linux-lts linux-lts-headers dkms nvidia-open-dkms nvidia-dkms nvidia-utils mkinitcpio limine 2>/dev/null; cat /etc/default/limine; cat /etc/mkinitcpio.conf; ls /etc/mkinitcpio.conf.d /etc/mkinitcpio.d; command -v limine-mkinitcpio; lspci -Dnn -d 10de:; ls /usr/lib/modules; test ! -d /sys/module/gpu_unlock; printf \"gpu_unlock_absent=%s\\n\" \"$?\"'",
+  "output": "20261025T162430.096426Z-a71dc6.log",
+  "exit_code": 0,
+  "git_commit": "9811b20900e7996eca60387c6539cf0c5c0d1f5e",
+  "duration_seconds": 0.3431158379999033,
+  "ended_utc": "2026-10-25T16:24:30.442591+00:00"
+}

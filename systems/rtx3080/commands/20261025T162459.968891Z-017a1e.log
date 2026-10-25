@@ -1,0 +1,78 @@
++ pacman -Q
++ rg '^(linux|dkms|nvidia|limine|mkinitcpio|sbctl)'
+dkms 3.4.3-2
+limine 12.8.0-1
+limine-mkinitcpio-hook 1.38.0-1.1
+limine-snapper-sync 1.31.0-1.1
+linux 7.2.3.arch1-3
+linux-api-headers 7.2-1
+linux-firmware 20260810-2
+linux-firmware-amdgpu 20260810-2
+linux-firmware-atheros 20260810-2
+linux-firmware-broadcom 20260810-2
+linux-firmware-cirrus 20260810-2
+linux-firmware-intel 20260810-2
+linux-firmware-mediatek 20260810-2
+linux-firmware-nvidia 20260810-2
+linux-firmware-other 20260810-2
+linux-firmware-radeon 20260810-2
+linux-firmware-realtek 20260810-2
+linux-firmware-whence 20260810-2
+linux-headers 7.2.3.arch1-3
+linux-omarchy 7.2.5-3
+linux-omarchy-headers 7.2.5-3
+mkinitcpio 41.1-1
+mkinitcpio-busybox 1.36.1-1
+nvidia-container-toolkit 1.20.0-1
+nvidia-open-dkms 610.57.04-1
+nvidia-utils 610.57.04-1
++ ls -ld /usr/lib/modules/7.2.5-3-omarchy/build
+drwxr-xr-x 1 nobody nobody 466 Oct  2 19:14 /usr/lib/modules/7.2.5-3-omarchy/build
++ cat /etc/mkinitcpio.conf.d/omarchy_hooks.conf
+HOOKS=(base udev plymouth keyboard autodetect microcode modconf kms keymap consolefont block encrypt filesystems fsck btrfs-overlayfs)
++ ls -l /boot
+total 324
+drwxr-xr-x 3 nobody nobody   4096 Nov 16  2025 7bf96b64c63c427295796fdd0c30d0d0
+drwxr-xr-x 5 nobody nobody   4096 Nov 16  2025 EFI
+-rwxr-xr-x 1 nobody nobody 307200 Aug 14 18:40 amd-ucode.img
+-rwxr-xr-x 1 nobody nobody   5299 Oct  2 19:15 limine.conf
+-rwxr-xr-x 1 nobody nobody   2530 Oct  2 18:48 limine.conf.old
+drwxr-xr-x 3 nobody nobody   4096 Oct 25 17:05 loader
++ sed -n 1,180p /usr/bin/limine-mkinitcpio
+#!/usr/bin/env bash
+
+readonly SCRIPT_NAME="limine-mkinitcpio"
+readonly AUTH_HELPER=/usr/lib/limine/auth-helper
+
+if ((EUID != 0)); then
+	if [[ -f "${AUTH_HELPER}" ]]; then
+		# shellcheck disable=SC1090
+		source "${AUTH_HELPER}" || exit
+	else
+		echo -e "\033[91m${SCRIPT_NAME} must be run as root.\033[0m" >&2
+		exit 1
+	fi
+fi
+
+validate_kernel_packages() {
+	local kernel_package
+	for kernel_package in "$@"; do
+		if ! pacman -Q "$kernel_package" &>/dev/null; then
+			echo -e "\033[91mERROR: kernel package '$kernel_package' is not installed.\033[0m" >&2
+			return 1
+		fi
+	done
+}
+
+if [[ $# -eq 0 ]]; then
+	echo rebuild | /usr/share/libalpm/scripts/limine-mkinitcpio-install
+else
+	if ! validate_kernel_packages "$@"; then
+		exit 1
+	fi
+	printf '%s\n' "$@" | /usr/share/libalpm/scripts/limine-mkinitcpio-install
+fi
++ command -v sbctl
++ test '!' -d /sys/firmware/efi/efivars
++ ls /sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c
+/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c

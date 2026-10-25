@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:25:28.922350+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c\"); print(\"Secure Boot enabled:\", bool(p.read_bytes()[4]))"
+  ],
+  "command": "python3 -c 'from pathlib import Path; p=Path(\"/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c\"); print(\"Secure Boot enabled:\", bool(p.read_bytes()[4]))'",
+  "output": "20261025T162528.922350Z-c66176.log",
+  "exit_code": 0,
+  "git_commit": "9811b20900e7996eca60387c6539cf0c5c0d1f5e",
+  "duration_seconds": 0.017855856000096537,
+  "ended_utc": "2026-10-25T16:25:28.942929+00:00"
+}
