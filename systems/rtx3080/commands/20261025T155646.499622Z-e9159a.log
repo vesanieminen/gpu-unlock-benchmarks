@@ -1,0 +1,55 @@
++ set -euo pipefail
+++ dirname -- run.sh
++ cd -- .
++ action=vllm
++ label=baseline
++ system=rtx3080
++ [[ ! baseline =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ ! rtx3080 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ vllm != help ]]
++ [[ 1 != 1 ]]
++ mkdir -p cache model results
++ [[ ! -f image.lock ]]
+++ cat image.lock
++ image=vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1
++ common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g -v "$PWD:/bench" -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6)
+++ id -u
+++ id -g
++ case "$action" in
+++ date -u +%Y%m%dT%H%M%S.%NZ
++ out=systems/rtx3080/results/baseline-vllm-20261025T155646.510642458Z
++ mkdir -p systems/rtx3080/results
++ mkdir systems/rtx3080/results/baseline-vllm-20261025T155646.510642458Z
++ nvidia-smi -q
++ cat /proc/cmdline
++ uname -a
++ cp image.lock systems/rtx3080/results/baseline-vllm-20261025T155646.510642458Z/
++ [[ ! -f model.lock.json ]]
++ cp model.lock.json systems/rtx3080/results/baseline-vllm-20261025T155646.510642458Z/
++ monitor=15272
++ trap 'kill "$monitor" 2>/dev/null || true' EXIT
++ nvidia-smi --query-gpu=timestamp,name,pstate,temperature.gpu,power.draw,power.limit,clocks.sm,clocks.mem,utilization.gpu,memory.used --format=csv -l 1
++ docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/Projects/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=6 --network none --device nvidia.com/gpu=all -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e BENCH_TP=1 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 vllm_bench.py --output /bench/systems/rtx3080/results/baseline-vllm-20261025T155646.510642458Z/result.json
++ tee systems/rtx3080/results/baseline-vllm-20261025T155646.510642458Z/run.log
+Traceback (most recent call last):
+  File "/bench/vllm_bench.py", line 61, in <module>
+    main()
+  File "/bench/vllm_bench.py", line 19, in main
+    llm = LLM(model='/bench/model', dtype='bfloat16', tensor_parallel_size=tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py", line 298, in __init__
+    engine_args = EngineArgs(
+                  ^^^^^^^^^^^
+  File "<string>", line 239, in __init__
+  File "/usr/local/lib/python3.12/dist-packages/vllm/engine/arg_utils.py", line 864, in __post_init__
+    self.model = get_model_path(self.model, self.revision)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/transformers_utils/repo_utils.py", line 294, in get_model_path
+    return hf_api().snapshot_download(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/bench/model'. Use `repo_type` argument if needed.
++ kill 15272

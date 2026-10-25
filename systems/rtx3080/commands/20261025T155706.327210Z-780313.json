@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "preparation",
+  "started_utc": "2026-10-25T15:57:06.327210+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "unlink model; unlink cache; mkdir model cache; cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/model/. model/; cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/cache/. cache/"
+  ],
+  "command": "bash -x -c 'unlink model; unlink cache; mkdir model cache; cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/model/. model/; cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/cache/. cache/'",
+  "output": "20261025T155706.327210Z-780313.log",
+  "exit_code": 0,
+  "git_commit": null,
+  "duration_seconds": 0.6255647700004374,
+  "ended_utc": "2026-10-25T15:57:06.954358+00:00"
+}

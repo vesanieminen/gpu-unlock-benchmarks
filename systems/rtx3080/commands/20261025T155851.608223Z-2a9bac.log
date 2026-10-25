@@ -1,0 +1,2 @@
++ mkdir -p systems/rtx3080/initial-scripts
++ cp /home/vesanieminen/gpu-unlock-bench/README.md /home/vesanieminen/gpu-unlock-bench/run.sh /home/vesanieminen/gpu-unlock-bench/download.py /home/vesanieminen/gpu-unlock-bench/torch_bench.py /home/vesanieminen/gpu-unlock-bench/vllm_bench.py systems/rtx3080/initial-scripts/

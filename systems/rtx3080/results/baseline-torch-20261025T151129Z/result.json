@@ -1,0 +1,51 @@
+{
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "size": 8192,
+  "warmup_calls": 20,
+  "calls_per_sample": 50,
+  "samples": 5,
+  "fp32_accumulation": true,
+  "results": [
+    {
+      "precision": "BF16",
+      "median_tflops": 62.191465345723884,
+      "samples_tflops": [
+        62.542250877832224,
+        62.34201493587359,
+        62.191465345723884,
+        62.04355141046245,
+        62.14863548393301
+      ],
+      "finite": true,
+      "parity_sha256": "1e774b6f7fc3ff600c9c1c66715358bc9efe39f7ae54be2259d7be529bbbe59f"
+    },
+    {
+      "precision": "FP16",
+      "median_tflops": 61.15529730676177,
+      "samples_tflops": [
+        61.44648424148454,
+        61.50006066393055,
+        61.15529730676177,
+        61.04093572485569,
+        61.058919060326204
+      ],
+      "finite": true,
+      "parity_sha256": "910abbedd6dbb095c5ebeb069c7ef8c8d544b6c89009fc16f3a9c69957703036"
+    },
+    {
+      "precision": "TF32",
+      "median_tflops": 30.534946925357833,
+      "samples_tflops": [
+        30.435345412210523,
+        30.424511875028557,
+        30.534946925357833,
+        30.631939406558814,
+        30.675059289184627
+      ],
+      "finite": true,
+      "parity_sha256": "d942ecb96070f856b0c654cc868e60b3600610906ca28200e5eb44d8587e734c"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "validation",
+  "started_utc": "2026-10-25T15:58:36.023070+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "bash -n run.sh; python3 -m py_compile record.py download.py torch_bench.py vllm_bench.py"
+  ],
+  "command": "bash -x -c 'bash -n run.sh; python3 -m py_compile record.py download.py torch_bench.py vllm_bench.py'",
+  "output": "20261025T155836.023070Z-6b986b.log",
+  "exit_code": 0,
+  "git_commit": null,
+  "duration_seconds": 0.038091060999704496,
+  "ended_utc": "2026-10-25T15:58:36.062687+00:00"
+}

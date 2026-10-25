@@ -1,0 +1,5 @@
++ unlink model
++ unlink cache
++ mkdir model cache
++ cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/model/. model/
++ cp -a --reflink=auto /home/vesanieminen/gpu-unlock-bench/cache/. cache/
