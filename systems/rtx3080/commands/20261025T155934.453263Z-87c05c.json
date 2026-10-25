@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "review",
+  "started_utc": "2026-10-25T15:59:34.453263+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import re; root=Path(\".\"); findings=[]; files=[p for p in root.rglob(\"*\") if p.is_file() and not any(x in p.parts for x in (\".git\",\"model\",\"cache\",\"__pycache__\"))]; patterns=[rb\"gh[pousr]_[A-Za-z0-9]{20,}\",rb\"github_pat_[A-Za-z0-9_]{20,}\",rb\"-----BEGIN (?:OPENSSH |RSA |EC )?PRIVATE KEY-----\"]; findings=[str(p) for p in files if any(re.search(pattern,p.read_bytes()) for pattern in patterns)]; print(\"Reviewed\",len(files),\"files; credential matches:\",findings); raise SystemExit(bool(findings))"
+  ],
+  "command": "python3 -c 'from pathlib import Path; import re; root=Path(\".\"); findings=[]; files=[p for p in root.rglob(\"*\") if p.is_file() and not any(x in p.parts for x in (\".git\",\"model\",\"cache\",\"__pycache__\"))]; patterns=[rb\"gh[pousr]_[A-Za-z0-9]{20,}\",rb\"github_pat_[A-Za-z0-9_]{20,}\",rb\"-----BEGIN (?:OPENSSH |RSA |EC )?PRIVATE KEY-----\"]; findings=[str(p) for p in files if any(re.search(pattern,p.read_bytes()) for pattern in patterns)]; print(\"Reviewed\",len(files),\"files; credential matches:\",findings); raise SystemExit(bool(findings))'",
+  "output": "20261025T155934.453263Z-87c05c.log",
+  "exit_code": 0,
+  "git_commit": "1229764bf43969c14b3c220b87bfd02eacf0360b",
+  "duration_seconds": 0.07508091700037767,
+  "ended_utc": "2026-10-25T15:59:34.550942+00:00"
+}
