@@ -1,0 +1,1218 @@
+Oct 25 18:41:33 omarchy kernel: Linux version 7.2.5-3-omarchy (linux-omarchy@omarchy) (gcc (GCC) 16.2.1 20260810, GNU ld (GNU Binutils) 2.47) #1 SMP PREEMPT_DYNAMIC Mon, 14 Sep 2026 19:55:01 +0000
+Oct 25 18:41:33 omarchy kernel: Command line: gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
+Oct 25 18:41:33 omarchy kernel: BIOS-provided physical RAM map:
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x0000000000100000-0x0000000009d1efff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x0000000009d1f000-0x0000000009ffffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x000000000a000000-0x000000000a1fffff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x000000000a200000-0x000000000a20dfff]  ACPI NVS
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x000000000a20e000-0x000000000affffff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x000000000b000000-0x000000000b01ffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x000000000b020000-0x00000000aa8a9fff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000aa8aa000-0x00000000aa8aafff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000aa8ab000-0x00000000aa901fff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000aa902000-0x00000000aa902fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000aa903000-0x00000000ca5c7fff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000ca5c8000-0x00000000ca903fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000ca904000-0x00000000cab74fff]  ACPI data
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000cab75000-0x00000000caecdfff]  ACPI NVS
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000caece000-0x00000000cbbfefff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000cbbff000-0x00000000ccffffff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000cd000000-0x00000000cfffffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000d0000000-0x00000000efffffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000f0000000-0x00000000f7ffffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000f8000000-0x00000000fd1fffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fd200000-0x00000000fd2fffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fd300000-0x00000000fd5fffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fd600000-0x00000000fd7fffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fd800000-0x00000000fe9fffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fea00000-0x00000000fea0ffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fea10000-0x00000000feb7ffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000feb80000-0x00000000fec01fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fec02000-0x00000000fec0ffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fec10000-0x00000000fec10fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fec11000-0x00000000fec2ffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fec30000-0x00000000fec30fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fec31000-0x00000000fecfffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fed00000-0x00000000fed00fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fed01000-0x00000000fed3ffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fed40000-0x00000000fed44fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fed45000-0x00000000fed7ffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fed80000-0x00000000fed8ffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fed90000-0x00000000fedc1fff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fedc2000-0x00000000fedcffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fedd0000-0x00000000fedd3fff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000fedd4000-0x00000000fedd5fff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [gap 0x00000000fedd6000-0x00000000feffffff]
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x00000000ff000000-0x00000000ffffffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x0000000100000000-0x000000042f37ffff]  System RAM
+Oct 25 18:41:33 omarchy kernel: BIOS-e820: [mem 0x000000042f380000-0x000000042fffffff]  device reserved
+Oct 25 18:41:33 omarchy kernel: NX (Execute Disable) protection: active
+Oct 25 18:41:33 omarchy kernel: APIC: Static calls initialized
+Oct 25 18:41:33 omarchy kernel: efi: EFI v2.7 by American Megatrends
+Oct 25 18:41:33 omarchy kernel: efi: ACPI=0xcab74000 ACPI 2.0=0xcab74014 TPMFinalLog=0xcae83000 SMBIOS=0xcb9f3000 SMBIOS 3.0=0xcb9f2000 MEMATTR=0xc728d318 ESRT=0xc8c3ad98 RNG=0xcab53f18 INITRD=0xbfe39b18 TPMEventLog=0xcaa5e018 
+Oct 25 18:41:33 omarchy kernel: random: crng init done
+Oct 25 18:41:33 omarchy kernel: efi: Remove mem81: MMIO range=[0xf0000000-0xf7ffffff] (128MB) from e820 map
+Oct 25 18:41:33 omarchy kernel: e820: remove [mem 0xf0000000-0xf7ffffff] device reserved
+Oct 25 18:41:33 omarchy kernel: efi: Remove mem82: MMIO range=[0xfd200000-0xfd2fffff] (1MB) from e820 map
+Oct 25 18:41:33 omarchy kernel: e820: remove [mem 0xfd200000-0xfd2fffff] device reserved
+Oct 25 18:41:33 omarchy kernel: efi: Remove mem83: MMIO range=[0xfd600000-0xfd7fffff] (2MB) from e820 map
+Oct 25 18:41:33 omarchy kernel: e820: remove [mem 0xfd600000-0xfd7fffff] device reserved
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem84: MMIO range=[0xfea00000-0xfea0ffff] (64KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Remove mem85: MMIO range=[0xfeb80000-0xfec01fff] (0MB) from e820 map
+Oct 25 18:41:33 omarchy kernel: e820: remove [mem 0xfeb80000-0xfec01fff] device reserved
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem86: MMIO range=[0xfec10000-0xfec10fff] (4KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem87: MMIO range=[0xfec30000-0xfec30fff] (4KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem88: MMIO range=[0xfed00000-0xfed00fff] (4KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem89: MMIO range=[0xfed40000-0xfed44fff] (20KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem90: MMIO range=[0xfed80000-0xfed8ffff] (64KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem91: MMIO range=[0xfedc2000-0xfedcffff] (56KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Not removing mem92: MMIO range=[0xfedd4000-0xfedd5fff] (8KB) from e820 map
+Oct 25 18:41:33 omarchy kernel: efi: Remove mem93: MMIO range=[0xff000000-0xffffffff] (16MB) from e820 map
+Oct 25 18:41:33 omarchy kernel: e820: remove [mem 0xff000000-0xffffffff] device reserved
+Oct 25 18:41:33 omarchy kernel: DMI: SMBIOS 3.3.0 present.
+Oct 25 18:41:33 omarchy kernel: DMI: ASUS System Product Name/TUF GAMING B550-PLUS, BIOS 2604 02/25/2022
+Oct 25 18:41:33 omarchy kernel: DMI: Memory slots populated: 2/4
+Oct 25 18:41:33 omarchy kernel: tsc: Fast TSC calibration using PIT
+Oct 25 18:41:33 omarchy kernel: tsc: Detected 3700.166 MHz processor
+Oct 25 18:41:33 omarchy kernel: e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+Oct 25 18:41:33 omarchy kernel: e820: remove [mem 0x000a0000-0x000fffff] System RAM
+Oct 25 18:41:33 omarchy kernel: last_pfn = 0x42f380 max_arch_pfn = 0x400000000
+Oct 25 18:41:33 omarchy kernel: total RAM covered: 3327M
+Oct 25 18:41:33 omarchy kernel: Found optimal setting for mtrr clean up
+Oct 25 18:41:33 omarchy kernel:  gran_size: 64K         chunk_size: 128M         num_reg: 4          lose cover RAM: 0G
+Oct 25 18:41:33 omarchy kernel: MTRR map: 8 entries (4 fixed + 4 variable; max 21), built from 9 variable MTRRs
+Oct 25 18:41:33 omarchy kernel: x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+Oct 25 18:41:33 omarchy kernel: e820: update [mem 0xcac20000-0xcac2ffff] System RAM ==> device reserved
+Oct 25 18:41:33 omarchy kernel: e820: update [mem 0xd0000000-0xffffffff] System RAM ==> device reserved
+Oct 25 18:41:33 omarchy kernel: last_pfn = 0xcd000 max_arch_pfn = 0x400000000
+Oct 25 18:41:33 omarchy kernel: esrt: Reserving ESRT space from 0x00000000c8c3ad98 to 0x00000000c8c3add0.
+Oct 25 18:41:33 omarchy kernel: e820: update [mem 0xc8c3a000-0xc8c3afff] System RAM ==> device reserved
+Oct 25 18:41:33 omarchy kernel: Using GB pages for direct mapping
+Oct 25 18:41:33 omarchy kernel: Secure boot disabled
+Oct 25 18:41:33 omarchy kernel: RAMDISK: [mem 0x85660000-0x97f84fff]
+Oct 25 18:41:33 omarchy kernel: ACPI: Early table checksum verification disabled
+Oct 25 18:41:33 omarchy kernel: ACPI: RSDP 0x00000000CAB74014 000024 (v02 ALASKA)
+Oct 25 18:41:33 omarchy kernel: ACPI: XSDT 0x00000000CAB73728 0000D4 (v01 ALASKA A M I    01072009 AMI  01000013)
+Oct 25 18:41:33 omarchy kernel: ACPI: FACP 0x00000000CAB64000 000114 (v06 ALASKA A M I    01072009 AMI  00010013)
+Oct 25 18:41:33 omarchy kernel: ACPI: DSDT 0x00000000CAB58000 00BA03 (v02 ALASKA A M I    01072009 INTL 20120913)
+Oct 25 18:41:33 omarchy kernel: ACPI: FACS 0x00000000CAEB3000 000040
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAB6A000 008CE9 (v02 AMD    AmdTable 00000002 MSFT 04000000)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAB66000 003B18 (v01 AMD    AMD AOD  00000001 INTL 20120913)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAB65000 0001AD (v02 ALASKA CPUSSDT  01072009 AMI  01072009)
+Oct 25 18:41:33 omarchy kernel: ACPI: FIDT 0x00000000CAB57000 00009C (v01 ALASKA A M I    01072009 AMI  00010013)
+Oct 25 18:41:33 omarchy kernel: ACPI: FPDT 0x00000000CAA60000 000044 (v01 ALASKA A M I    01072009 AMI  01000013)
+Oct 25 18:41:33 omarchy kernel: ACPI: MCFG 0x00000000CAB55000 00003C (v01 ALASKA A M I    01072009 MSFT 00010013)
+Oct 25 18:41:33 omarchy kernel: ACPI: HPET 0x00000000CAB54000 000038 (v01 ALASKA A M I    01072009 AMI  00000005)
+Oct 25 18:41:33 omarchy kernel: ACPI: IVRS 0x00000000CAB52000 0000D0 (v02 AMD    AmdTable 00000001 AMD  00000001)
+Oct 25 18:41:33 omarchy kernel: ACPI: BGRT 0x00000000CAB51000 000038 (v01 ALASKA A M I    01072009 AMI  00010013)
+Oct 25 18:41:33 omarchy kernel: ACPI: WPBT 0x00000000CAA72000 00003C (v01 ALASKA A M I    00000001 ASUS 00000001)
+Oct 25 18:41:33 omarchy kernel: ACPI: TPM2 0x00000000CAA71000 00004C (v04 ALASKA A M I    00000001 AMI  00000000)
+Oct 25 18:41:33 omarchy kernel: ACPI: PCCT 0x00000000CAA70000 00006E (v02 AMD    AmdTable 00000001 AMD  00000001)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAA6C000 0030FB (v02 AMD    AmdTable 00000001 AMD  00000001)
+Oct 25 18:41:33 omarchy kernel: ACPI: CRAT 0x00000000CAA6B000 000B18 (v01 AMD    AmdTable 00000001 AMD  00000001)
+Oct 25 18:41:33 omarchy kernel: ACPI: CDIT 0x00000000CAA6A000 000029 (v01 AMD    AmdTable 00000001 AMD  00000001)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAA69000 000259 (v01 AMD    ArticDGP 00000001 INTL 20120913)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAA65000 003E42 (v01 AMD    ArticN   00000001 INTL 20120913)
+Oct 25 18:41:33 omarchy kernel: ACPI: WSMT 0x00000000CAA64000 000028 (v01 ALASKA A M I    01072009 AMI  00010013)
+Oct 25 18:41:33 omarchy kernel: ACPI: APIC 0x00000000CAA63000 00015E (v03 ALASKA A M I    01072009 AMI  00010013)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAA62000 00007D (v01 AMD    ArticDIS 00000001 INTL 20120913)
+Oct 25 18:41:33 omarchy kernel: ACPI: SSDT 0x00000000CAA61000 0000BF (v01 AMD    AmdTable 00001000 INTL 20120913)
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving FACP table memory at [mem 0xcab64000-0xcab64113]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving DSDT table memory at [mem 0xcab58000-0xcab63a02]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving FACS table memory at [mem 0xcaeb3000-0xcaeb303f]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcab6a000-0xcab72ce8]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcab66000-0xcab69b17]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcab65000-0xcab651ac]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving FIDT table memory at [mem 0xcab57000-0xcab5709b]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving FPDT table memory at [mem 0xcaa60000-0xcaa60043]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving MCFG table memory at [mem 0xcab55000-0xcab5503b]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving HPET table memory at [mem 0xcab54000-0xcab54037]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving IVRS table memory at [mem 0xcab52000-0xcab520cf]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving BGRT table memory at [mem 0xcab51000-0xcab51037]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving WPBT table memory at [mem 0xcaa72000-0xcaa7203b]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving TPM2 table memory at [mem 0xcaa71000-0xcaa7104b]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving PCCT table memory at [mem 0xcaa70000-0xcaa7006d]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcaa6c000-0xcaa6f0fa]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving CRAT table memory at [mem 0xcaa6b000-0xcaa6bb17]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving CDIT table memory at [mem 0xcaa6a000-0xcaa6a028]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcaa69000-0xcaa69258]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcaa65000-0xcaa68e41]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving WSMT table memory at [mem 0xcaa64000-0xcaa64027]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving APIC table memory at [mem 0xcaa63000-0xcaa6315d]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcaa62000-0xcaa6207c]
+Oct 25 18:41:33 omarchy kernel: ACPI: Reserving SSDT table memory at [mem 0xcaa61000-0xcaa610be]
+Oct 25 18:41:33 omarchy kernel: No NUMA configuration found
+Oct 25 18:41:33 omarchy kernel: Faking a node at [mem 0x0000000000000000-0x000000042f37ffff]
+Oct 25 18:41:33 omarchy kernel: NODE_DATA(0) allocated [mem 0x42f354f80-0x42f37ffff]
+Oct 25 18:41:33 omarchy kernel: ACPI: PM-Timer IO Port: 0x808
+Oct 25 18:41:33 omarchy kernel: ACPI: LAPIC_NMI (acpi_id[0xff] high edge lint[0x1])
+Oct 25 18:41:33 omarchy kernel: IOAPIC[0]: apic_id 13, version 33, address 0xfec00000, GSI 0-23
+Oct 25 18:41:33 omarchy kernel: IOAPIC[1]: apic_id 14, version 33, address 0xfec01000, GSI 24-55
+Oct 25 18:41:33 omarchy kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Oct 25 18:41:33 omarchy kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 low level)
+Oct 25 18:41:33 omarchy kernel: ACPI: Using ACPI (MADT) for SMP configuration information
+Oct 25 18:41:33 omarchy kernel: ACPI: HPET id: 0x10228201 base: 0xfed00000
+Oct 25 18:41:33 omarchy kernel: e820: update [mem 0xc6498000-0xc64ddfff] System RAM ==> device reserved
+Oct 25 18:41:33 omarchy kernel: CPU topo: Max. logical packages:   1
+Oct 25 18:41:33 omarchy kernel: CPU topo: Max. logical nodes:      1
+Oct 25 18:41:33 omarchy kernel: CPU topo: Num. nodes per package:  1
+Oct 25 18:41:33 omarchy kernel: CPU topo: Max. logical dies:       1
+Oct 25 18:41:33 omarchy kernel: CPU topo: Max. dies per package:   1
+Oct 25 18:41:33 omarchy kernel: CPU topo: Max. threads per core:   2
+Oct 25 18:41:33 omarchy kernel: CPU topo: Num. cores per package:     6
+Oct 25 18:41:33 omarchy kernel: CPU topo: Num. threads per package:  12
+Oct 25 18:41:33 omarchy kernel: CPU topo: Allowing 12 present CPUs plus 0 hotplug CPUs
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0x000a0000-0x000fffff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0x09d1f000-0x09ffffff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0x0a200000-0x0a20dfff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0x0b000000-0x0b01ffff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0xaa8aa000-0xaa8aafff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0xaa902000-0xaa902fff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0xc6498000-0xc64ddfff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0xc8c3a000-0xc8c3afff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0xca5c8000-0xcbbfefff]
+Oct 25 18:41:33 omarchy kernel: PM: hibernation: Registered nosave memory: [mem 0xcd000000-0xffffffff]
+Oct 25 18:41:33 omarchy kernel: [gap 0xd0000000-0xfe9fffff] available for PCI devices
+Oct 25 18:41:33 omarchy kernel: Booting paravirtualized kernel on bare hardware
+Oct 25 18:41:33 omarchy kernel: clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+Oct 25 18:41:33 omarchy kernel: Zone ranges:
+Oct 25 18:41:33 omarchy kernel:   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+Oct 25 18:41:33 omarchy kernel:   DMA32    [mem 0x0000000001000000-0x00000000ffffffff]
+Oct 25 18:41:33 omarchy kernel:   Normal   [mem 0x0000000100000000-0x000000042f37ffff]
+Oct 25 18:41:33 omarchy kernel:   Device   empty
+Oct 25 18:41:33 omarchy kernel: Movable zone start for each node
+Oct 25 18:41:33 omarchy kernel: Early memory node ranges
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x0000000000001000-0x000000000009ffff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x0000000000100000-0x0000000009d1efff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x000000000a000000-0x000000000a1fffff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x000000000a20e000-0x000000000affffff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x000000000b020000-0x00000000aa8a9fff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x00000000aa8ab000-0x00000000aa901fff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x00000000aa903000-0x00000000ca5c7fff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x00000000cbbff000-0x00000000ccffffff]
+Oct 25 18:41:33 omarchy kernel:   node   0: [mem 0x0000000100000000-0x000000042f37ffff]
+Oct 25 18:41:33 omarchy kernel: Initmem setup node 0 [mem 0x0000000000001000-0x000000042f37ffff]
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA: 1 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA: 96 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA32: 737 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA32: 14 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA32: 32 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA32: 1 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA32: 1 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone DMA32: 5687 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone Normal: 12288 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: On node 0, zone Normal: 3200 pages in unavailable ranges
+Oct 25 18:41:33 omarchy kernel: setup_percpu: NR_CPUS:8192 nr_cpumask_bits:12 nr_cpu_ids:12 nr_node_ids:1
+Oct 25 18:41:33 omarchy kernel: percpu: Embedded 63 pages/cpu s221184 r8192 d28672 u262144
+Oct 25 18:41:33 omarchy kernel: pcpu-alloc: s221184 r8192 d28672 u262144 alloc=1*2097152
+Oct 25 18:41:33 omarchy kernel: pcpu-alloc: [0] 00 01 02 03 04 05 06 07 [0] 08 09 10 11 -- -- -- -- 
+Oct 25 18:41:33 omarchy kernel: Kernel command line: gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
+Oct 25 18:41:33 omarchy kernel: Unknown kernel command line parameters "splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root", will be passed to user space.
+Oct 25 18:41:33 omarchy kernel: printk: log buffer data + meta data: 131072 + 557056 = 688128 bytes
+Oct 25 18:41:33 omarchy kernel: Dentry cache hash table entries: 2097152 (order: 12, 16777216 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: Inode-cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: software IO TLB: area num 16.
+Oct 25 18:41:33 omarchy kernel: Fallback order for Node 0: 0 
+Oct 25 18:41:33 omarchy kernel: Built 1 zonelists, mobility grouping on.  Total pages: 4172247
+Oct 25 18:41:33 omarchy kernel: Policy zone: Normal
+Oct 25 18:41:33 omarchy kernel: mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+Oct 25 18:41:33 omarchy kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=12, Nodes=1
+Oct 25 18:41:33 omarchy kernel: ftrace: allocating 58669 entries in 232 pages
+Oct 25 18:41:33 omarchy kernel: ftrace: allocated 232 pages with 4 groups
+Oct 25 18:41:33 omarchy kernel: Dynamic Preempt: full
+Oct 25 18:41:33 omarchy kernel: rcu: Preemptible hierarchical RCU implementation.
+Oct 25 18:41:33 omarchy kernel: rcu:         RCU restricting CPUs from NR_CPUS=8192 to nr_cpu_ids=12.
+Oct 25 18:41:33 omarchy kernel: rcu:         RCU priority boosting: priority 1 delay 500 ms.
+Oct 25 18:41:33 omarchy kernel:         Trampoline variant of Tasks RCU enabled.
+Oct 25 18:41:33 omarchy kernel:         Rude variant of Tasks RCU enabled.
+Oct 25 18:41:33 omarchy kernel:         Tracing variant of Tasks RCU enabled.
+Oct 25 18:41:33 omarchy kernel: rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+Oct 25 18:41:33 omarchy kernel: rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=12
+Oct 25 18:41:33 omarchy kernel: RCU Tasks: Setting shift to 4 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=12.
+Oct 25 18:41:33 omarchy kernel: RCU Tasks Rude: Setting shift to 4 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=12.
+Oct 25 18:41:33 omarchy kernel: NR_IRQS: 524544, nr_irqs: 1064, preallocated irqs: 16
+Oct 25 18:41:33 omarchy kernel: rcu: srcu_init: Setting srcu_struct sizes based on contention.
+Oct 25 18:41:33 omarchy kernel: clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+Oct 25 18:41:33 omarchy kernel: kfence: initialized - using 2097152 bytes for 255 objects at 0x(____ptrval____)-0x(____ptrval____)
+Oct 25 18:41:33 omarchy kernel: Console: colour dummy device 80x25
+Oct 25 18:41:33 omarchy kernel: printk: legacy console [tty0] enabled
+Oct 25 18:41:33 omarchy kernel: ACPI: Core revision 20260408
+Oct 25 18:41:33 omarchy kernel: clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 133484873504 ns
+Oct 25 18:41:33 omarchy kernel: APIC: Switch to symmetric I/O mode setup
+Oct 25 18:41:33 omarchy kernel: AMD-Vi: Using global IVHD EFR:0x58f77ef22294a5a, EFR2:0x0
+Oct 25 18:41:33 omarchy kernel: x2apic: IRQ remapping doesn't support X2APIC mode
+Oct 25 18:41:33 omarchy kernel: ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+Oct 25 18:41:33 omarchy kernel: clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x6aabe5ae4cf, max_idle_ns: 881591112782 ns
+Oct 25 18:41:33 omarchy kernel: Calibrating delay loop (skipped), value calculated using timer frequency.. 7400.33 BogoMIPS (lpj=3700166)
+Oct 25 18:41:33 omarchy kernel: x86/cpu: User Mode Instruction Prevention (UMIP) activated
+Oct 25 18:41:33 omarchy kernel: LVT offset 1 assigned for vector 0xf9
+Oct 25 18:41:33 omarchy kernel: LVT offset 2 assigned for vector 0xf4
+Oct 25 18:41:33 omarchy kernel: Last level iTLB entries: 4KB 512, 2MB 512, 4MB 256
+Oct 25 18:41:33 omarchy kernel: Last level dTLB entries: 4KB 2048, 2MB 2048, 4MB 1024, 1GB 0
+Oct 25 18:41:33 omarchy kernel: process: using mwait in idle threads
+Oct 25 18:41:33 omarchy kernel: mitigations: Enabled attack vectors: user_kernel, user_user, guest_host, guest_guest, SMT mitigations: auto
+Oct 25 18:41:33 omarchy kernel: Speculative Store Bypass: Mitigation: Speculative Store Bypass disabled via prctl
+Oct 25 18:41:33 omarchy kernel: Transient Scheduler Attacks: Mitigation: Clear CPU buffers
+Oct 25 18:41:33 omarchy kernel: Spectre V2 : Mitigation: Retpolines
+Oct 25 18:41:33 omarchy kernel: Spectre V2 : User space: Mitigation: STIBP always-on protection
+Oct 25 18:41:33 omarchy kernel: Speculative Return Stack Overflow: Mitigation: Safe RET
+Oct 25 18:41:33 omarchy kernel: VMSCAPE: Mitigation: IBPB before exit to userspace
+Oct 25 18:41:33 omarchy kernel: Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+Oct 25 18:41:33 omarchy kernel: Spectre V2 : Spectre v2 / SpectreRSB: Filling RSB on context switch and VMEXIT
+Oct 25 18:41:33 omarchy kernel: Spectre V2 : Enabling Restricted Speculation for firmware calls
+Oct 25 18:41:33 omarchy kernel: Spectre V2 : mitigation: Enabling conditional Indirect Branch Prediction Barrier
+Oct 25 18:41:33 omarchy kernel: active return thunk: srso_alias_return_thunk
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Supporting XSAVE feature 0x200: 'Protection Keys User registers'
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Supporting XSAVE feature 0x800: 'Control-flow User registers'
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Supporting XSAVE feature 0x1000: 'Control-flow Kernel registers (KVM only)'
+Oct 25 18:41:33 omarchy kernel: x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+Oct 25 18:41:33 omarchy kernel: x86/fpu: xstate_offset[9]:  832, xstate_sizes[9]:    8
+Oct 25 18:41:33 omarchy kernel: x86/fpu: xstate_offset[11]:  840, xstate_sizes[11]:   16
+Oct 25 18:41:33 omarchy kernel: x86/fpu: xstate_offset[12]:  856, xstate_sizes[12]:   24
+Oct 25 18:41:33 omarchy kernel: x86/fpu: Enabled xstate features 0x1a07, context size is 880 bytes, using 'compacted' format.
+Oct 25 18:41:33 omarchy kernel: pid_max: default: 32768 minimum: 301
+Oct 25 18:41:33 omarchy kernel: landlock: Up and running.
+Oct 25 18:41:33 omarchy kernel: Yama: becoming mindful.
+Oct 25 18:41:33 omarchy kernel: LSM support for eBPF active
+Oct 25 18:41:33 omarchy kernel: Mount-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: Mountpoint-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: VFS: Finished mounting rootfs on nullfs
+Oct 25 18:41:33 omarchy kernel: smpboot: CPU0: AMD Ryzen 5 5600X 6-Core Processor (family: 0x19, model: 0x21, stepping: 0x0)
+Oct 25 18:41:33 omarchy kernel: Performance Events: Fam17h+ core perfctr, AMD PMU driver.
+Oct 25 18:41:33 omarchy kernel: ... version:                   0
+Oct 25 18:41:33 omarchy kernel: ... bit width:                 48
+Oct 25 18:41:33 omarchy kernel: ... generic counters:          6
+Oct 25 18:41:33 omarchy kernel: ... generic bitmap:            000000000000003f
+Oct 25 18:41:33 omarchy kernel: ... fixed-purpose counters:    0
+Oct 25 18:41:33 omarchy kernel: ... fixed-purpose bitmap:      0000000000000000
+Oct 25 18:41:33 omarchy kernel: ... value mask:                0000ffffffffffff
+Oct 25 18:41:33 omarchy kernel: ... max period:                00007fffffffffff
+Oct 25 18:41:33 omarchy kernel: ... global_ctrl mask:          000000000000003f
+Oct 25 18:41:33 omarchy kernel: signal: max sigframe size: 3376
+Oct 25 18:41:33 omarchy kernel: rcu: Hierarchical SRCU implementation.
+Oct 25 18:41:33 omarchy kernel: rcu:         Max phase no-delay instances is 400.
+Oct 25 18:41:33 omarchy kernel: Timer migration: 2 hierarchy levels; 8 children per group; 2 crossnode level
+Oct 25 18:41:33 omarchy kernel: MCE: In-kernel MCE decoding enabled.
+Oct 25 18:41:33 omarchy kernel: NMI watchdog: Enabled. Permanently consumes one hw-PMU counter.
+Oct 25 18:41:33 omarchy kernel: smp: Bringing up secondary CPUs ...
+Oct 25 18:41:33 omarchy kernel: smpboot: x86: Booting SMP configuration:
+Oct 25 18:41:33 omarchy kernel: .... node  #0, CPUs:        #1  #2  #3  #4  #5  #6  #7  #8  #9 #10 #11
+Oct 25 18:41:33 omarchy kernel: Spectre V2 : Update user space SMT mitigation: STIBP always-on
+Oct 25 18:41:33 omarchy kernel: smp: Brought up 1 node, 12 CPUs
+Oct 25 18:41:33 omarchy kernel: smpboot: Total of 12 processors activated (88803.98 BogoMIPS)
+Oct 25 18:41:33 omarchy kernel: Memory: 15851340K/16688988K available (22766K kernel code, 3063K rwdata, 17584K rodata, 4944K init, 5032K bss, 817748K reserved, 0K cma-reserved)
+Oct 25 18:41:33 omarchy kernel: devtmpfs: initialized
+Oct 25 18:41:33 omarchy kernel: x86/mm: Memory block size: 128MB
+Oct 25 18:41:33 omarchy kernel: ACPI: PM: Registering ACPI NVS region [mem 0x0a200000-0x0a20dfff] (57344 bytes)
+Oct 25 18:41:33 omarchy kernel: ACPI: PM: Registering ACPI NVS region [mem 0xcab75000-0xcaecdfff] (3510272 bytes)
+Oct 25 18:41:33 omarchy kernel: posixtimers hash table entries: 8192 (order: 5, 131072 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: futex hash table entries: 4096 (262144 bytes on 1 NUMA nodes, total 256 KiB, linear).
+Oct 25 18:41:33 omarchy kernel: xor: automatically using best checksumming function   avx       
+Oct 25 18:41:33 omarchy kernel: PM: RTC time: 16:41:18, date: 2026-10-25
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_NETLINK/PF_ROUTE protocol family
+Oct 25 18:41:33 omarchy kernel: DMA: preallocated 2048 KiB GFP_KERNEL pool for atomic allocations
+Oct 25 18:41:33 omarchy kernel: DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+Oct 25 18:41:33 omarchy kernel: DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+Oct 25 18:41:33 omarchy kernel: audit: initializing netlink subsys (disabled)
+Oct 25 18:41:33 omarchy kernel: audit: type=2000 audit(1792946478.157:1): state=initialized audit_enabled=0 res=1
+Oct 25 18:41:33 omarchy kernel: thermal_sys: Registered thermal governor 'fair_share'
+Oct 25 18:41:33 omarchy kernel: thermal_sys: Registered thermal governor 'bang_bang'
+Oct 25 18:41:33 omarchy kernel: thermal_sys: Registered thermal governor 'step_wise'
+Oct 25 18:41:33 omarchy kernel: thermal_sys: Registered thermal governor 'user_space'
+Oct 25 18:41:33 omarchy kernel: thermal_sys: Registered thermal governor 'power_allocator'
+Oct 25 18:41:33 omarchy kernel: cpuidle: using governor ladder
+Oct 25 18:41:33 omarchy kernel: cpuidle: using governor menu
+Oct 25 18:41:33 omarchy kernel: Detected 1 PCC Subspaces
+Oct 25 18:41:33 omarchy kernel: Registering PCC driver as Mailbox controller
+Oct 25 18:41:33 omarchy kernel: Freeing SMP alternatives memory: 60K
+Oct 25 18:41:33 omarchy kernel: efi: Freeing EFI boot services memory: 92100K
+Oct 25 18:41:33 omarchy kernel: acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+Oct 25 18:41:33 omarchy kernel: PCI: ECAM [mem 0xf0000000-0xf7ffffff] (base 0xf0000000) for domain 0000 [bus 00-7f]
+Oct 25 18:41:33 omarchy kernel: PCI: Using configuration type 1 for base access
+Oct 25 18:41:33 omarchy kernel: virt/tdx: TDX not supported by the host platform
+Oct 25 18:41:33 omarchy kernel: kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+Oct 25 18:41:33 omarchy kernel: HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+Oct 25 18:41:33 omarchy kernel: HugeTLB: 16380 KiB vmemmap can be freed for a 1.00 GiB page
+Oct 25 18:41:33 omarchy kernel: HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+Oct 25 18:41:33 omarchy kernel: HugeTLB: 28 KiB vmemmap can be freed for a 2.00 MiB page
+Oct 25 18:41:33 omarchy kernel: raid6: using avx2x2 recovery algorithm
+Oct 25 18:41:33 omarchy kernel: raid6: skipped pq benchmark and selected avx2x4
+Oct 25 18:41:33 omarchy kernel: ACPI: Added _OSI(Module Device)
+Oct 25 18:41:33 omarchy kernel: ACPI: Added _OSI(Processor Device)
+Oct 25 18:41:33 omarchy kernel: ACPI: Added _OSI(Processor Aggregator Device)
+Oct 25 18:41:33 omarchy kernel: ACPI: 9 ACPI AML tables successfully acquired and loaded
+Oct 25 18:41:33 omarchy kernel: ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored
+Oct 25 18:41:33 omarchy kernel: ACPI: \_SB_: platform _OSC: OS support mask [006e7eff]
+Oct 25 18:41:33 omarchy kernel: ACPI: Interpreter enabled
+Oct 25 18:41:33 omarchy kernel: ACPI: PM: (supports S0 S3 S4 S5)
+Oct 25 18:41:33 omarchy kernel: ACPI: Using IOAPIC for interrupt routing
+Oct 25 18:41:33 omarchy kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Oct 25 18:41:33 omarchy kernel: PCI: Using E820 reservations for host bridge windows
+Oct 25 18:41:33 omarchy kernel: ACPI: Enabled 5 GPEs in block 00 to 1F
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+Oct 25 18:41:33 omarchy kernel: acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI EDR HPX-Type3]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0A08:00: _OSC: platform does not support [PCIeHotplug SHPCHotplug PME LTR DPC]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0A08:00: _OSC: OS now controls [AER PCIeCapability]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0A08:00: [Firmware Info]: ECAM [mem 0xf0000000-0xf7ffffff] for domain 0000 [bus 00-7f] only partially covers this bridge
+Oct 25 18:41:33 omarchy kernel: PCI host bridge to bus 0000:00
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [io  0x0000-0x03af window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [io  0x03e0-0x0cf7 window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [io  0x03b0-0x03df window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000dffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [mem 0xd0000000-0xfec2ffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [mem 0xfee00000-0xffffffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: root bus resource [bus 00-ff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:00.0: [1022:1480] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:00.2: [1022:1481] type 00 class 0x080600 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: [1022:1483] type 01 class 0x060400 PCIe Root Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: PCI bridge to [bus 01]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1:   bridge window [mem 0xfc700000-0xfc7fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: [1022:1483] type 01 class 0x060400 PCIe Root Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: PCI bridge to [bus 02-06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2:   bridge window [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2:   bridge window [mem 0xfc500000-0xfc6fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:02.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1: [1022:1483] type 01 class 0x060400 PCIe Root Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1: PCI bridge to [bus 07]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1:   bridge window [io  0xe000-0xefff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1:   bridge window [mem 0xfb000000-0xfc0fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1:   bridge window [mem 0xd0000000-0xe1ffffff 64bit pref]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:04.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:05.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: [1022:1484] type 01 class 0x060400 PCIe Root Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: PCI bridge to [bus 08]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.0: [1022:1482] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: [1022:1484] type 01 class 0x060400 PCIe Root Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: PCI bridge to [bus 09]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1:   bridge window [mem 0xfc200000-0xfc4fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:14.0: [1022:790b] type 00 class 0x0c0500 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:14.3: [1022:790e] type 00 class 0x060100 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.0: [1022:1440] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.1: [1022:1441] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.2: [1022:1442] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.3: [1022:1443] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.4: [1022:1444] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.5: [1022:1445] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.6: [1022:1446] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.7: [1022:1447] type 00 class 0x060000 conventional PCI endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:01:00.0: [144d:a808] type 00 class 0x010802 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:01:00.0: BAR 0 [mem 0xfc700000-0xfc703fff 64bit]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: PCI bridge to [bus 01]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.0: [1022:43ee] type 00 class 0x0c0330 PCIe Legacy Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.0: BAR 0 [mem 0xfc6a0000-0xfc6a7fff 64bit]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.0: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.0: PME# supported from D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.1: [1022:43eb] type 00 class 0x010601 PCIe Legacy Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.1: BAR 5 [mem 0xfc680000-0xfc69ffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.1: ROM [mem 0xfc600000-0xfc67ffff pref]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.1: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.1: PME# supported from D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: [1022:43e9] type 01 class 0x060400 PCIe Switch Upstream Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: PCI bridge to [bus 03-06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2:   bridge window [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2:   bridge window [mem 0xfc500000-0xfc5fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: PME# supported from D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: PCI bridge to [bus 02-06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: [1022:43ea] type 01 class 0x060400 PCIe Switch Downstream Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: PCI bridge to [bus 04]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: PME# supported from D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: [1022:43ea] type 01 class 0x060400 PCIe Switch Downstream Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: PCI bridge to [bus 05]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: PME# supported from D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: [1022:43ea] type 01 class 0x060400 PCIe Switch Downstream Port
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: PCI bridge to [bus 06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0:   bridge window [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0:   bridge window [mem 0xfc500000-0xfc5fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: PME# supported from D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: PCI bridge to [bus 03-06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: PCI bridge to [bus 04]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: PCI bridge to [bus 05]
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: [10ec:8125] type 00 class 0x020000 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: BAR 0 [io  0xf000-0xf0ff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: BAR 2 [mem 0xfc500000-0xfc50ffff 64bit]
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: BAR 4 [mem 0xfc510000-0xfc513fff 64bit]
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: supports D1 D2
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: PCI bridge to [bus 06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: [10de:2216] type 00 class 0x030000 PCIe Legacy Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: BAR 0 [mem 0xfb000000-0xfbffffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: BAR 1 [mem 0xd0000000-0xdfffffff 64bit pref]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: BAR 3 [mem 0xe0000000-0xe1ffffff 64bit pref]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: BAR 5 [io  0xe000-0xe07f]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: ROM [mem 0xfc000000-0xfc07ffff pref]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: PME# supported from D0 D3hot
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.1: [10de:1aef] type 00 class 0x040300 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.1: BAR 0 [mem 0xfc080000-0xfc083fff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1: PCI bridge to [bus 07]
+Oct 25 18:41:33 omarchy kernel: pci 0000:08:00.0: [1022:148a] type 00 class 0x130000 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:08:00.0: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: PCI bridge to [bus 08]
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.0: [1022:1485] type 00 class 0x130000 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.0: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.1: [1022:1486] type 00 class 0x108000 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.1: BAR 2 [mem 0xfc300000-0xfc3fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.1: BAR 5 [mem 0xfc408000-0xfc409fff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.1: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.3: [1022:149c] type 00 class 0x0c0330 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.3: BAR 0 [mem 0xfc200000-0xfc2fffff 64bit]
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.3: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.3: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.4: [1022:1487] type 00 class 0x040300 PCIe Endpoint
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.4: BAR 0 [mem 0xfc400000-0xfc407fff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.4: enabling Extended Tags
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.4: PME# supported from D0 D3hot D3cold
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: PCI bridge to [bus 09]
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKA configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKB configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKC configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKD configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKE configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKF configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKG configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: ACPI: PCI: Interrupt link LNKH configured for IRQ 0
+Oct 25 18:41:33 omarchy kernel: iommu: Default domain type: Translated
+Oct 25 18:41:33 omarchy kernel: iommu: DMA domain TLB invalidation policy: lazy mode
+Oct 25 18:41:33 omarchy kernel: SCSI subsystem initialized
+Oct 25 18:41:33 omarchy kernel: libata version 3.00 loaded.
+Oct 25 18:41:33 omarchy kernel: ACPI: bus type USB registered
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new interface driver usbfs
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new interface driver hub
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new device driver usb
+Oct 25 18:41:33 omarchy kernel: EDAC MC: Ver: 3.0.0
+Oct 25 18:41:33 omarchy kernel: efivars: Registered efivars operations
+Oct 25 18:41:33 omarchy kernel: NetLabel: Initializing
+Oct 25 18:41:33 omarchy kernel: NetLabel:  domain hash size = 128
+Oct 25 18:41:33 omarchy kernel: NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+Oct 25 18:41:33 omarchy kernel: NetLabel:  unlabeled traffic allowed by default
+Oct 25 18:41:33 omarchy kernel: mctp: management component transport protocol core
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_MCTP protocol family
+Oct 25 18:41:33 omarchy kernel: PCI: Using ACPI for IRQ routing
+Oct 25 18:41:33 omarchy kernel: PCI: pci_cache_line_size set to 64 bytes
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0x09d1f000-0x0bffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0x0a200000-0x0bffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0x0b000000-0x0bffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0xaa8aa000-0xabffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0xaa902000-0xabffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0xc6498000-0xc7ffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0xc8c3a000-0xcbffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0xca5c8000-0xcbffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0xcd000000-0xcfffffff]
+Oct 25 18:41:33 omarchy kernel: e820: register RAM buffer resource [mem 0x42f380000-0x42fffffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: vgaarb: setting as boot VGA device
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: vgaarb: bridge control possible
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+Oct 25 18:41:33 omarchy kernel: vgaarb: loaded
+Oct 25 18:41:33 omarchy kernel: hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+Oct 25 18:41:33 omarchy kernel: hpet0: 3 comparators, 32-bit 14.318180 MHz counter
+Oct 25 18:41:33 omarchy kernel: clocksource: Switched to clocksource tsc-early
+Oct 25 18:41:33 omarchy kernel: VFS: Disk quotas dquot_6.6.0
+Oct 25 18:41:33 omarchy kernel: VFS: Dquot-cache hash table entries: 512 (4096 bytes)
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C01:00: Reserved [mem 0xf0000000-0xf7ffffff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:00: Reserved [mem 0xfeb80000-0xfebfffff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:01: Reserved [mem 0xfd200000-0xfd2fffff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:02: Reserved [io  0x0290-0x029f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:02: Reserved [io  0x0200-0x021f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0010-0x001f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0022-0x003f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0063]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0065]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0067-0x006f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0072-0x007f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0080]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0084-0x0086]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0088]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x008c-0x008e]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x0090-0x009f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x00a2-0x00bf]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x00b1]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Skipped [io  0x00e0-0x00ef]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x04d0-0x04d1]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x040b]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x04d6]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0c00-0x0c01]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0c14]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0c50-0x0c51]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0c52]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0c6c]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0c6f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0cd8-0x0cdf]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0800-0x089f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0b00-0x0b0f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0b20-0x0b3f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0900-0x090f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [io  0x0910-0x091f]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Could not reserve [mem 0xfec00000-0xfec00fff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Could not reserve [mem 0xfec01000-0xfec01fff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [mem 0xfedc0000-0xfedc0fff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [mem 0xfee00000-0xfee00fff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Could not reserve [mem 0xfed80000-0xfed8ffff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [mem 0xfec10000-0xfec10fff]
+Oct 25 18:41:33 omarchy kernel: acpi PNP0C02:03: Reserved [mem 0xff000000-0xffffffff]
+Oct 25 18:41:33 omarchy kernel: pnp: PnP ACPI init
+Oct 25 18:41:33 omarchy kernel: pnp 00:00: [dma 0 disabled]
+Oct 25 18:41:33 omarchy kernel: pnp: PnP ACPI: found 1 devices
+Oct 25 18:41:33 omarchy kernel: clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_INET protocol family
+Oct 25 18:41:33 omarchy kernel: IP idents hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: tcp_listen_portaddr_hash hash table entries: 8192 (order: 5, 131072 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: TCP established hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: TCP bind hash table entries: 65536 (order: 9, 2097152 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: TCP: Hash tables configured (established 131072 bind 65536)
+Oct 25 18:41:33 omarchy kernel: MPTCP token hash table entries: 16384 (order: 7, 393216 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: UDP hash table entries: 8192 (order: 7, 524288 bytes, linear)
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_UNIX/PF_LOCAL protocol family
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_XDP protocol family
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: PCI bridge to [bus 01]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1:   bridge window [mem 0xfc700000-0xfc7fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: PCI bridge to [bus 04]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: PCI bridge to [bus 05]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: PCI bridge to [bus 06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0:   bridge window [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0:   bridge window [mem 0xfc500000-0xfc5fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: PCI bridge to [bus 03-06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2:   bridge window [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2:   bridge window [mem 0xfc500000-0xfc5fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: PCI bridge to [bus 02-06]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2:   bridge window [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2:   bridge window [mem 0xfc500000-0xfc6fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1: PCI bridge to [bus 07]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1:   bridge window [io  0xe000-0xefff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1:   bridge window [mem 0xfb000000-0xfc0fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1:   bridge window [mem 0xd0000000-0xe1ffffff 64bit pref]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: PCI bridge to [bus 08]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: PCI bridge to [bus 09]
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1:   bridge window [mem 0xfc200000-0xfc4fffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 4 [io  0x0000-0x03af window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 5 [io  0x03e0-0x0cf7 window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 6 [io  0x03b0-0x03df window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 7 [io  0x0d00-0xffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 8 [mem 0x000a0000-0x000dffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 9 [mem 0xd0000000-0xfec2ffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:00: resource 10 [mem 0xfee00000-0xffffffff window]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:01: resource 1 [mem 0xfc700000-0xfc7fffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:02: resource 0 [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:02: resource 1 [mem 0xfc500000-0xfc6fffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:03: resource 0 [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:03: resource 1 [mem 0xfc500000-0xfc5fffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:06: resource 0 [io  0xf000-0xffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:06: resource 1 [mem 0xfc500000-0xfc5fffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:07: resource 0 [io  0xe000-0xefff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:07: resource 1 [mem 0xfb000000-0xfc0fffff]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:07: resource 2 [mem 0xd0000000-0xe1ffffff 64bit pref]
+Oct 25 18:41:33 omarchy kernel: pci_bus 0000:09: resource 1 [mem 0xfc200000-0xfc4fffff]
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.1: extending delay after power-on from D3hot to 20 msec
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.1: D0 power state depends on 0000:07:00.0
+Oct 25 18:41:33 omarchy kernel: PCI: CLS 64 bytes, default 64
+Oct 25 18:41:33 omarchy kernel: Trying to unpack rootfs image as initramfs...
+Oct 25 18:41:33 omarchy kernel: Freeing initrd memory: 304276K
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:00.2: AMD-Vi: IOMMU performance counters supported
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.0: Adding to iommu group 0
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.1: Adding to iommu group 1
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:01.2: Adding to iommu group 2
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:02.0: Adding to iommu group 3
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.0: Adding to iommu group 4
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:03.1: Adding to iommu group 5
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:04.0: Adding to iommu group 6
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:05.0: Adding to iommu group 7
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.0: Adding to iommu group 8
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:07.1: Adding to iommu group 9
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.0: Adding to iommu group 10
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:08.1: Adding to iommu group 11
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:14.0: Adding to iommu group 12
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:14.3: Adding to iommu group 12
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.0: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.1: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.2: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.3: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.4: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.5: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.6: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:00:18.7: Adding to iommu group 13
+Oct 25 18:41:33 omarchy kernel: pci 0000:01:00.0: Adding to iommu group 14
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.0: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.1: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:02:00.2: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:00.0: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:08.0: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:03:09.0: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:06:00.0: Adding to iommu group 15
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Adding to iommu group 16
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.1: Adding to iommu group 16
+Oct 25 18:41:33 omarchy kernel: pci 0000:08:00.0: Adding to iommu group 17
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.0: Adding to iommu group 18
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.1: Adding to iommu group 19
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.3: Adding to iommu group 20
+Oct 25 18:41:33 omarchy kernel: pci 0000:09:00.4: Adding to iommu group 21
+Oct 25 18:41:33 omarchy kernel: AMD-Vi: Extended features (0x58f77ef22294a5a, 0x0): PPR NX GT IA PC GA_vAPIC
+Oct 25 18:41:33 omarchy kernel: AMD-Vi: Interrupt remapping enabled
+Oct 25 18:41:33 omarchy kernel: PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+Oct 25 18:41:33 omarchy kernel: software IO TLB: mapped [mem 0x00000000c0dd9000-0x00000000c4dd9000] (64MB)
+Oct 25 18:41:33 omarchy kernel: LVT offset 0 assigned for vector 0x400
+Oct 25 18:41:33 omarchy kernel: perf: AMD IBS detected (0x000003ff)
+Oct 25 18:41:33 omarchy kernel: perf/amd_iommu: Detected AMD IOMMU #0 (2 banks, 4 counters/bank).
+Oct 25 18:41:33 omarchy kernel: Initialise system trusted keyrings
+Oct 25 18:41:33 omarchy kernel: Key type blacklist registered
+Oct 25 18:41:33 omarchy kernel: workingset: timestamp_bits=36 (anon: 31) max_order=22 bucket_order=0 (anon: 0)
+Oct 25 18:41:33 omarchy kernel: fuse: init (API version 7.45)
+Oct 25 18:41:33 omarchy kernel: integrity: Platform Keyring initialized
+Oct 25 18:41:33 omarchy kernel: integrity: Machine keyring initialized
+Oct 25 18:41:33 omarchy kernel: Key type asymmetric registered
+Oct 25 18:41:33 omarchy kernel: Asymmetric key parser 'x509' registered
+Oct 25 18:41:33 omarchy kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+Oct 25 18:41:33 omarchy kernel: io scheduler mq-deadline registered
+Oct 25 18:41:33 omarchy kernel: io scheduler kyber registered
+Oct 25 18:41:33 omarchy kernel: io scheduler bfq registered
+Oct 25 18:41:33 omarchy kernel: ledtrig-cpu: registered to indicate activity on CPUs
+Oct 25 18:41:33 omarchy kernel: pcieport 0000:00:01.1: AER: enabled with IRQ 26
+Oct 25 18:41:33 omarchy kernel: pcieport 0000:00:01.2: AER: enabled with IRQ 27
+Oct 25 18:41:33 omarchy kernel: pcieport 0000:00:03.1: AER: enabled with IRQ 28
+Oct 25 18:41:33 omarchy kernel: pcieport 0000:00:07.1: AER: enabled with IRQ 30
+Oct 25 18:41:33 omarchy kernel: pcieport 0000:00:08.1: AER: enabled with IRQ 31
+Oct 25 18:41:33 omarchy kernel: input: Power Button as /devices/platform/PNP0C0C:00/input/input0
+Oct 25 18:41:33 omarchy kernel: ACPI: button: Power Button [PWRB]
+Oct 25 18:41:33 omarchy kernel: input: Power Button as /devices/platform/LNXPWRBN:00/input/input1
+Oct 25 18:41:33 omarchy kernel: ACPI: button: Power Button [PWRF]
+Oct 25 18:41:33 omarchy kernel: Monitor-Mwait will be used to enter C-1 state
+Oct 25 18:41:33 omarchy kernel: Estimated ratio of average max frequency by base frequency (times 1024): 1155
+Oct 25 18:41:33 omarchy kernel: Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+Oct 25 18:41:33 omarchy kernel: 00:00: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+Oct 25 18:41:33 omarchy kernel: Non-volatile memory driver v1.3
+Oct 25 18:41:33 omarchy kernel: tpm_crb_acpi MSFT0101:00: Disabling hwrng
+Oct 25 18:41:33 omarchy kernel: ACPI: bus type drm_connector registered
+Oct 25 18:41:33 omarchy kernel: ahci 0000:02:00.1: SSS flag set, parallel bus scan disabled
+Oct 25 18:41:33 omarchy kernel: ahci 0000:02:00.1: AHCI vers 0001.0301, 32 command slots, 6 Gbps, SATA mode
+Oct 25 18:41:33 omarchy kernel: ahci 0000:02:00.1: 6/6 ports implemented (port mask 0x3f)
+Oct 25 18:41:33 omarchy kernel: ahci 0000:02:00.1: flags: 64bit ncq sntf stag pm led clo only pmp pio slum part sxs deso sadm sds apst 
+Oct 25 18:41:33 omarchy kernel: scsi host0: ahci
+Oct 25 18:41:33 omarchy kernel: scsi host1: ahci
+Oct 25 18:41:33 omarchy kernel: scsi host2: ahci
+Oct 25 18:41:33 omarchy kernel: scsi host3: ahci
+Oct 25 18:41:33 omarchy kernel: scsi host4: ahci
+Oct 25 18:41:33 omarchy kernel: scsi host5: ahci
+Oct 25 18:41:33 omarchy kernel: ata1: SATA max UDMA/133 abar m131072@0xfc680000 port 0xfc680100 irq 38 lpm-pol 3
+Oct 25 18:41:33 omarchy kernel: ata2: SATA max UDMA/133 abar m131072@0xfc680000 port 0xfc680180 irq 38 lpm-pol 3
+Oct 25 18:41:33 omarchy kernel: ata3: SATA max UDMA/133 abar m131072@0xfc680000 port 0xfc680200 irq 38 lpm-pol 3
+Oct 25 18:41:33 omarchy kernel: ata4: SATA max UDMA/133 abar m131072@0xfc680000 port 0xfc680280 irq 38 lpm-pol 3
+Oct 25 18:41:33 omarchy kernel: ata5: SATA max UDMA/133 abar m131072@0xfc680000 port 0xfc680300 irq 38 lpm-pol 3
+Oct 25 18:41:33 omarchy kernel: ata6: SATA max UDMA/133 abar m131072@0xfc680000 port 0xfc680380 irq 38 lpm-pol 3
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:02:00.0: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:02:00.0: new USB bus registered, assigned bus number 1
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:02:00.0: hcc params 0x0200ef81 hci version 0x110 quirks 0x0000000000000010
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:02:00.0: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:02:00.0: new USB bus registered, assigned bus number 2
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:02:00.0: Host supports USB 3.1 Enhanced SuperSpeed
+Oct 25 18:41:33 omarchy kernel: usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 7.02
+Oct 25 18:41:33 omarchy kernel: usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Oct 25 18:41:33 omarchy kernel: usb usb1: Product: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: usb usb1: Manufacturer: Linux 7.2.5-3-omarchy xhci-hcd
+Oct 25 18:41:33 omarchy kernel: usb usb1: SerialNumber: 0000:02:00.0
+Oct 25 18:41:33 omarchy kernel: hub 1-0:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 1-0:1.0: 10 ports detected
+Oct 25 18:41:33 omarchy kernel: usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+Oct 25 18:41:33 omarchy kernel: usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 7.02
+Oct 25 18:41:33 omarchy kernel: usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Oct 25 18:41:33 omarchy kernel: usb usb2: Product: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: usb usb2: Manufacturer: Linux 7.2.5-3-omarchy xhci-hcd
+Oct 25 18:41:33 omarchy kernel: usb usb2: SerialNumber: 0000:02:00.0
+Oct 25 18:41:33 omarchy kernel: hub 2-0:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 2-0:1.0: 4 ports detected
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:09:00.3: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:09:00.3: new USB bus registered, assigned bus number 3
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:09:00.3: hcc params 0x0278ffe5 hci version 0x110 quirks 0x0000000000000010
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:09:00.3: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:09:00.3: new USB bus registered, assigned bus number 4
+Oct 25 18:41:33 omarchy kernel: xhci_hcd 0000:09:00.3: Host supports USB 3.1 Enhanced SuperSpeed
+Oct 25 18:41:33 omarchy kernel: usb usb3: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 7.02
+Oct 25 18:41:33 omarchy kernel: usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Oct 25 18:41:33 omarchy kernel: usb usb3: Product: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: usb usb3: Manufacturer: Linux 7.2.5-3-omarchy xhci-hcd
+Oct 25 18:41:33 omarchy kernel: usb usb3: SerialNumber: 0000:09:00.3
+Oct 25 18:41:33 omarchy kernel: hub 3-0:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 3-0:1.0: 4 ports detected
+Oct 25 18:41:33 omarchy kernel: usb usb4: We don't know the algorithms for LPM for this host, disabling LPM.
+Oct 25 18:41:33 omarchy kernel: usb usb4: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 7.02
+Oct 25 18:41:33 omarchy kernel: usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Oct 25 18:41:33 omarchy kernel: usb usb4: Product: xHCI Host Controller
+Oct 25 18:41:33 omarchy kernel: usb usb4: Manufacturer: Linux 7.2.5-3-omarchy xhci-hcd
+Oct 25 18:41:33 omarchy kernel: usb usb4: SerialNumber: 0000:09:00.3
+Oct 25 18:41:33 omarchy kernel: hub 4-0:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 4-0:1.0: 4 ports detected
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new interface driver usbserial_generic
+Oct 25 18:41:33 omarchy kernel: usbserial: USB Serial support registered for generic
+Oct 25 18:41:33 omarchy kernel: i8042: PNP: No PS/2 controller found.
+Oct 25 18:41:33 omarchy kernel: rtc_cmos PNP0B00:00: RTC can wake from S4
+Oct 25 18:41:33 omarchy kernel: rtc_cmos PNP0B00:00: registered as rtc0
+Oct 25 18:41:33 omarchy kernel: rtc_cmos PNP0B00:00: setting system clock to 2026-10-25T16:41:18 UTC (1792946478)
+Oct 25 18:41:33 omarchy kernel: rtc_cmos PNP0B00:00: alarms up to one month, y3k, 114 bytes nvram
+Oct 25 18:41:33 omarchy kernel: simple-framebuffer simple-framebuffer.0: [drm] Registered 1 planes with drm panic
+Oct 25 18:41:33 omarchy kernel: [drm] Initialized simpledrm 1.0.0 for simple-framebuffer.0 on minor 0
+Oct 25 18:41:33 omarchy kernel: fbcon: Deferring console take-over
+Oct 25 18:41:33 omarchy kernel: simple-framebuffer simple-framebuffer.0: [drm] fb0: simpledrmdrmfb frame buffer device
+Oct 25 18:41:33 omarchy kernel: hid: raw HID events driver (C) Jiri Kosina
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new interface driver usbhid
+Oct 25 18:41:33 omarchy kernel: usbhid: USB HID core driver
+Oct 25 18:41:33 omarchy kernel: drop_monitor: Initializing network drop monitor service
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_INET6 protocol family
+Oct 25 18:41:33 omarchy kernel: Segment Routing with IPv6
+Oct 25 18:41:33 omarchy kernel: RPL Segment Routing with IPv6
+Oct 25 18:41:33 omarchy kernel: In-situ OAM (IOAM) with IPv6
+Oct 25 18:41:33 omarchy kernel: NET: Registered PF_PACKET protocol family
+Oct 25 18:41:33 omarchy kernel: x86/amd: Previous system reset reason [0x00080800]: software wrote 0x6 to reset control register 0xCF9
+Oct 25 18:41:33 omarchy kernel: microcode: Current revision: 0x0a20102e
+Oct 25 18:41:33 omarchy kernel: microcode: Updated early from: 0x0a201016
+Oct 25 18:41:33 omarchy kernel: resctrl: L3 allocation detected
+Oct 25 18:41:33 omarchy kernel: resctrl: MB allocation detected
+Oct 25 18:41:33 omarchy kernel: resctrl: L3 monitoring detected
+Oct 25 18:41:33 omarchy kernel: IPI shorthand broadcast: enabled
+Oct 25 18:41:33 omarchy kernel: sched_clock: Marking stable (803439652, 1242730)->(905835439, -101153057)
+Oct 25 18:41:33 omarchy kernel: registered taskstats version 1
+Oct 25 18:41:33 omarchy kernel: Loading compiled-in X.509 certificates
+Oct 25 18:41:33 omarchy kernel: Loaded X.509 cert 'Build time autogenerated kernel key: d802714196266d0f6bc8de83eec6810d9c262b7c'
+Oct 25 18:41:33 omarchy kernel: Demotion targets for Node 0: null
+Oct 25 18:41:33 omarchy kernel: Key type .fscrypt registered
+Oct 25 18:41:33 omarchy kernel: Key type fscrypt-provisioning registered
+Oct 25 18:41:33 omarchy kernel: Btrfs loaded, zoned=yes, fsverity=yes
+Oct 25 18:41:33 omarchy kernel: Key type big_key registered
+Oct 25 18:41:33 omarchy kernel: PM:   Magic number: 14:733:692
+Oct 25 18:41:33 omarchy kernel: RAS: Correctable Errors collector initialized.
+Oct 25 18:41:33 omarchy kernel: clk: Disabling unused clocks
+Oct 25 18:41:33 omarchy kernel: PM: genpd: Disabling unused power domains
+Oct 25 18:41:33 omarchy kernel: ata1: SATA link down (SStatus 0 SControl 330)
+Oct 25 18:41:33 omarchy kernel: usb 1-1: new full-speed USB device number 2 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 4-3: new SuperSpeed USB device number 2 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 4-3: New USB device found, idVendor=04e8, idProduct=4001, bcdDevice= 1.00
+Oct 25 18:41:33 omarchy kernel: usb 4-3: New USB device strings: Mfr=2, Product=3, SerialNumber=1
+Oct 25 18:41:33 omarchy kernel: usb 4-3: Product: PSSD T7
+Oct 25 18:41:33 omarchy kernel: usb 4-3: Manufacturer: Samsung
+Oct 25 18:41:33 omarchy kernel: usb 4-3: SerialNumber: S7MLNS0Y619571D
+Oct 25 18:41:33 omarchy kernel: ata2: SATA link down (SStatus 0 SControl 330)
+Oct 25 18:41:33 omarchy kernel: usb 1-1: New USB device found, idVendor=0951, idProduct=16a4, bcdDevice= 0.10
+Oct 25 18:41:33 omarchy kernel: usb 2-2: new SuperSpeed USB device number 2 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 2-2: New USB device found, idVendor=0451, idProduct=8140, bcdDevice= 1.00
+Oct 25 18:41:33 omarchy kernel: usb 2-2: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Oct 25 18:41:33 omarchy kernel: hub 2-2:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 2-2:1.0: 4 ports detected
+Oct 25 18:41:33 omarchy kernel: usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Oct 25 18:41:33 omarchy kernel: usb 1-1: Product: HyperX Virtual Surround Sound
+Oct 25 18:41:33 omarchy kernel: usb 1-1: Manufacturer: Kingston
+Oct 25 18:41:33 omarchy kernel: ata3: SATA link down (SStatus 0 SControl 330)
+Oct 25 18:41:33 omarchy kernel: usb 1-1: SerialNumber: 00000000
+Oct 25 18:41:33 omarchy kernel: tsc: Refined TSC clocksource calibration: 3699.997 MHz
+Oct 25 18:41:33 omarchy kernel: clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x6aaaa638e3b, max_idle_ns: 881590585313 ns
+Oct 25 18:41:33 omarchy kernel: clocksource: Switched to clocksource tsc
+Oct 25 18:41:33 omarchy kernel: input: Kingston HyperX Virtual Surround Sound Consumer Control as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-1/1-1:1.3/0003:0951:16A4.0001/input/input2
+Oct 25 18:41:33 omarchy kernel: input: Kingston HyperX Virtual Surround Sound as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-1/1-1:1.3/0003:0951:16A4.0001/input/input3
+Oct 25 18:41:33 omarchy kernel: hid-generic 0003:0951:16A4.0001: input,hiddev96,hidraw0: USB HID v1.11 Device [Kingston HyperX Virtual Surround Sound] on usb-0000:02:00.0-1/input3
+Oct 25 18:41:33 omarchy kernel: ata4: SATA link down (SStatus 0 SControl 330)
+Oct 25 18:41:33 omarchy kernel: usb 1-2: new high-speed USB device number 3 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 1-2: New USB device found, idVendor=0451, idProduct=8142, bcdDevice= 1.00
+Oct 25 18:41:33 omarchy kernel: usb 1-2: New USB device strings: Mfr=0, Product=0, SerialNumber=1
+Oct 25 18:41:33 omarchy kernel: usb 1-2: SerialNumber: C6080071EA4F
+Oct 25 18:41:33 omarchy kernel: hub 1-2:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 1-2:1.0: 4 ports detected
+Oct 25 18:41:33 omarchy kernel: ata5: SATA link down (SStatus 0 SControl 330)
+Oct 25 18:41:33 omarchy kernel: usb 1-3: new full-speed USB device number 4 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: ata6: SATA link down (SStatus 0 SControl 330)
+Oct 25 18:41:33 omarchy kernel: Freeing unused decrypted memory: 2028K
+Oct 25 18:41:33 omarchy kernel: Freeing unused kernel image (initmem) memory: 4944K
+Oct 25 18:41:33 omarchy kernel: Write protecting the kernel read-only data: 43008k
+Oct 25 18:41:33 omarchy kernel: Freeing unused kernel image (text/rodata gap) memory: 1808K
+Oct 25 18:41:33 omarchy kernel: Freeing unused kernel image (rodata/data gap) memory: 848K
+Oct 25 18:41:33 omarchy kernel: x86/mm: Checked W+X mappings: passed, no W+X pages found.
+Oct 25 18:41:33 omarchy kernel: rodata_test: all tests were successful
+Oct 25 18:41:33 omarchy kernel: Run /init as init process
+Oct 25 18:41:33 omarchy kernel:   with arguments:
+Oct 25 18:41:33 omarchy kernel:     /init
+Oct 25 18:41:33 omarchy kernel:     splash
+Oct 25 18:41:33 omarchy kernel:   with environment:
+Oct 25 18:41:33 omarchy kernel:     HOME=/
+Oct 25 18:41:33 omarchy kernel:     TERM=linux
+Oct 25 18:41:33 omarchy kernel:     cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: loading out-of-tree module taints kernel.
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: module verification failed: signature and/or required key missing - tainting kernel
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset request: gpu-unlock/610.43.03/gsp_ga10x.bin
+Oct 25 18:41:33 omarchy kernel: usb 1-3: New USB device found, idVendor=0b05, idProduct=190e, bcdDevice= 2.00
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset result: gpu-unlock/610.43.03/gsp_ga10x.bin error=0 bytes=84277400
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset cache cleanup: gpu-unlock/610.43.03/gsp_ga10x.bin devres_released=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: driver probe resources: phase=entry empty=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset request: gpu-unlock/610.43.03/v67-ga102-610.43.03.bin
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset result: gpu-unlock/610.43.03/v67-ga102-610.43.03.bin error=0 bytes=64000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset cache cleanup: gpu-unlock/610.43.03/v67-ga102-610.43.03.bin devres_released=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset request: gpu-unlock/610.43.03/gsp_boot_ga102.bin
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset result: gpu-unlock/610.43.03/gsp_boot_ga102.bin error=0 bytes=24576
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset cache cleanup: gpu-unlock/610.43.03/gsp_boot_ga102.bin devres_released=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset request: gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset result: gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin error=0 bytes=84
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset cache cleanup: gpu-unlock/610.43.03/gsp_boot_desc_ga102.bin devres_released=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset geometry: image=84226048 signature=4096 boot=24576 code=0x1800 data=0x800 manifest=0x0 parse=0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset request: gpu-unlock/610.43.03/booter_load_ga102.bin
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset result: gpu-unlock/610.43.03/booter_load_ga102.bin error=0 bytes=61256
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: asset cache cleanup: gpu-unlock/610.43.03/booter_load_ga102.bin devres_released=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: claim: power=0 pm_cap=0x60 flags=0x0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: claim: command=0x3 capability=0x112c8de1 BAR_mask=0x4b
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: layout inputs: fb_mb=0x2800 vga=0x1 mmu_plm=0x45cb8f mmu_lo=0x100000 mmu_hi=0x26ffff0 image=84226048 boot=24576
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: layout mmu: lo=0x10000000 hi=0x26ffff000 hi_exclusive=0x270000000 constrain=0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: mmu lock ignored: high address is not the FB top
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: layout decoded: fb=0x280000000 vga=0x27ff00000 mmu_valid=0 mmu_low=0x10000000 frts=0x100000 heap=0x5800000 result=0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: layout ranges: nonwpr=0x275300000 wpr=0x275400000 heap=0x275500000 gsp=0x27ada0000 boot=0x27fdfa000 frts=0x27fe00000 end=0x27ff00000 scrub_floor=0x270000000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: DMA masks: streaming=0xffffffff coherent=0xffffffff requested=0xffffffff
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Booter signature: fuse_raw=0x1 version=1 signatures=2 size=768
+Oct 25 18:41:33 omarchy kernel: usb 1-3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Oct 25 18:41:33 omarchy kernel: usb 1-3: Product: ASUS USB-BT500
+Oct 25 18:41:33 omarchy kernel: usb 1-3: Manufacturer: Realtek
+Oct 25 18:41:33 omarchy kernel: usb 1-3: SerialNumber: 00E04C239987
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: entry: plm=0xffffff8f ss0=0x45224154 ss1=0x5 wpr2_hi=0x0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: FWSEC: reading PROM at 0x300000
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2: new high-speed USB device number 5 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2: New USB device found, idVendor=05ac, idProduct=1006, bcdDevice=96.15
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2: Product: Keyboard Hub
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2: Manufacturer: Apple, Inc.
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2: SerialNumber: 000000000000
+Oct 25 18:41:33 omarchy kernel: hub 1-2.2:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 1-2.2:1.0: 3 ports detected
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: FWSEC: PROM bytes=1048576 signature=0xaa55
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0x0 data=0x52494350 bytes=65024 type=0x0 last=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0xfe00 data=0x52494350 bytes=92672 type=0x3 last=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0x26800 data=0x5344504e bytes=22016 type=0xe0 last=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0x2be00 data=0x5344504e bytes=383488 type=0xe0 last=128
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM expansion: base=0xfe00 ext=0x26800 adjust=0x16a00
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM BIT: offset=0x1b0 size=12 stride=6 tokens=18 adjust=0x16a00
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM ucode table: offset=0x895f1 version=1 header=6 stride=6 entries=16
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC descriptor: offset=0x433b8 ROM_bytes=1048576 header=0x4ac0301
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC geometry: image_off=0x43864 size=0xea00 imem=0xe200 va=0x0 pa=0x0 dmem=0x800 pa=0x0 pkc=0x5a4 interface=0x1c engine=0x400 ucode=9 signatures=3 versions=0x7 bytes=1152
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC interface: offset=0x1c version=1 header=4 stride=8 entries=2 FRTS=0x27fe00000
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC mapper: version=3 size=64 cmd_offset=0x7c0 cmd_size=64
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: FWSEC fuse: raw=0x3 version=2
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC signature selection: versions=0x7 fuse_version=2 sig_bytes=384
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon reset begin: base=0x110000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: poll timeout tolerated: reg=0x1100f4 last=0x47f7 mask=0x80000000 expected=0x80000000 budget_us=1000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon pre-reset timeout tolerated per HW bug 3419321
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon reset done: base=0x110000 hwcfg=0x67f7 chip=0xb72000a1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon DMA: base=0x110000 dest=0x0 offset=0x0 src=0xcb110000 size=0xe200 cmd=0x614
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon DMA: base=0x110000 dest=0x0 offset=0x0 src=0xcb11e200 size=0x800 cmd=0x600
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon start: base=0x110000 cpuctl=0x10 code_va=0x0 sig_dmem=0x5a4 engine_mask=0x400 ucode=9 mailbox=0x0:0x0
+Oct 25 18:41:33 omarchy kernel: usb 1-6: new full-speed USB device number 6 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: FWSEC result: scratch=0x0 expected_hi16=0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: FWSEC WPR2: low=0x27fe000 high=0x27fee00 expected_page=0x27fe00 end=0x27ff00000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon reset begin: base=0x840000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: poll timeout tolerated: reg=0x8400f4 last=0x67f7 mask=0x80000000 expected=0x80000000 budget_us=1000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon pre-reset timeout tolerated per HW bug 3419321
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon reset done: base=0x840000 hwcfg=0x67f7 chip=0xb72000a1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon DMA: base=0x840000 dest=0x0 offset=0x100 src=0xfedf0000 size=0x8900 cmd=0x614
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon DMA: base=0x840000 dest=0x0 offset=0x0 src=0xfedf8a00 size=0x6200 cmd=0x600
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: Falcon start: base=0x840000 cpuctl=0x10 code_va=0x100 sig_dmem=0x10 engine_mask=0x1 ucode=3 mailbox=0x0:0xfeddf000
+Oct 25 18:41:33 omarchy kernel: usb 1-6: New USB device found, idVendor=0b05, idProduct=1939, bcdDevice= 1.00
+Oct 25 18:41:33 omarchy kernel: usb 1-2.3: new full-speed USB device number 7 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: selector read: SS0=0x45224154 expected_unlock=0x88888888
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: selector write: SS0=0x88888888
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: selector read: SS1=0x5 expected_unlock=0x8
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: selector write: SS1=0x8
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: pre-FLR selectors: ss0=0x88888888 expected=0x88888888 ss1=0x8 expected=0x8
+Oct 25 18:41:33 omarchy kernel: usb 1-6: config 1 has an invalid interface number: 2 but max is 1
+Oct 25 18:41:33 omarchy kernel: usb 1-6: config 1 has no interface number 1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: vgaarb: deactivate vga console
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: PCIe FLR begin: BME=0 DMA retained, chip=0xb72000a1
+Oct 25 18:41:33 omarchy kernel: usb 1-6: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Oct 25 18:41:33 omarchy kernel: usb 1-6: Product: AURA LED Controller
+Oct 25 18:41:33 omarchy kernel: usb 1-6: Manufacturer: AsusTek Computer Inc.
+Oct 25 18:41:33 omarchy kernel: usb 1-6: SerialNumber: 9876543210
+Oct 25 18:41:33 omarchy kernel: hid-generic 0003:0B05:1939.0002: hiddev97,hidraw1: USB HID v1.11 Device [AsusTek Computer Inc. AURA LED Controller] on usb-0000:02:00.0-6/input2
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: PCIe FLR returned: result=0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: post-FLR BAR ready: chip=0xb72000a1
+Oct 25 18:41:33 omarchy kernel: usb 1-2.3: New USB device found, idVendor=046d, idProduct=c08e, bcdDevice=40.00
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2.2: new low-speed USB device number 8 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 1-2.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Oct 25 18:41:33 omarchy kernel: usb 1-2.3: Product: MX518 Gaming Mouse
+Oct 25 18:41:33 omarchy kernel: usb 1-2.3: Manufacturer: Logitech
+Oct 25 18:41:33 omarchy kernel: usb 1-2.3: SerialNumber: 016E38653233
+Oct 25 18:41:33 omarchy kernel: input: Logitech MX518 Gaming Mouse as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-2/1-2.3/1-2.3:1.0/0003:046D:C08E.0003/input/input4
+Oct 25 18:41:33 omarchy kernel: hid-generic 0003:046D:C08E.0003: input,hidraw2: USB HID v1.11 Mouse [Logitech MX518 Gaming Mouse] on usb-0000:02:00.0-2.3/input0
+Oct 25 18:41:33 omarchy kernel: input: Logitech MX518 Gaming Mouse Keyboard as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-2/1-2.3/1-2.3:1.1/0003:046D:C08E.0004/input/input5
+Oct 25 18:41:33 omarchy kernel: hid-generic 0003:046D:C08E.0004: input,hiddev98,hidraw3: USB HID v1.11 Keyboard [Logitech MX518 Gaming Mouse] on usb-0000:02:00.0-2.3/input1
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2.2: New USB device found, idVendor=05ac, idProduct=0221, bcdDevice= 0.69
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: post-FLR GFW result: error=0 pci=0x221610de plm=0x8b8f boot=0x3ff cpuctl=0x10 budget_us=2050000
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: engine reset assert: phase=post-FLR base=0x840000 before=0x0 write=0x1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: engine reset propagation: phase=post-FLR base=0x840000 first=0x1 tenth=0x1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: engine reset asserted: phase=post-FLR base=0x840000 error=0 last=0x1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: engine reset release: phase=post-FLR base=0x840000 before=0x1 write=0x0
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: engine reset released: phase=post-FLR base=0x840000 engine=0x0 hwcfg2=0x67f7
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: post-FLR SEC2 reset released, GSP halted, BME=0 pending=0 WPR2=1ffffe00:00000000 SS0=88888888 SS1=00000008
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: driver probe resources: phase=handoff empty=1
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: restore streaming mask: actual=0xffffffff expected=0xffffffff
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: restore coherent mask: actual=0xffffffff expected=0xffffffff
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: restore PCI command: actual=0x3 original=0x3 mask=0x6
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: gpu_unlock: unlocked
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2.2: Product: Apple Keyboard
+Oct 25 18:41:33 omarchy kernel: usb 1-2.2.2: Manufacturer: Apple, Inc
+Oct 25 18:41:33 omarchy kernel: usb 1-7: new high-speed USB device number 9 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: input: Apple, Inc Apple Keyboard as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-2/1-2.2/1-2.2.2/1-2.2.2:1.0/0003:05AC:0221.0005/input/input8
+Oct 25 18:41:33 omarchy kernel: nvidia-nvlink: Nvlink Core is being initialized, major device number 240
+Oct 25 18:41:33 omarchy kernel: 
+Oct 25 18:41:33 omarchy kernel: nvidia 0000:07:00.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=none:owns=none
+Oct 25 18:41:33 omarchy kernel: apple 0003:05AC:0221.0005: input,hidraw4: USB HID v1.11 Keyboard [Apple, Inc Apple Keyboard] on usb-0000:02:00.0-2.2.2/input0
+Oct 25 18:41:33 omarchy kernel: apple 0003:05AC:0221.0006: Fn key not found (Apple Wireless Keyboard clone?), disabling Fn key handling
+Oct 25 18:41:33 omarchy kernel: input: Apple, Inc Apple Keyboard as /devices/pci0000:00/0000:00:01.2/0000:02:00.0/usb1/1-2/1-2.2/1-2.2.2/1-2.2.2:1.1/0003:05AC:0221.0006/input/input9
+Oct 25 18:41:33 omarchy kernel: NVRM: loading NVIDIA UNIX Open Kernel Module for x86_64  610.57.04  Release Build  (root@omarchy)  
+Oct 25 18:41:33 omarchy kernel: apple 0003:05AC:0221.0006: input,hidraw5: USB HID v1.11 Device [Apple, Inc Apple Keyboard] on usb-0000:02:00.0-2.2.2/input1
+Oct 25 18:41:33 omarchy kernel: nvidia-modeset: Loading NVIDIA UNIX Open Kernel Mode Setting Driver for x86_64  610.57.04  Release Build  (root@omarchy)  
+Oct 25 18:41:33 omarchy kernel: usb 1-7: New USB device found, idVendor=05e3, idProduct=0610, bcdDevice=60.60
+Oct 25 18:41:33 omarchy kernel: usb 1-7: New USB device strings: Mfr=0, Product=1, SerialNumber=0
+Oct 25 18:41:33 omarchy kernel: usb 1-7: Product: USB2.0 Hub
+Oct 25 18:41:33 omarchy kernel: [drm] [nvidia-drm] [GPU ID 0x00000700] Loading driver
+Oct 25 18:41:33 omarchy kernel: hub 1-7:1.0: USB hub found
+Oct 25 18:41:33 omarchy kernel: hub 1-7:1.0: 4 ports detected
+Oct 25 18:41:33 omarchy kernel: usb 1-2.4: new full-speed USB device number 10 using xhci_hcd
+Oct 25 18:41:33 omarchy kernel: usb 1-2.4: New USB device found, idVendor=043e, idProduct=9a39, bcdDevice= 4.17
+Oct 25 18:41:33 omarchy kernel: usb 1-2.4: New USB device strings: Mfr=1, Product=3, SerialNumber=4
+Oct 25 18:41:33 omarchy kernel: usb 1-2.4: Product: LG Monitor Controls
+Oct 25 18:41:33 omarchy kernel: usb 1-2.4: Manufacturer: LG Electronics Inc.
+Oct 25 18:41:33 omarchy kernel: usb 1-2.4: SerialNumber: 311NTFA8H947
+Oct 25 18:41:33 omarchy kernel: hid-generic 0003:043E:9A39.0007: hiddev99,hidraw6: USB HID v1.11 Device [LG Electronics Inc. LG Monitor Controls] on usb-0000:02:00.0-2.4/input0
+Oct 25 18:41:33 omarchy kernel: [drm] Initialized nvidia-drm 0.0.0 for 0000:07:00.0 on minor 0
+Oct 25 18:41:33 omarchy kernel: nvidia 0000:07:00.0: vgaarb: deactivate vga console
+Oct 25 18:41:33 omarchy kernel: fbcon: nvidia-drmdrmfb (fb0) is primary device
+Oct 25 18:41:33 omarchy kernel: fbcon: Deferring console take-over
+Oct 25 18:41:33 omarchy kernel: nvidia 0000:07:00.0: [drm] fb0: nvidia-drmdrmfb frame buffer device
+Oct 25 18:41:33 omarchy kernel: ACPI: bus type thunderbolt registered
+Oct 25 18:41:33 omarchy kernel: ccp 0000:09:00.1: enabling device (0000 -> 0002)
+Oct 25 18:41:33 omarchy kernel: ccp 0000:09:00.1: ccp: unable to access the device: you might be running a broken BIOS.
+Oct 25 18:41:33 omarchy kernel: ccp 0000:09:00.1: psp enabled
+Oct 25 18:41:33 omarchy kernel: Key type psk registered
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new interface driver usb-storage
+Oct 25 18:41:33 omarchy kernel: nvme nvme0: pci function 0000:01:00.0
+Oct 25 18:41:33 omarchy kernel: scsi host6: uas
+Oct 25 18:41:33 omarchy kernel: usbcore: registered new interface driver uas
+Oct 25 18:41:33 omarchy kernel: scsi 6:0:0:0: Direct-Access     Samsung  PSSD T7          0    PQ: 0 ANSI: 6
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] 1953525168 512-byte logical blocks: (1.00 TB/932 GiB)
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] Write Protect is off
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] Mode Sense: 43 00 00 00
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Oct 25 18:41:33 omarchy kernel: nvme nvme0: missing or invalid SUBNQN field.
+Oct 25 18:41:33 omarchy kernel: nvme nvme0: D3 entry latency set to 8 seconds
+Oct 25 18:41:33 omarchy kernel: nvme nvme0: passthrough uses implicit buffer lengths
+Oct 25 18:41:33 omarchy kernel: nvme nvme0: 12/0/0 default/read/poll queues
+Oct 25 18:41:33 omarchy kernel:  nvme0n1: p1 p2 p3 p4
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] Optimal transfer size 33553920 bytes
+Oct 25 18:41:33 omarchy kernel:  sda: sda1 sda2
+Oct 25 18:41:33 omarchy kernel: sd 6:0:0:0: [sda] Attached SCSI disk
+Oct 25 18:41:33 omarchy kernel: device-mapper: uevent: version 1.0.3
+Oct 25 18:41:33 omarchy kernel: device-mapper: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+Oct 25 18:41:33 omarchy kernel: Key type trusted registered
+Oct 25 18:41:33 omarchy kernel: Key type encrypted registered
+Oct 25 18:41:33 omarchy kernel: BTRFS: device fsid 2a36ed45-0346-49f6-a9c9-7a05f415c0e3 devid 1 transid 7296 /dev/mapper/root (253:0) scanned by mount (566)
+Oct 25 18:41:33 omarchy kernel: BTRFS info (device dm-0): first mount of filesystem 2a36ed45-0346-49f6-a9c9-7a05f415c0e3
+Oct 25 18:41:33 omarchy kernel: BTRFS info (device dm-0): using crc32c checksum algorithm
+Oct 25 18:41:33 omarchy kernel: BTRFS info (device dm-0): enabling ssd optimizations
+Oct 25 18:41:33 omarchy kernel: BTRFS info (device dm-0): enabling free space tree
+Oct 25 18:41:33 omarchy systemd[1]: systemd 261.2-1-arch running in system mode (+PAM +AUDIT -SELINUX +APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP +LIBARCHIVE)
+Oct 25 18:41:33 omarchy systemd[1]: Detected architecture x86-64.
+Oct 25 18:41:33 omarchy systemd[1]: Hostname set to <omarchy>.
+Oct 25 18:41:33 omarchy systemd[1]: bpf-restrict-fs: LSM BPF program attached
+Oct 25 18:41:33 omarchy kernel: zram: Added device: zram0
+Oct 25 18:41:33 omarchy systemd[1]: Queued start job for default target Graphical Interface.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/dirmngr.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/getty.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/gpg-agent.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/gpg-agent-browser.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/gpg-agent-extra.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/gpg-agent-ssh.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/keyboxd.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/modprobe.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/systemd-fsck.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice Slice /system/systemd-zram-setup.
+Oct 25 18:41:33 omarchy systemd[1]: Created slice User and Session Slice.
+Oct 25 18:41:33 omarchy systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+Oct 25 18:41:33 omarchy systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+Oct 25 18:41:33 omarchy systemd[1]: Expecting device /dev/disk/by-uuid/2a36ed45-0346-49f6-a9c9-7a05f415c0e3...
+Oct 25 18:41:33 omarchy systemd[1]: Expecting device /dev/disk/by-uuid/745E-8EDB...
+Oct 25 18:41:33 omarchy systemd[1]: Expecting device /dev/zram0...
+Oct 25 18:41:33 omarchy systemd[1]: Reached target Login Prompts.
+Oct 25 18:41:33 omarchy systemd[1]: Reached target Image Downloads.
+Oct 25 18:41:33 omarchy systemd[1]: Reached target Local Integrity Protected Volumes.
+Oct 25 18:41:33 omarchy systemd[1]: Reached target Remote File Systems.
+Oct 25 18:41:33 omarchy systemd[1]: Reached target Slice Units.
+Oct 25 18:41:33 omarchy systemd[1]: Reached target Local Verity Protected Volumes.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Device-mapper event daemon FIFOs.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Query the User Interactively for a Password.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Process Core Dump Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Credential Encryption/Decryption.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Factory Reset Management.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Hostname Service Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Journal Socket (/dev/log).
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Journal Sockets.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Console Output Muting Service Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Userspace Out-Of-Memory (OOM) Killer Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on TPM PCR Measurements.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Make TPM PCR Policy.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Disk Repartitioning Service Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Resolve Monitor Varlink Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Resolve Service Varlink Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Simple Block Device Backed Storage Provider.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on Simple File System Backed Storage Provider.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on udev Control Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on udev Kernel Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on udev Varlink Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Listening on User Database Manager Socket.
+Oct 25 18:41:33 omarchy systemd[1]: Mounting Huge Pages File System...
+Oct 25 18:41:33 omarchy systemd[1]: Mounting POSIX Message Queue File System...
+Oct 25 18:41:33 omarchy systemd[1]: Mounting Kernel Debug File System...
+Oct 25 18:41:33 omarchy systemd[1]: Mounting Kernel Trace File System...
+Oct 25 18:41:33 omarchy systemd[1]: Starting Create List of Static Device Nodes...
+Oct 25 18:41:33 omarchy systemd[1]: Load Kernel Module configfs skipped, unmet condition check ConditionKernelModuleLoaded=!configfs
+Oct 25 18:41:33 omarchy systemd[1]: Mounting Kernel Configuration File System...
+Oct 25 18:41:33 omarchy systemd[1]: Load Kernel Module drm skipped, unmet condition check ConditionKernelModuleLoaded=!drm
+Oct 25 18:41:33 omarchy systemd[1]: Load Kernel Module fuse skipped, unmet condition check ConditionKernelModuleLoaded=!fuse
+Oct 25 18:41:33 omarchy systemd[1]: Mounting FUSE Control File System...
+Oct 25 18:41:33 omarchy systemd[1]: Clear Stale Hibernate Storage Info skipped, unmet condition check ConditionPathExists=/sys/firmware/efi/efivars/HibernateLocation-8cf2644b-4b0b-428f-9387-6d876050dc67
+Oct 25 18:41:33 omarchy systemd[1]: Starting Journal Service...
+Oct 25 18:41:33 omarchy systemd[1]: Starting Load Kernel Modules...
+Oct 25 18:41:33 omarchy systemd[1]: Starting TPM PCR Machine ID Measurement...
+Oct 25 18:41:33 omarchy systemd[1]: TPM PCR OS Separator skipped, unmet condition check ConditionPathExists=/etc/initrd-release
+Oct 25 18:41:33 omarchy systemd[1]: Starting Remount Root and Kernel File Systems...
+Oct 25 18:41:33 omarchy systemd[1]: Starting Early TPM SRK Setup...
+Oct 25 18:41:33 omarchy systemd[1]: Starting Load udev Rules from Credentials...
+Oct 25 18:41:33 omarchy systemd[1]: Starting Coldplug All udev Devices...
+Oct 25 18:41:33 omarchy systemd[1]: Starting Virtual Console Setup...
+Oct 25 18:41:33 omarchy systemd[1]: Mounted Huge Pages File System.
+Oct 25 18:41:33 omarchy systemd[1]: Mounted POSIX Message Queue File System.
+Oct 25 18:41:33 omarchy systemd[1]: Mounted Kernel Debug File System.
+Oct 25 18:41:33 omarchy systemd[1]: Mounted Kernel Trace File System.
+Oct 25 18:41:33 omarchy systemd[1]: Finished Create List of Static Device Nodes.
+Oct 25 18:41:33 omarchy systemd[1]: Mounted Kernel Configuration File System.
+Oct 25 18:41:33 omarchy systemd[1]: Mounted FUSE Control File System.
+Oct 25 18:41:33 omarchy systemd-journald[647]: Collecting audit messages is disabled.
+Oct 25 18:41:33 omarchy systemd[1]: Finished Load udev Rules from Credentials.
+Oct 25 18:41:33 omarchy systemd[1]: Finished Virtual Console Setup.
+Oct 25 18:41:33 omarchy kernel: i2c_dev: i2c /dev entries driver
+Oct 25 18:41:33 omarchy systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+Oct 25 18:41:33 omarchy systemd[1]: Finished Load Kernel Modules.
+Oct 25 18:41:33 omarchy systemd[1]: Starting Apply Kernel Variables...
+Oct 25 18:41:33 omarchy systemd[1]: Finished Apply Kernel Variables.
+Oct 25 18:41:33 omarchy systemd[1]: Starting CLI Netfilter Manager...
+Oct 25 18:41:33 omarchy systemd[1]: Starting User Database Manager...
+Oct 25 18:41:33 omarchy systemd[1]: Finished TPM PCR Machine ID Measurement.
+Oct 25 18:41:33 omarchy systemd[1]: proc-sys-fs-binfmt_misc.automount: Got automount request for /proc/sys/fs/binfmt_misc, triggered by 663 ((systemd-userd))
+Oct 25 18:41:33 omarchy systemd[1]: Started Journal Service.
+Oct 25 18:41:33 omarchy kernel: BTRFS info (device dm-0 state M): use zstd compression, level 3
+Oct 25 18:41:34 omarchy kernel: zram0: detected capacity change from 0 to 32552960
+Oct 25 18:41:34 omarchy kernel: usbcore: registered new device driver apple-mfi-fastcharge
+Oct 25 18:41:34 omarchy kernel: mc: Linux media interface: v0.10
+Oct 25 18:41:34 omarchy kernel: mousedev: PS/2 mouse device common for all mice
+Oct 25 18:41:34 omarchy kernel: Adding 16276476k swap on /dev/zram0.  Priority:100 extents:1 across:16276476k SSDsc
+Oct 25 18:41:34 omarchy kernel: input: PC Speaker as /devices/platform/pcspkr/input/input10
+Oct 25 18:41:34 omarchy kernel: Bluetooth: Core ver 2.22
+Oct 25 18:41:34 omarchy kernel: NET: Registered PF_BLUETOOTH protocol family
+Oct 25 18:41:34 omarchy kernel: Bluetooth: HCI device and connection manager initialized
+Oct 25 18:41:34 omarchy kernel: Bluetooth: HCI socket layer initialized
+Oct 25 18:41:34 omarchy kernel: Bluetooth: L2CAP socket layer initialized
+Oct 25 18:41:34 omarchy kernel: Bluetooth: SCO socket layer initialized
+Oct 25 18:41:34 omarchy kernel: RAPL PMU: API unit is 2^-32 Joules, 2 fixed counters, 163840 ms ovfl timer
+Oct 25 18:41:34 omarchy kernel: RAPL PMU: hw unit of domain package 2^-16 Joules
+Oct 25 18:41:34 omarchy kernel: RAPL PMU: hw unit of domain core 2^-16 Joules
+Oct 25 18:41:34 omarchy kernel: piix4_smbus 0000:00:14.0: SMBus Host Controller at 0xb00, revision 0
+Oct 25 18:41:34 omarchy kernel: piix4_smbus 0000:00:14.0: Using register 0x02 for SMBus port selection
+Oct 25 18:41:34 omarchy kernel: i2c i2c-7: Successfully instantiated SPD at 0x52
+Oct 25 18:41:34 omarchy kernel: i2c i2c-7: Successfully instantiated SPD at 0x53
+Oct 25 18:41:34 omarchy kernel: piix4_smbus 0000:00:14.0: Auxiliary SMBus Host Controller at 0xb20
+Oct 25 18:41:34 omarchy kernel: sp5100_tco: SP5100/SB800 TCO WatchDog Timer Driver
+Oct 25 18:41:34 omarchy kernel: sp5100-tco sp5100-tco: Using 0xfeb00000 for watchdog MMIO address
+Oct 25 18:41:34 omarchy kernel: asus_wmi: failed to register LPS0 sleep handler in asus-wmi
+Oct 25 18:41:34 omarchy kernel: sp5100-tco sp5100-tco: initialized. heartbeat=60 sec (nowayout=0)
+Oct 25 18:41:34 omarchy kernel: asus_wmi: Initialization: 0x0
+Oct 25 18:41:34 omarchy kernel: asus_wmi: BIOS WMI version: 0.9
+Oct 25 18:41:34 omarchy kernel: asus_wmi: SFUN value: 0x0
+Oct 25 18:41:34 omarchy kernel: eeepc-wmi eeepc-wmi: Detected ASUSWMI, use DCTS
+Oct 25 18:41:35 omarchy kernel: input: Eee PC WMI hotkeys as /devices/platform/eeepc-wmi/input/input11
+Oct 25 18:41:35 omarchy kernel: ee1004 7-0052: 512 byte EE1004-compliant SPD EEPROM, read-only
+Oct 25 18:41:35 omarchy kernel: usbcore: registered new interface driver btusb
+Oct 25 18:41:35 omarchy kernel: ee1004 7-0053: 512 byte EE1004-compliant SPD EEPROM, read-only
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: examining hci_ver=0a hci_rev=000b lmp_ver=0a lmp_subver=8761
+Oct 25 18:41:35 omarchy kernel: r8169 0000:06:00.0 eth0: RTL8125B, fc:34:97:0d:bf:d6, XID 641, IRQ 75
+Oct 25 18:41:35 omarchy kernel: r8169 0000:06:00.0 eth0: jumbo features [frames: 16362 bytes, tx checksumming: ko]
+Oct 25 18:41:35 omarchy kernel: kvm_amd: TSC scaling supported
+Oct 25 18:41:35 omarchy kernel: kvm_amd: Nested Virtualization enabled
+Oct 25 18:41:35 omarchy kernel: kvm_amd: Nested Paging enabled
+Oct 25 18:41:35 omarchy kernel: kvm_amd: LBR virtualization supported
+Oct 25 18:41:35 omarchy kernel: kvm_amd: Virtual VMLOAD VMSAVE supported
+Oct 25 18:41:35 omarchy kernel: kvm_amd: Virtual GIF supported
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: rom_version status=0 version=1
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: btrtl_initialize: key id 0
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: loading rtl_bt/rtl8761bu_fw.bin
+Oct 25 18:41:35 omarchy kernel: r8169 0000:06:00.0 enp6s0: renamed from eth0
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: loading rtl_bt/rtl8761bu_config.bin
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: cfg_sz 6, total sz 30210
+Oct 25 18:41:35 omarchy kernel: snd_hda_intel 0000:07:00.1: enabling device (0000 -> 0002)
+Oct 25 18:41:35 omarchy kernel: snd_hda_intel 0000:07:00.1: Disabling MSI
+Oct 25 18:41:35 omarchy kernel: snd_hda_intel 0000:07:00.1: Handle vga_switcheroo audio client
+Oct 25 18:41:35 omarchy kernel: snd_hda_intel 0000:09:00.4: enabling device (0000 -> 0002)
+Oct 25 18:41:35 omarchy kernel: input: HDA NVidia HDMI/DP,pcm=3 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card1/input12
+Oct 25 18:41:35 omarchy kernel: input: HDA NVidia HDMI/DP,pcm=7 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card1/input13
+Oct 25 18:41:35 omarchy kernel: input: HDA NVidia HDMI/DP,pcm=8 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card1/input14
+Oct 25 18:41:35 omarchy kernel: input: HDA NVidia HDMI/DP,pcm=9 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card1/input15
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0: ALCS1200A: picked fixup  for PCI SSID 1043:8797
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0: ALCS1200A: SKU not ready 0x00000000
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0: autoconfig for ALCS1200A: line_outs=3 (0x14/0x15/0x16/0x0/0x0) type:line
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:    hp_outs=1 (0x1b/0x0/0x0/0x0/0x0)
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:    mono: mono_out=0x0
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:    dig-out=0x1e/0x0
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:    inputs:
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:      Rear Mic=0x18
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:      Front Mic=0x19
+Oct 25 18:41:35 omarchy kernel: snd_hda_codec_alc882 hdaudioC2D0:      Line=0x1a
+Oct 25 18:41:35 omarchy kernel: intel_rapl_common: Found RAPL domain package
+Oct 25 18:41:35 omarchy kernel: intel_rapl_common: Found RAPL domain core
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Rear Mic as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input16
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Front Mic as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input17
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Line as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input18
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Line Out Front as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input19
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Line Out Surround as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input20
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Line Out CLFE as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input21
+Oct 25 18:41:35 omarchy kernel: input: HD-Audio Generic Front Headphone as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card2/input22
+Oct 25 18:41:35 omarchy kernel: amd_atl: AMD Address Translation Library initialized
+Oct 25 18:41:35 omarchy kernel: usbcore: registered new interface driver snd-usb-audio
+Oct 25 18:41:35 omarchy systemd-journald[647]: Received client request to flush runtime journal.
+Oct 25 18:41:35 omarchy kernel: zswap: loaded using pool zstd
+Oct 25 18:41:35 omarchy kernel: Bluetooth: hci0: RTL: fw version 0xdfc6d922
+Oct 25 18:41:36 omarchy kernel: Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Oct 25 18:41:36 omarchy kernel: Bluetooth: BNEP filters: protocol multicast
+Oct 25 18:41:36 omarchy kernel: Bluetooth: BNEP socket layer initialized
+Oct 25 18:41:36 omarchy kernel: Bluetooth: MGMT ver 1.23
+Oct 25 18:41:36 omarchy kernel: NET: Registered PF_ALG protocol family
+Oct 25 18:41:36 omarchy kernel: Realtek Internal NBASE-T PHY r8169-0-600:00: attached PHY driver (mii_bus:phy_addr=r8169-0-600:00, irq=MAC)
+Oct 25 18:41:36 omarchy kernel: r8169 0000:06:00.0 enp6s0: Link is Down
+Oct 25 18:41:37 omarchy kernel: Initializing XFRM netlink socket
+Oct 25 18:41:37 omarchy kernel: bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+Oct 25 18:41:37 omarchy kernel: Bluetooth: RFCOMM TTY layer initialized
+Oct 25 18:41:37 omarchy kernel: Bluetooth: RFCOMM socket layer initialized
+Oct 25 18:41:37 omarchy kernel: Bluetooth: RFCOMM ver 1.11
+Oct 25 18:41:39 omarchy kernel: r8169 0000:06:00.0 enp6s0: Link is Up - 1Gbps/Full - flow control rx/tx
+Oct 25 18:43:01 omarchy kernel: [UFW BLOCK] IN=enp6s0 OUT= MAC=01:00:5e:00:00:01:ba:fb:b3:02:5c:8f:08:00 SRC=0.0.0.0 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0xC0 TTL=1 ID=0 DF PROTO=2 
+Oct 25 18:43:27 omarchy kernel: clocksource: Watchdog remote CPU 4 read timed out

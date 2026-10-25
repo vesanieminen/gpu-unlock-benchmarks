@@ -1,0 +1,46 @@
++ set -euo pipefail
+++ dirname -- run.sh
++ cd -- .
++ action=torch
++ label=unlocked
++ system=rtx3080
++ [[ ! unlocked =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ ! rtx3080 =~ ^[a-zA-Z0-9_-]+$ ]]
++ [[ torch != help ]]
++ [[ 1 != 1 ]]
++ mkdir -p cache model
++ [[ ! -f image.lock ]]
+++ cat image.lock
++ image=vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1
++ common=(--rm --user "$(id -u):$(id -g)" --shm-size 1g -v "$PWD:/bench" -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1)
+++ id -u
+++ id -g
++ case "$action" in
+++ date -u +%Y%m%dT%H%M%S.%NZ
++ out=systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z
++ mkdir -p systems/rtx3080/results
++ mkdir systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z
++ nvidia-smi -q
++ cat /proc/cmdline
++ uname -a
++ cp image.lock systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z/
++ sha256sum run.sh record.py torch_bench.py vllm_bench.py download.py
++ mkdir systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z/source
++ cp run.sh record.py torch_bench.py vllm_bench.py download.py systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z/source/
++ [[ ! -f model.lock.json ]]
++ cp model.lock.json systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z/
++ monitor=4405
++ trap finish EXIT
++ nvidia-smi --query-gpu=timestamp,name,pstate,temperature.gpu,power.draw,power.limit,clocks.sm,clocks.mem,utilization.gpu,memory.used --format=csv -l 1
++ docker run --rm --user 1000:1000 --shm-size 1g -v /home/vesanieminen/Projects/gpu-unlock-benchmarks:/bench -w /bench -e HOME=/bench/cache -e HF_HOME=/bench/cache/huggingface -e VLLM_CACHE_ROOT=/bench/cache/vllm -e TRITON_CACHE_DIR=/bench/cache/triton -e OMP_NUM_THREADS=1 --network none --device nvidia.com/gpu=all -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e BENCH_TP=1 -e BENCH_GPU=0 --entrypoint python3 vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1 torch_bench.py --output /bench/systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z/result.json
++ tee systems/rtx3080/results/unlocked-torch-20261025T164343.186286748Z/run.log
+docker: Error response from daemon: CDI device injection failed: failed to inject devices: failed to stat CDI host device "/dev/dri/card1": no such file or directory
+
+Run 'docker run --help' for more information
++ finish
++ status=127
++ trap - EXIT
++ kill 4405
++ printf '{"exit_code": %d}\n' 127
++ nvidia-smi -q
++ exit 127

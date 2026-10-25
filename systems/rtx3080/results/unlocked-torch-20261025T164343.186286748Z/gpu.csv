@@ -1,0 +1,2 @@
+timestamp, name, pstate, temperature.gpu, power.draw [W], power.limit [W], clocks.current.sm [MHz], clocks.current.memory [MHz], utilization.gpu [%], memory.used [MiB]
+2026/10/25 18:43:43.400, NVIDIA GeForce RTX 3080, P8, 39, 22.94 W, 320.00 W, 210 MHz, 405 MHz, 17 %, 401 MiB

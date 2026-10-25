@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "post-reboot",
+  "started_utc": "2026-10-25T16:44:16.954865+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "journalctl -k -b --no-pager > systems/rtx3080/installation/unlocked-boot-kernel.log; cat /proc/cmdline > systems/rtx3080/installation/unlocked-cmdline.txt; cat /proc/sys/kernel/random/boot_id > systems/rtx3080/installation/unlocked-boot-id.txt"
+  ],
+  "command": "bash -x -c 'journalctl -k -b --no-pager > systems/rtx3080/installation/unlocked-boot-kernel.log; cat /proc/cmdline > systems/rtx3080/installation/unlocked-cmdline.txt; cat /proc/sys/kernel/random/boot_id > systems/rtx3080/installation/unlocked-boot-id.txt'",
+  "output": "20261025T164416.954865Z-f8189e.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.012788849999992635,
+  "ended_utc": "2026-10-25T16:44:16.971009+00:00"
+}

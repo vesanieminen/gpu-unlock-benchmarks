@@ -1,0 +1,22 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "unlocked",
+  "started_utc": "2026-10-25T16:44:35.271636+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "env",
+    "GPU_BENCH_RECORDED=1",
+    "bash",
+    "-x",
+    "run.sh",
+    "vllm",
+    "unlocked"
+  ],
+  "command": "env GPU_BENCH_RECORDED=1 bash -x run.sh vllm unlocked",
+  "output": "20261025T164435.271636Z-ca8c6b.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 52.30131530600002,
+  "ended_utc": "2026-10-25T16:45:27.576542+00:00"
+}

@@ -8,7 +8,7 @@ an RTX 3080 10 GB and continuing on a separate dual RTX 3090 system.
 | System | State | BF16 TFLOPS | FP16 TFLOPS | TF32 TFLOPS |
 | --- | --- | ---: | ---: | ---: |
 | RTX 3080 10 GB | Stock baseline | 62.19 | 61.16 | 30.53 |
-| RTX 3080 10 GB | Unlocked | Pending | Pending | Pending |
+| RTX 3080 10 GB | Unlocked | 107.40 | 104.85 | 51.93 |
 | 2× RTX 3090 | Stock/unlocked | Pending | Pending | Pending |
 
 The selected vLLM application test also passes on the 3080 with native BF16
@@ -34,8 +34,11 @@ documented in [reconstructed history](systems/rtx3080/history-reconstructed.md).
 Failures and incomplete runs remain in the journal and must not be counted as
 benchmark results. gpu-unlock is now installed and configured for automatic
 early boot activation on the 3080; both prepared boot images passed validation.
-Reboot activation and unlocked measurements are still pending. See the
-[installation record and next steps](INSTALL.md).
+Reboot activation and both unlocked benchmarks are now confirmed. BF16 GEMM
+improved 71.75% against the recorded repeat baseline; vLLM 2K prefill improved
+58.62%, with decode approximately unchanged (+0.91%). All tested output hashes
+match. See the [full comparison and limitations](systems/rtx3080/RESULTS.md)
+and [installation record](INSTALL.md).
 
 ## Run the benchmarks
 

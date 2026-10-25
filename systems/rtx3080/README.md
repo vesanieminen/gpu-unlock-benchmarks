@@ -22,5 +22,6 @@ The final stock baseline uses OMP_NUM_THREADS=1 and is saved under
 results/baseline-final-vllm-20261025T162003.098487616Z/.
 The 2,048-token prefill median is 9,428.96 tok/s; decode is 89.10 tok/s.
 gpu-unlock-dkms and gpu-unlock-firmware 1.0.0-1 are now installed. Both kernel
-modules and prepared UKIs are verified; activation at reboot and unlocked
-measurements are still pending. See ../../INSTALL.md and installation/.
+modules and UKIs are verified; automatic boot activation is now confirmed and
+both unlocked measurements passed. See [RESULTS.md](RESULTS.md) for the full
+comparison and the recorded post-reboot Docker CDI correction.

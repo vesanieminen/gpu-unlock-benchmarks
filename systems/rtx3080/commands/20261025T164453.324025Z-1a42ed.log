@@ -1,0 +1,43 @@
+{
+  "baseline": "systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z",
+  "unlocked": "systems/rtx3080/results/unlocked-torch-20261025T164410.686576570Z",
+  "same_image": true,
+  "same_kernel": true,
+  "same_benchmark_source": true,
+  "source_sha256": "0ffff7647e0786efd28fd3ac412eaebc4ac693cc2d5a13d9c175d2ef8797c094",
+  "results": [
+    {
+      "precision": "BF16",
+      "output_hashes_match": true,
+      "metrics": {
+        "median_tflops": {
+          "baseline": 62.53505155289623,
+          "unlocked": 107.40346398308617,
+          "change_percent": 71.74922114238174
+        }
+      }
+    },
+    {
+      "precision": "FP16",
+      "output_hashes_match": true,
+      "metrics": {
+        "median_tflops": {
+          "baseline": 62.31989160813792,
+          "unlocked": 104.85354244217312,
+          "change_percent": 68.25052120033057
+        }
+      }
+    },
+    {
+      "precision": "TF32",
+      "output_hashes_match": true,
+      "metrics": {
+        "median_tflops": {
+          "baseline": 30.995282209951526,
+          "unlocked": 51.92802978529236,
+          "change_percent": 67.53527015353338
+        }
+      }
+    }
+  ]
+}

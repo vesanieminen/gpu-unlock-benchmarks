@@ -1,0 +1,32 @@
++ cat /proc/sys/kernel/random/boot_id
+dc0f20bb-7789-4c5c-b27a-a7dfabed621b
++ uptime -s
+2026-10-25 18:41:18
++ uname -r
+7.2.5-3-omarchy
++ cat /proc/cmdline
+gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
++ journalctl -k -b --no-pager
++ rg 'gpu_unlock|NVRM: Xid'
+Oct 25 18:41:33 omarchy kernel: Command line: gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
+Oct 25 18:41:33 omarchy kernel: Kernel command line: gpu_unlock.targets=0000:07:00.0 quiet splash cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs initramfs_async=0 loglevel=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor_default=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: loading out-of-tree module taints kernel.
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: module verification failed: signature and/or required key missing - tainting kernel
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0x0 data=0x52494350 bytes=65024 type=0x0 last=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0xfe00 data=0x52494350 bytes=92672 type=0x3 last=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0x26800 data=0x5344504e bytes=22016 type=0xe0 last=0
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM chain: pos=0x2be00 data=0x5344504e bytes=383488 type=0xe0 last=128
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM expansion: base=0xfe00 ext=0x26800 adjust=0x16a00
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM BIT: offset=0x1b0 size=12 stride=6 tokens=18 adjust=0x16a00
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: ROM ucode table: offset=0x895f1 version=1 header=6 stride=6 entries=16
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC descriptor: offset=0x433b8 ROM_bytes=1048576 header=0x4ac0301
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC geometry: image_off=0x43864 size=0xea00 imem=0xe200 va=0x0 pa=0x0 dmem=0x800 pa=0x0 pkc=0x5a4 interface=0x1c engine=0x400 ucode=9 signatures=3 versions=0x7 bytes=1152
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC interface: offset=0x1c version=1 header=4 stride=8 entries=2 FRTS=0x27fe00000
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC mapper: version=3 size=64 cmd_offset=0x7c0 cmd_size=64
+Oct 25 18:41:33 omarchy kernel: gpu_unlock: FWSEC signature selection: versions=0x7 fuse_version=2 sig_bytes=384
+Oct 25 18:41:33 omarchy kernel: pci 0000:07:00.0: gpu_unlock: unlocked
++ ls /sys/module/gpu_unlock/parameters
+resume
+targets
++ cat /sys/module/gpu_unlock/parameters/targets
+0000:07:00.0

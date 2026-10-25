@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "comparison",
+  "started_utc": "2026-10-25T16:45:05.421496+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "import csv,json,statistics; from pathlib import Path; paths=[Path(\"systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z\"),Path(\"systems/rtx3080/results/unlocked-torch-20261025T164410.686576570Z\")]; result={};\nfor d in paths:\n rows=list(csv.DictReader((d/\"gpu.csv\").open())); rows=[{k.strip():v.strip() for k,v in r.items()} for r in rows]; busy=[r for r in rows if float(r[\"utilization.gpu [%]\"].split()[0])>=90]; result[d.name]={\"samples\":len(rows),\"busy_samples\":len(busy),\"max_temperature_c\":max(float(r[\"temperature.gpu\"].split()[0]) for r in rows),\"power_limits_w\":sorted(set(float(r[\"power.limit [W]\"].split()[0]) for r in rows)),\"busy_median_power_w\":statistics.median(float(r[\"power.draw [W]\"].split()[0]) for r in busy),\"busy_median_sm_clock_mhz\":statistics.median(float(r[\"clocks.current.sm [MHz]\"].split()[0]) for r in busy)}\nPath(\"systems/rtx3080/comparison/torch-telemetry.json\").write_text(json.dumps(result,indent=2)+\"\\n\"); print(json.dumps(result,indent=2))"
+  ],
+  "command": "python3 -c 'import csv,json,statistics; from pathlib import Path; paths=[Path(\"systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z\"),Path(\"systems/rtx3080/results/unlocked-torch-20261025T164410.686576570Z\")]; result={};\nfor d in paths:\n rows=list(csv.DictReader((d/\"gpu.csv\").open())); rows=[{k.strip():v.strip() for k,v in r.items()} for r in rows]; busy=[r for r in rows if float(r[\"utilization.gpu [%]\"].split()[0])>=90]; result[d.name]={\"samples\":len(rows),\"busy_samples\":len(busy),\"max_temperature_c\":max(float(r[\"temperature.gpu\"].split()[0]) for r in rows),\"power_limits_w\":sorted(set(float(r[\"power.limit [W]\"].split()[0]) for r in rows)),\"busy_median_power_w\":statistics.median(float(r[\"power.draw [W]\"].split()[0]) for r in busy),\"busy_median_sm_clock_mhz\":statistics.median(float(r[\"clocks.current.sm [MHz]\"].split()[0]) for r in busy)}\nPath(\"systems/rtx3080/comparison/torch-telemetry.json\").write_text(json.dumps(result,indent=2)+\"\\n\"); print(json.dumps(result,indent=2))'",
+  "output": "20261025T164505.421496Z-5aba02.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.028315228999986175,
+  "ended_utc": "2026-10-25T16:45:05.454038+00:00"
+}

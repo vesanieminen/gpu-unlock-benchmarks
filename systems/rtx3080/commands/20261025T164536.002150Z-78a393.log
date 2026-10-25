@@ -1,0 +1,123 @@
+{
+  "baseline": "systems/rtx3080/results/baseline-final-vllm-20261025T162003.098487616Z",
+  "unlocked": "systems/rtx3080/results/unlocked-vllm-20261025T164435.283078631Z",
+  "same_image": true,
+  "same_kernel": true,
+  "same_benchmark_source": true,
+  "source_sha256": "98347247d6294eea1752306d0c3e2740c3ddc7b81794d81cc6d4fee29ffd4a1b",
+  "results": [
+    {
+      "input_tokens": 512,
+      "output_tokens": 1,
+      "output_hashes_match": true,
+      "metrics": {
+        "wall_seconds": {
+          "baseline": 0.062263617999633425,
+          "unlocked": 0.044009977000001754,
+          "change_percent": -29.316704660077963
+        },
+        "prefill_seconds": {
+          "baseline": 0.061159353999755695,
+          "unlocked": 0.0430033949999995,
+          "change_percent": -29.686315849295465
+        },
+        "prefill_tok_s": {
+          "baseline": 8371.57305490907,
+          "unlocked": 11906.036721054372,
+          "change_percent": 42.219827061924775
+        },
+        "ttft_seconds": {
+          "baseline": 0.06195473670959473,
+          "unlocked": 0.04376363754272461,
+          "change_percent": -29.361918285826437
+        }
+      }
+    },
+    {
+      "input_tokens": 2048,
+      "output_tokens": 1,
+      "output_hashes_match": true,
+      "metrics": {
+        "wall_seconds": {
+          "baseline": 0.21900441100024182,
+          "unlocked": 0.13853603200001885,
+          "change_percent": -36.74281199757849
+        },
+        "prefill_seconds": {
+          "baseline": 0.2172032290000061,
+          "unlocked": 0.13693098899997835,
+          "change_percent": -36.95720379922414
+        },
+        "prefill_tok_s": {
+          "baseline": 9428.957430462244,
+          "unlocked": 14956.439115475341,
+          "change_percent": 58.622405772619125
+        },
+        "ttft_seconds": {
+          "baseline": 0.21796011924743652,
+          "unlocked": 0.13770461082458496,
+          "change_percent": -36.821189445094085
+        }
+      }
+    },
+    {
+      "input_tokens": 4096,
+      "output_tokens": 1,
+      "output_hashes_match": true,
+      "metrics": {
+        "wall_seconds": {
+          "baseline": 0.4610321259997363,
+          "unlocked": 0.2918268909999995,
+          "change_percent": -36.70139789777548
+        },
+        "prefill_seconds": {
+          "baseline": 0.45803087999956915,
+          "unlocked": 0.28900301400000217,
+          "change_percent": -36.903159455040665
+        },
+        "prefill_tok_s": {
+          "baseline": 8942.628497021538,
+          "unlocked": 14172.862570907198,
+          "change_percent": 58.486540904921405
+        },
+        "ttft_seconds": {
+          "baseline": 0.4590156078338623,
+          "unlocked": 0.28986668586730957,
+          "change_percent": -36.85036392657373
+        }
+      }
+    },
+    {
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "output_hashes_match": true,
+      "metrics": {
+        "wall_seconds": {
+          "baseline": 1.4872863979999238,
+          "unlocked": 1.4555698480000103,
+          "change_percent": -2.1325112663280854
+        },
+        "prefill_seconds": {
+          "baseline": 0.06097882400081289,
+          "unlocked": 0.04200686800001563,
+          "change_percent": -31.112367795981687
+        },
+        "prefill_tok_s": {
+          "baseline": 8396.357397662747,
+          "unlocked": 12188.483083285559,
+          "change_percent": 45.16393843213973
+        },
+        "ttft_seconds": {
+          "baseline": 0.0619502067565918,
+          "unlocked": 0.04306292533874512,
+          "change_percent": -30.48784242489552
+        },
+        "decode_tok_s": {
+          "baseline": 89.10361134838429,
+          "unlocked": 89.91059055125636,
+          "change_percent": 0.9056638565600572
+        }
+      }
+    }
+  ]
+}

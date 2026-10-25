@@ -1,0 +1,19 @@
++ ls -l /etc/cdi /var/run/cdi /dev/dri
+ls: cannot access '/var/run/cdi': No such file or directory
+/dev/dri:
+total 0
+drwxr-xr-x  2 root root         80 Oct 25 18:41 by-path
+crw-rw----+ 1 root video  226,   0 Oct 25 18:41 card0
+crw-rw-rw-  1 root render 226, 128 Oct 25 18:41 renderD128
+
+/etc/cdi:
+total 52
+-rw-r--r-- 1 root root 22545 Oct 23 00:50 nvidia.yaml
+-rw-r--r-- 1 root root 25577 Oct  6 20:25 nvidia.yaml.pre-hyperqwen
++ nvidia-ctk cdi list
+time="2026-10-25T18:43:54+02:00" level=info msg="Found 3 CDI devices"
+nvidia.com/gpu=0
+nvidia.com/gpu=GPU-c7507306-b845-df56-13a4-19be05061bb9
+nvidia.com/gpu=all
++ systemctl status nvidia-cdi-refresh.service --no-pager
+Unit nvidia-cdi-refresh.service could not be found.

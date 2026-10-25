@@ -1,0 +1,9 @@
++ nvidia-smi --query-gpu=name,driver_version,power.limit,memory.used,temperature.gpu --format=csv
+name, driver_version, power.limit [W], memory.used [MiB], temperature.gpu
+NVIDIA GeForce RTX 3080, 610.57.04, 320.00 W, 401 MiB, 39
++ lspci -nnk -s 0000:07:00.0
+07:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA102 [GeForce RTX 3080 Lite Hash Rate] [10de:2216] (rev a1)
+	Subsystem: ASUSTeK Computer Inc. Device [1043:8823]
+	Kernel driver in use: nvidia
+	Kernel modules: nouveau, nvidia_drm, nvidia
++ docker ps --format '{{.Names}} {{.Status}}'

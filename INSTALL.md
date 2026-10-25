@@ -1,12 +1,13 @@
 # Automatic gpu-unlock on the RTX 3080 host
 
-Status: **installed and configured; both boot images verified; reboot activation pending**.
+Status: **installed, boot activation confirmed, PyTorch and vLLM comparisons passed**.
 The installation below completed on 2026-10-25 from upstream commit
 `af28cbbfd3d922a659227ecfb7369adfd924cf03`. Both packages are version 1.0.0-1,
 and DKMS reports the module installed for both kernels. All five upstream tests
-passed, as did the pinned firmware checksum checks. This becomes a confirmed
-working optimization only after reboot verification and matching unlocked
-benchmarks are recorded. No reboot or unlock activation has been performed yet.
+passed, as did the pinned firmware checksum checks. After the 18:41 local-time
+reboot the kernel reported `pci 0000:07:00.0: gpu_unlock: unlocked`; NVIDIA
+remained active. Both comparisons completed with matching output hashes.
+See the [confirmed results, exact correction and limitations](systems/rtx3080/RESULTS.md).
 
 The [installation evidence](systems/rtx3080/installation/) contains package/source
 metadata, the backup manifest and checks of both generated boot images. Every
@@ -109,7 +110,7 @@ to include the gpu-unlock firmware; the explicit content checks passed.
 An NVIDIA status check inside the sandbox failed as during earlier setup; the
 recorded check outside the sandbox succeeded: driver 610.57.04, power limit 320 W.
 
-When ready to restart, record a user-initiated reboot (not executed yet):
+The user-initiated reboot was recorded with:
 
 ```bash
 record reboot pkexec systemctl reboot
@@ -119,6 +120,11 @@ A shutdown can interrupt the recorder before it saves the exit status; null
 means completion was not observed. That alone is not a failed reboot.
 
 ## Verification after reboot
+
+Completed on this host. The first Docker launch required refreshing the stale
+CDI mapping with `pkexec nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml`
+because DRM numbering changed from card1 to card0. This command and the failed
+attempt are retained in the journal. No driver/power/clock settings were changed.
 
 Define the helper again, then:
 

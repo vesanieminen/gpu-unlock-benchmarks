@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "verification",
+  "started_utc": "2026-10-25T16:45:36.091345+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "journalctl -k -b --no-pager | rg \"gpu_unlock: unlocked|NVRM: Xid\"; git diff --check"
+  ],
+  "command": "bash -x -c 'journalctl -k -b --no-pager | rg \"gpu_unlock: unlocked|NVRM: Xid\"; git diff --check'",
+  "output": "20261025T164536.091345Z-d8069d.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.015083226999990984,
+  "ended_utc": "2026-10-25T16:45:36.110364+00:00"
+}

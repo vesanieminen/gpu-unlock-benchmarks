@@ -1,5 +1,5 @@
 {
-  "status": "installed and prepared; reboot activation pending",
+  "status": "installed; boot unlock and both benchmarks verified",
   "upstream_commit": "af28cbbfd3d922a659227ecfb7369adfd924cf03",
   "package_versions": [
     "gpu-unlock-dkms 1.0.0-1",
@@ -22,10 +22,11 @@
   "target": "0000:07:00.0",
   "backup_directory": "/home/vesanieminen/.local/state/gpu-unlock/backups/20261025T163126Z",
   "upstream_tests_passed": 5,
-  "boot_activation_verified": false,
-  "unlocked_benchmarks_complete": false,
+  "boot_activation_verified": true,
+  "unlocked_benchmarks_complete": true,
   "scripts_sha256": {
     "configure_limine.py": "50a74199e550dc7005cf0766539329950fcefe861b18eb4c0e5091b168ec50ce",
     "verify_boot_images.py": "2a4c29f845dedfc4a47530283031f06e9a62f6b8eb1085ba735e2f7c8e5662b5"
-  }
+  },
+  "verified_boot_id": "dc0f20bb-7789-4c5c-b27a-a7dfabed621b"
 }

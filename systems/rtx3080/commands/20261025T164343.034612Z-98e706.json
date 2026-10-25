@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "post-reboot",
+  "started_utc": "2026-10-25T16:43:43.034612+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "nvidia-smi --query-gpu=name,driver_version,power.limit,memory.used,temperature.gpu --format=csv; lspci -nnk -s 0000:07:00.0; docker ps --format \"{{.Names}} {{.Status}}\""
+  ],
+  "command": "bash -x -c 'nvidia-smi --query-gpu=name,driver_version,power.limit,memory.used,temperature.gpu --format=csv; lspci -nnk -s 0000:07:00.0; docker ps --format \"{{.Names}} {{.Status}}\"'",
+  "output": "20261025T164343.034612Z-98e706.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.09097603300000401,
+  "ended_utc": "2026-10-25T16:43:43.129096+00:00"
+}

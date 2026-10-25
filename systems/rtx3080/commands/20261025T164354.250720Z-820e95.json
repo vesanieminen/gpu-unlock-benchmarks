@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:43:54.250720+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "ls -l /etc/cdi /var/run/cdi /dev/dri; nvidia-ctk cdi list; systemctl status nvidia-cdi-refresh.service --no-pager"
+  ],
+  "command": "bash -x -c 'ls -l /etc/cdi /var/run/cdi /dev/dri; nvidia-ctk cdi list; systemctl status nvidia-cdi-refresh.service --no-pager'",
+  "output": "20261025T164354.250720Z-820e95.log",
+  "exit_code": 4,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.023802170000010392,
+  "ended_utc": "2026-10-25T16:43:54.277837+00:00"
+}

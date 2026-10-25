@@ -1,0 +1,21 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "comparison",
+  "started_utc": "2026-10-25T16:44:53.324025+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "compare_results.py",
+    "systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z",
+    "systems/rtx3080/results/unlocked-torch-20261025T164410.686576570Z",
+    "--output",
+    "systems/rtx3080/comparison/torch.json"
+  ],
+  "command": "python3 compare_results.py systems/rtx3080/results/baseline-recorded-torch-20261025T160747.100955724Z systems/rtx3080/results/unlocked-torch-20261025T164410.686576570Z --output systems/rtx3080/comparison/torch.json",
+  "output": "20261025T164453.324025Z-1a42ed.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.03876697900000181,
+  "ended_utc": "2026-10-25T16:44:53.366580+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "verification-record",
+  "started_utc": "2026-10-25T16:46:19.689070+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "python3",
+    "-c",
+    "import json; from pathlib import Path; p=Path(\"systems/rtx3080/installation/install.json\"); r=json.loads(p.read_text()); r.update(status=\"installed; boot unlock and both benchmarks verified\",boot_activation_verified=True,unlocked_benchmarks_complete=True,verified_boot_id=Path(\"systems/rtx3080/installation/unlocked-boot-id.txt\").read_text().strip()); p.write_text(json.dumps(r,indent=2)+\"\\n\"); print(r[\"status\"])"
+  ],
+  "command": "python3 -c 'import json; from pathlib import Path; p=Path(\"systems/rtx3080/installation/install.json\"); r=json.loads(p.read_text()); r.update(status=\"installed; boot unlock and both benchmarks verified\",boot_activation_verified=True,unlocked_benchmarks_complete=True,verified_boot_id=Path(\"systems/rtx3080/installation/unlocked-boot-id.txt\").read_text().strip()); p.write_text(json.dumps(r,indent=2)+\"\\n\"); print(r[\"status\"])'",
+  "output": "20261025T164619.689070Z-f3fb23.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 0.018708178999986558,
+  "ended_utc": "2026-10-25T16:46:19.711690+00:00"
+}

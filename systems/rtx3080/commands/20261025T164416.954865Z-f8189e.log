@@ -1,0 +1,3 @@
++ journalctl -k -b --no-pager
++ cat /proc/cmdline
++ cat /proc/sys/kernel/random/boot_id

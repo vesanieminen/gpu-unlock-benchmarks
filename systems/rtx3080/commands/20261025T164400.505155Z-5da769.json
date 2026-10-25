@@ -1,0 +1,20 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "docker-repair",
+  "started_utc": "2026-10-25T16:44:00.505155+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "pkexec",
+    "nvidia-ctk",
+    "cdi",
+    "generate",
+    "--output=/etc/cdi/nvidia.yaml"
+  ],
+  "command": "pkexec nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml",
+  "output": "20261025T164400.505155Z-5da769.log",
+  "exit_code": 0,
+  "git_commit": "f3137c293936c419c98edce7f3372609dcb6d394",
+  "duration_seconds": 5.652273597000004,
+  "ended_utc": "2026-10-25T16:44:06.160961+00:00"
+}

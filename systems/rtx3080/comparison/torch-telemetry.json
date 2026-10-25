@@ -1,0 +1,22 @@
+{
+  "baseline-recorded-torch-20261025T160747.100955724Z": {
+    "samples": 23,
+    "busy_samples": 19,
+    "max_temperature_c": 60.0,
+    "power_limits_w": [
+      320.0
+    ],
+    "busy_median_power_w": 318.78,
+    "busy_median_sm_clock_mhz": 1905.0
+  },
+  "unlocked-torch-20261025T164410.686576570Z": {
+    "samples": 18,
+    "busy_samples": 12,
+    "max_temperature_c": 55.0,
+    "power_limits_w": [
+      320.0
+    ],
+    "busy_median_power_w": 319.39,
+    "busy_median_sm_clock_mhz": 1635.0
+  }
+}
