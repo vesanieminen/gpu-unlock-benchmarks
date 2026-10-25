@@ -153,6 +153,35 @@ only if it does not discard other later configuration changes. Optionally remove
 gpu-unlock-dkms and gpu-unlock-firmware with the package manager, and regenerate
 the images. Keep the original stock benchmark artifacts.
 
+## What happens during Omarchy updates
+
+The installed DKMS config sets AUTOINSTALL=yes. The package manager's
+70-dkms-install hook rebuilds modules when kernel/header inputs change, followed
+by the initcpio generation hook. With matching headers present and a successful
+build, gpu_unlock should therefore be included in regenerated boot images for
+new kernels without repeating the manual installation.
+
+The module does not patch the NVIDIA driver, so an ordinary driver update does
+not inherently require patching it again. This is still a third-party kernel
+module: future kernel or driver changes can require an upstream fix. Inspect
+update output for DKMS/image build failures and verify the unlock after reboot.
+
+The Limine opt-in is in /etc/default/limine, which is not owned by a package;
+ordinary package replacement should preserve it. A future Omarchy migration
+that rewrites boot settings or changes initramfs hooks needs a fresh check of
+the target parameter and early module ordering. The package's mkinitcpio drop-in
+is tracked as a backup configuration file.
+
+Both installed gpu-unlock packages are currently foreign/local packages. DKMS
+rebuilds the installed source version; it does not fetch newer upstream Git
+releases. New gpu-unlock source releases need a separate update process unless
+a package manager/updater later supplies them.
+
+After a substantial update, record dkms status, the current kernel command line
+and the gpu_unlock kernel log message. If comparing performance, kernel/driver
+changes also mean a new matched stock/unlocked baseline is preferable to
+attributing all changes from the old baseline to the unlock.
+
 No power limits or clock settings are part of this procedure.
 
 Sources: [upstream installation and boot flow](https://github.com/Zagitta/gpu-unlock),

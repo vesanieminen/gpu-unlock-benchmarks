@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:38:37.619651+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "cat /usr/src/gpu-unlock-1.0.0/dkms.conf; cat /usr/share/libalpm/hooks/70-dkms-install.hook; ls /usr/share/libalpm/hooks/*limine* /usr/share/libalpm/hooks/*mkinitcpio*; pacman -Qii gpu-unlock-dkms; rg -n \"gpu_unlock|KERNEL_CMDLINE\" /etc/default/limine /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf; cat /usr/share/libalpm/hooks/*limine*mkinitcpio*"
+  ],
+  "command": "bash -x -c 'cat /usr/src/gpu-unlock-1.0.0/dkms.conf; cat /usr/share/libalpm/hooks/70-dkms-install.hook; ls /usr/share/libalpm/hooks/*limine* /usr/share/libalpm/hooks/*mkinitcpio*; pacman -Qii gpu-unlock-dkms; rg -n \"gpu_unlock|KERNEL_CMDLINE\" /etc/default/limine /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf; cat /usr/share/libalpm/hooks/*limine*mkinitcpio*'",
+  "output": "20261025T163837.619651Z-850406.log",
+  "exit_code": 0,
+  "git_commit": "9555b1d6d79a19cbefe7ae94561f4f35c0f2c603",
+  "duration_seconds": 0.02941852200001449,
+  "ended_utc": "2026-10-25T16:38:37.652250+00:00"
+}

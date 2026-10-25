@@ -1,0 +1,19 @@
+{
+  "provenance": "live",
+  "system": "rtx3080",
+  "phase": "inspection",
+  "started_utc": "2026-10-25T16:38:56.913630+00:00",
+  "cwd": "/home/vesanieminen/Projects/gpu-unlock-benchmarks",
+  "argv": [
+    "bash",
+    "-x",
+    "-c",
+    "cat /usr/share/libalpm/hooks/90-mkinitcpio-install.hook; pacman -Qm gpu-unlock-dkms gpu-unlock-firmware; pacman -Qo /etc/default/limine || true"
+  ],
+  "command": "bash -x -c 'cat /usr/share/libalpm/hooks/90-mkinitcpio-install.hook; pacman -Qm gpu-unlock-dkms gpu-unlock-firmware; pacman -Qo /etc/default/limine || true'",
+  "output": "20261025T163856.913630Z-6c2150.log",
+  "exit_code": 0,
+  "git_commit": "9555b1d6d79a19cbefe7ae94561f4f35c0f2c603",
+  "duration_seconds": 0.31172282500028814,
+  "ended_utc": "2026-10-25T16:38:57.228762+00:00"
+}

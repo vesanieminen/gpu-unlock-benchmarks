@@ -1,0 +1,91 @@
++ cat /usr/src/gpu-unlock-1.0.0/dkms.conf
+# SPDX-License-Identifier: GPL-2.0-only
+PACKAGE_NAME="gpu-unlock"
+PACKAGE_VERSION="1.0.0"
+BUILT_MODULE_NAME[0]="gpu_unlock"
+DEST_MODULE_LOCATION[0]="/updates/dkms"
+AUTOINSTALL="yes"
+# Build for each kernel instead of letting RHEL's weak-modules link one
+# kernel's build into the others: removing the package then leaves links
+# behind that break dracut for those kernels.
+NO_WEAK_MODULES="yes"
+BUILD_EXCLUSIVE_CONFIG="CONFIG_PCI CONFIG_FW_LOADER"
+MAKE[0]="make KDIR=${kernel_source_dir}"
++ cat /usr/share/libalpm/hooks/70-dkms-install.hook
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = usr/src/*/dkms.conf
+Target = usr/lib/modules/*/build/include/
+Target = usr/lib/modules/*/modules.order
+
+[Action]
+Description = Install DKMS modules
+Depends = dkms
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/dkms install
+NeedsTargets
++ ls /usr/share/libalpm/hooks/10-limine-snapper-lock.hook /usr/share/libalpm/hooks/60-limine-mkinitcpio-remove-pre.hook /usr/share/libalpm/hooks/80-limine-efi-deploy.hook /usr/share/libalpm/hooks/90-limine-mkinitcpio-remove-post.hook /usr/share/libalpm/hooks/60-limine-mkinitcpio-remove-pre.hook /usr/share/libalpm/hooks/60-mkinitcpio-remove.hook /usr/share/libalpm/hooks/90-limine-mkinitcpio-remove-post.hook /usr/share/libalpm/hooks/90-mkinitcpio-install.hook
+/usr/share/libalpm/hooks/10-limine-snapper-lock.hook
+/usr/share/libalpm/hooks/60-limine-mkinitcpio-remove-pre.hook
+/usr/share/libalpm/hooks/60-limine-mkinitcpio-remove-pre.hook
+/usr/share/libalpm/hooks/60-mkinitcpio-remove.hook
+/usr/share/libalpm/hooks/80-limine-efi-deploy.hook
+/usr/share/libalpm/hooks/90-limine-mkinitcpio-remove-post.hook
+/usr/share/libalpm/hooks/90-limine-mkinitcpio-remove-post.hook
+/usr/share/libalpm/hooks/90-mkinitcpio-install.hook
++ pacman -Qii gpu-unlock-dkms
+Name            : gpu-unlock-dkms
+Version         : 1.0.0-1
+Description     : RTX 3090 BF16 unlock before the NVIDIA driver loads
+Architecture    : any
+URL             : None
+Licenses        : GPL-2.0-only
+Groups          : None
+Provides        : None
+Depends On      : dkms  gpu-unlock-firmware=1.0.0-1
+Optional Deps   : None
+Required By     : None
+Optional For    : None
+Conflicts With  : gpu-unlock-mkinitcpio
+Replaces        : gpu-unlock-mkinitcpio
+Installed Size  : 119.83 KiB
+Packager        : Unknown Packager
+Build Date      : Sun Oct 25 18:30:01 2026
+Install Date    : Sun Oct 25 18:31:53 2026
+Install Reason  : Explicitly installed
+Install Script  : Yes
+Validated By    : None
+Backup Files    : /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf [unmodified]
+Extended Data   : pkgtype=split
+
++ rg -n 'gpu_unlock|KERNEL_CMDLINE' /etc/default/limine /etc/mkinitcpio.conf.d/zz-gpu-unlock.conf
+/etc/mkinitcpio.conf.d/zz-gpu-unlock.conf:1:# Put gpu_unlock and its firmware in every image and load it right before
+/etc/mkinitcpio.conf.d/zz-gpu-unlock.conf:5:# every other drop-in. It does nothing unless gpu_unlock.targets= is on the
+/etc/mkinitcpio.conf.d/zz-gpu-unlock.conf:10:    [[ ${_gu_module%\?} == gpu_unlock ]] && continue
+/etc/mkinitcpio.conf.d/zz-gpu-unlock.conf:11:    [[ ${_gu_module%\?} == nvidia ]] && _gu_modules+=(gpu_unlock?)
+/etc/mkinitcpio.conf.d/zz-gpu-unlock.conf:14:[[ " ${_gu_modules[*]} " == *' gpu_unlock? '* ]] || _gu_modules+=(gpu_unlock?)
+/etc/default/limine:5:KERNEL_CMDLINE[default]+="cryptdevice=PARTUUID=997175b6-28ed-4592-a43c-3098508fa45d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs"
+/etc/default/limine:6:KERNEL_CMDLINE[default]+="quiet splash"
+/etc/default/limine:23:KERNEL_CMDLINE[default]+=" gpu_unlock.targets=0000:07:00.0"
++ cat /usr/share/libalpm/hooks/60-limine-mkinitcpio-remove-pre.hook /usr/share/libalpm/hooks/90-limine-mkinitcpio-remove-post.hook
+[Trigger]
+Type = Path
+Operation = Remove
+Target = usr/lib/modules/*/modules.builtin
+
+[Action]
+Description = Record kernels marked for removal in Limine
+When = PreTransaction
+Exec = /usr/share/libalpm/scripts/limine-mkinitcpio-remove pre
+NeedsTargets
+[Trigger]
+Type = Path
+Operation = Remove
+Target = usr/lib/modules/*/modules.builtin
+
+[Action]
+Description = Clean Limine boot entries of removed kernels
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/limine-mkinitcpio-remove post
